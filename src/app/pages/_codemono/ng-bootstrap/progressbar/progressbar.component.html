@@ -1,0 +1,168 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Progressbar</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/progressbar/examples"
+                class="btn btn-icon ghost-warning" type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Contextual progress bars</h6>
+                            <p class="m-0">A directive that provides feedback on the progress of a workflow or an
+                                action.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <ngb-progressbar type="success" [value]="25"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="tertiary" [value]="50"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="warning" [value]="75"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="danger" [value]="100"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="primary" [value]="75"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="secondary" [value]="50"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="dark" [value]="25"></ngb-progressbar>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Contextual text progress bars</h6>
+                            <p class="m-0">Popovers can contain any arbitrary HTML, Angular bindings and even
+                                directives! Simply enclose desired content or title in a <code>ng-template</code>
+                                element.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <ngb-progressbar type="success" textType="white" [value]="25" [showValue]="true">
+                        </ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="dark" textType="white" [value]="50" [showValue]="true"></ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="light" textType="success" [value]="75" [showValue]="true">
+                        </ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="warning" textType="dark" [value]="100" [showValue]="true">
+                        </ngb-progressbar>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Striped progress bars</h6>
+                            <p class="m-0">A lightweight and extensible directive for fancy popover creation.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <ngb-progressbar type="success" [value]="25">25</ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="primary" [value]="50">Copying file 2 of 4</ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="warning" [value]="75" [striped]="true" [animated]="true"><i>50%</i>
+                        </ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="danger" [value]="100" [striped]="true">Completed!</ngb-progressbar>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Progress bars with height</h6>
+                            <p class="m-0">A lightweight and extensible directive for fancy popover creation.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <ngb-progressbar type="primary" [value]="25">default</ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="success" [value]="50" class="progress-sm">sm</ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="warning" [value]="75" class="progress-md">md</ngb-progressbar>
+                    </p>
+                    <p>
+                        <ngb-progressbar type="danger" [value]="100" [striped]="true" [animated]="true" class="progress-lg">lg</ngb-progressbar>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

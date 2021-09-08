@@ -1,0 +1,324 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+  <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+    <!-- Title -->
+    <div class="d-flex align-items-center flex-wrap mr-1">
+      <div class="d-flex align-items-baseline flex-wrap mr-5">
+        <h5 class="my-1 mr-3">Nav</h5>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="d-flex align-items-center">
+      <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+        Ng Bootstrap page</span>
+
+      <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+        ngbTooltip="For more information check the official Ng Bootstrap page">
+        <i class="fi-rr-comment"></i>
+      </button>
+
+      <a href="https://ng-bootstrap.github.io/#/components/nav/examples" class="btn btn-icon ghost-warning"
+        type="button" placement="bottom" ngbTooltip="See Doc">
+        <i class="fi-rr-document"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+  <div class="row mb-3">
+    <div class="col-12 mb-3">
+      <!-- Card -->
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header actions-toolbar">
+          <div class="row justify-content-between align-items-center">
+            <div class="col">
+              <h6 class="d-inline-block mb-0">Basic navs</h6>
+              <p class="m-0">Options available when opening new modal windows with NgbModal.open() method.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Card body -->
+        <div class="card-body">
+          <ul ngbNav #nav1="ngbNav" [(activeId)]="active1" class="nav-tabs">
+            <li [ngbNavItem]="1">
+              <a ngbNavLink>One</a>
+              <ng-template ngbNavContent>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu
+                  stumptown aliqua, retro synth
+                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+                  Reprehenderit butcher retro
+                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex
+                  squid. Aliquip placeat
+                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher
+                  voluptate nisi qui.</p>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink>Two</a>
+              <ng-template ngbNavContent>
+                <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
+                  artisan four loko
+                  farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer
+                  mlkshk aliquip jean shorts
+                  ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna
+                  delectus mollit. Keytar
+                  helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny
+                  pack odio cillum wes anderson
+                  8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson
+                  biodiesel. Art party scenester
+                  stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+              <a ngbNavLink>Three</a>
+              <ng-template ngbNavContent>
+                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh
+                  elit id diam. Nulla facilisi.
+                  Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget
+                  tincidunt eu, congue et odio.
+                  Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
+                  ultrices et. Sed diam urna,
+                  egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu.
+                  Vivamus faucibus nisl enim, nec
+                  tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci
+                  varius natoque penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem
+                  aliquet ultricies in eget
+                  neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              </ng-template>
+            </li>
+          </ul>
+
+          <div [ngbNavOutlet]="nav1" class="mt-2"></div>
+
+          <pre>Active: {{ active1 }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mb-3">
+      <!-- Card -->
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header actions-toolbar">
+          <div class="row justify-content-between align-items-center">
+            <div class="col">
+              <h6 class="d-inline-block mb-0">Alternative markup</h6>
+              <p class="m-0">You can use alternative markup without <code>ul li</code> elements</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card body -->
+        <div class="card-body">
+          <nav ngbNav #nav2="ngbNav" class="nav-tabs">
+            <ng-container ngbNavItem>
+              <a ngbNavLink>One</a>
+              <ng-template ngbNavContent>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                  retro synth
+                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                  retro
+                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
+                  placeat
+                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              </ng-template>
+            </ng-container>
+            <ng-container ngbNavItem>
+              <a ngbNavLink>Two</a>
+              <ng-template ngbNavContent>
+                <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+                  farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip
+                  jean shorts
+                  ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
+                  Keytar
+                  helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes
+                  anderson
+                  8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
+                  scenester
+                  stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+              </ng-template>
+            </ng-container>
+            <ng-container ngbNavItem>
+              <a ngbNavLink>Three</a>
+              <ng-template ngbNavContent>
+                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla
+                  facilisi.
+                  Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue
+                  et odio.
+                  Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed
+                  diam urna,
+                  egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl
+                  enim, nec
+                  tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque
+                  penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                  in eget
+                  neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              </ng-template>
+            </ng-container>
+          </nav>
+
+          <div [ngbNavOutlet]="nav2" class="mt-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mb-3">
+      <!-- Card -->
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header actions-toolbar">
+          <div class="row justify-content-between align-items-center">
+            <div class="col">
+              <h6 class="d-inline-block mb-0">Vertical pills</h6>
+              <p class="m-0">You should use class="nav-pills" if you need pills and the [orientation] input to change
+                nav orientation.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card body -->
+        <div class="card-body">
+          <div class="d-flex">
+            <ul ngbNav #nav3="ngbNav" [(activeId)]="active3" class="nav-pills" orientation="vertical">
+              <li ngbNavItem="top">
+                <a ngbNavLink>Top</a>
+                <ng-template ngbNavContent>
+                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                    retro synth
+                    master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                    retro
+                    keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
+                    placeat
+                    salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                </ng-template>
+              </li>
+              <li ngbNavItem="middle">
+                <a ngbNavLink>Middle</a>
+                <ng-template ngbNavContent>
+                  <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+                    farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip
+                    jean shorts
+                    ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
+                    Keytar
+                    helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum
+                    wes anderson
+                    8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
+                    scenester
+                    stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                </ng-template>
+              </li>
+              <li ngbNavItem="bottom">
+                <a ngbNavLink>Bottom</a>
+                <ng-template ngbNavContent>
+                  <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.
+                    Nulla facilisi.
+                    Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu,
+                    congue et odio.
+                    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed
+                    diam urna,
+                    egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl
+                    enim, nec
+                    tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque
+                    penatibus et
+                    magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                    in eget
+                    neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+                </ng-template>
+              </li>
+            </ul>
+
+            <div [ngbNavOutlet]="nav3" class="ml-4"></div>
+          </div>
+
+          <pre>Active: {{ active3 }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mb-3">
+      <!-- Card -->
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header actions-toolbar">
+          <div class="row justify-content-between align-items-center">
+            <div class="col">
+              <h6 class="d-inline-block mb-0">Custom style</h6>
+              <p class="m-0">You can pass an existing component as content of the modal window. In this
+                case remember to add
+                content component as an <code>entryComponents</code> section of your
+                <code>NgModule</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Card body -->
+        <div class="card-body">
+          <ul ngbNav #nav4="ngbNav" [activeId]="2" class="nav-tabs justify-content-center">
+            <li [ngbNavItem]="1">
+              <a ngbNavLink>Simple</a>
+              <ng-template ngbNavContent>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                  retro synth
+                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                  retro
+                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
+                  placeat
+                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink><b>Fancy</b> title</a>
+              <ng-template ngbNavContent>
+                <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+                  farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip
+                  jean shorts
+                  ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
+                  Keytar
+                  helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes
+                  anderson
+                  8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
+                  scenester
+                  stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+              </ng-template>
+            </li>
+            <li ngbDropdown class="nav-item">
+              <a href (click)="false" class="nav-link" ngbDropdownToggle>Dropdown</a>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>Action</button>
+                <button ngbDropdownItem>Another action</button>
+                <button ngbDropdownItem>Something else here</button>
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem>Separated link</button>
+              </div>
+            </li>
+            <li ngbNavItem [disabled]="true" class="ml-auto">
+              <a ngbNavLink>Disabled</a>
+              <ng-template ngbNavContent>
+                <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla
+                  facilisi.
+                  Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue
+                  et odio.
+                  Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed
+                  diam urna,
+                  egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl
+                  enim, nec
+                  tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque
+                  penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies
+                  in eget
+                  neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+              </ng-template>
+            </li>
+          </ul>
+
+          <div [ngbNavOutlet]="nav4" class="mt-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

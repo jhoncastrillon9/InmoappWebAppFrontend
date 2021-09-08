@@ -1,0 +1,564 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Profile List</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-danger mr-1" type="button" placement="bottom" ngbTooltip="Download">
+                <i class="fi-rr-download"></i>
+            </button>
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
+                [routerLink]="['add']">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+        <!-- Actions -->
+    </div>
+</div>
+<!-- Action Bar-->
+
+<!-- Container -->
+<div class="m-sm-4 m-3">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="d-flex flex-column-fluid">
+                <div class="container">
+                    <!--Start >> Card Profile-->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <!-- <div class="d-block d-sm-flex d-md-flex"> -->
+                            <div class="d-block d-sm-flex  d-md-flex">
+                                <!-- avatar container -->
+                                <div class="mr-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- avatar -->
+                                            <img alt="profile" src="./assets/images/avatars/avatar-8.svg"
+                                                class="avatar avatar-xxxl avatar-profile square d-inline mr-2">
+
+                                            <!-- Name sm -->
+                                            <div class="align-items-center d-inline d-sm-none">
+                                                <a href="javascript:void(0);"
+                                                    class="d-inline-flex align-items-center text-lg mr-3">Annie
+                                                    Juliet
+                                                    <i class="fi-rr-badge icon-sm text-warning ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Info-->
+                                <div class="flex-grow-1">
+                                    <!-- Title-->
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
+                                        <!-- Profile -->
+                                        <div class="mr-3">
+                                            <!-- Name lg-->
+                                            <a href="javascript:void(0);"
+                                                class="align-items-center text-lg mr-3 d-none d-sm-flex">Annie Juliet
+                                                <i class="fi-rr-badge icon-sm text-warning ml-2"></i>
+                                            </a>
+                                            <!-- Contact -->
+                                            <div class="d-flex flex-wrap my-2">
+                                                <div class="d-block d-sm-block d-md-flex align-items-center">
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-envelope mr-1"></i>
+                                                        <span>annie-juliet@amcoder.com</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-diploma mr-1"></i> <span>Web Developer</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-home mr-1"></i> <span>Arkansas EE.UU</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Actions -->
+                                        <div class="my-lg-0 my-1">
+                                            <a href="javascript:void(0);"
+                                                class="btn btn-sm btn-outline-primary mr-2">Contact</a>
+                                            <a href="javascript:void(0);" class="btn btn-sm btn-primary">Save</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Container Description -->
+                                    <div class="d-block d-sm-block d-md-flex align-items-center flex-wrap ">
+                                        <!-- Description -->
+                                        <div class="flex-grow-1 py-2 py-lg-2 mr-0 mr-sm-0 mr-md-5">
+                                            <p class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                                Optio esse minima nulla corrupti.
+                                                <br>Temporibus consectetur eligendi doloribus perferendis, modi, neque
+                                                ab, doloremque obcaecati.
+                                            </p>
+                                        </div>
+
+                                        <!--Progress-->
+                                        <div class="d-block d-sm-flex mt-0">
+                                            <span class="text-sm mr-4">Skills</span>
+                                            <div class="w-progress">
+                                                <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1">
+                                                </ngb-progressbar>
+                                            </div>
+                                            <span class="text-sm ml-sm-4 ml-0">100%</span>
+                                        </div>
+                                    </div>
+                                    <!-- Container Description -->
+                                </div>
+                                <!--Info-->
+                            </div>
+
+                            <!-- Border -->
+                            <div class="border m-3"></div>
+
+                            <!-- Indicators -->
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-pulse text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Earnings</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>249,500</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-shopping-bag text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Expenses</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>164,700</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-star text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Investment</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>782,300</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-document-signed text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column flex-lg-fill">
+                                        <span class="text-sm">73 Tasks</span>
+                                        <a href="javascript:void(0);" class="text-primary">View</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-comment-alt text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column">
+                                        <span class="text-sm">648 Comments</span>
+                                        <a href="javascript:void(0);" class="text-primary">View</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill my-1">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-group hover-avatar-ungroup">
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End >> Card Profile-->
+
+                    <!--Start >> Card Profile-->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <!-- <div class="d-block d-sm-flex d-md-flex"> -->
+                            <div class="d-block d-sm-flex  d-md-flex">
+                                <!-- avatar container -->
+                                <div class="mr-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- avatar -->
+                                            <img alt="profile" src="./assets/images/avatars/avatar-9.svg"
+                                                class="avatar avatar-xxxl avatar-profile square d-inline mr-2">
+
+                                            <!-- Name sm -->
+                                            <div class="align-items-center d-inline d-sm-none">
+                                                <a href="javascript:void(0);"
+                                                    class="d-inline-flex align-items-center text-lg mr-3">Alisa Lorem
+                                                    <i class="fi-rr-badge icon-sm text-warning ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Info-->
+                                <div class="flex-grow-1">
+                                    <!-- Title-->
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
+                                        <!-- Profile -->
+                                        <div class="mr-3">
+                                            <!-- Name lg-->
+                                            <a href="javascript:void(0);"
+                                                class="align-items-center text-lg mr-3 d-none d-sm-flex">Alisa Lorem
+                                                <i class="fi-rr-badge icon-sm text-warning ml-2"></i>
+                                            </a>
+                                            <!-- Contact -->
+                                            <div class="d-flex flex-wrap my-2">
+                                                <div class="d-block d-sm-block d-md-flex align-items-center">
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-envelope mr-1"></i>
+                                                        <span>alisa-lorem@amcoder.com</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-diploma mr-1"></i> <span>Designer UI/UX</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-home mr-1"></i> <span>Escania Suecia</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Actions -->
+                                        <div class="my-lg-0 my-1">
+                                            <a href="javascript:void(0);"
+                                                class="btn btn-sm btn-outline-primary mr-2">Contact</a>
+                                            <a href="javascript:void(0);" class="btn btn-sm btn-primary">Save</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Container Description -->
+                                    <div class="d-block d-sm-block d-md-flex align-items-center flex-wrap ">
+                                        <!-- Description -->
+                                        <div class="flex-grow-1 py-2 py-lg-2 mr-0 mr-sm-0 mr-md-5">
+                                            <p class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                                Optio esse minima nulla corrupti.
+                                                <br>Temporibus consectetur eligendi doloribus perferendis, modi, neque
+                                                ab, doloremque obcaecati.
+                                            </p>
+                                        </div>
+
+                                        <!--Progress-->
+                                        <div class="d-block d-sm-flex mt-0">
+                                            <span class="text-sm mr-4">Skills</span>
+                                            <div class="w-progress">
+                                                <ngb-progressbar type="warning" [value]="68" class="progress-sm mt-1">
+                                                </ngb-progressbar>
+                                            </div>
+                                            <span class="text-sm ml-sm-4 ml-0">68%</span>
+                                        </div>
+                                    </div>
+                                    <!-- Container Description -->
+                                </div>
+                                <!--Info-->
+                            </div>
+
+                            <!-- Border -->
+                            <div class="border m-3"></div>
+
+                            <!-- Indicators -->
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-pulse text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Earnings</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>149,500</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-shopping-bag text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Expenses</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>104,700</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-star text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Investment</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>623,100</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-document-signed text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column flex-lg-fill">
+                                        <span class="text-sm">32 Tasks</span>
+                                        <a href="javascript:void(0);" class="text-primary">View</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-comment-alt text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column">
+                                        <span class="text-sm">280 Comments</span>
+                                        <a href="javascript:void(0);" class="text-primary">View</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill my-1">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-group hover-avatar-ungroup">
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End >> Card Profile-->
+
+                     <!--Start >> Card Profile-->
+                     <div class="card mb-4">
+                        <div class="card-body">
+                            <!-- <div class="d-block d-sm-flex d-md-flex"> -->
+                            <div class="d-block d-sm-flex  d-md-flex">
+                                <!-- avatar container -->
+                                <div class="mr-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- avatar -->
+                                            <img alt="profile" src="./assets/images/avatars/avatar-6.svg"
+                                                class="avatar avatar-xxxl avatar-profile square d-inline mr-2">
+
+                                            <!-- Name sm -->
+                                            <div class="align-items-center d-inline d-sm-none">
+                                                <a href="javascript:void(0);"
+                                                    class="d-inline-flex align-items-center text-lg mr-3">Caesar Vance
+                                                    <i class="fi-rr-badge icon-sm text-warning ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Info-->
+                                <div class="flex-grow-1">
+                                    <!-- Title-->
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
+                                        <!-- Profile -->
+                                        <div class="mr-3">
+                                            <!-- Name lg-->
+                                            <a href="javascript:void(0);"
+                                                class="align-items-center text-lg mr-3 d-none d-sm-flex">Caesar Vance
+                                                <i class="fi-rr-badge icon-sm text-warning ml-2"></i>
+                                            </a>
+                                            <!-- Contact -->
+                                            <div class="d-flex flex-wrap my-2">
+                                                <div class="d-block d-sm-block d-md-flex align-items-center">
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-envelope mr-1"></i>
+                                                        <span>caesar-vance@amcoder.com</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-diploma mr-1"></i> <span>Web Desing</span>
+                                                    </a>
+                                                    <a href="javascript:void(0);"
+                                                        class="text-sm text-muted icon-center mr-3">
+                                                        <i class="fi-rr-home mr-1"></i> <span>Toronto Canada</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Actions -->
+                                        <div class="my-lg-0 my-1">
+                                            <a href="javascript:void(0);"
+                                                class="btn btn-sm btn-outline-primary mr-2">Contact</a>
+                                            <a href="javascript:void(0);" class="btn btn-sm btn-primary">Save</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Container Description -->
+                                    <div class="d-block d-sm-block d-md-flex align-items-center flex-wrap ">
+                                        <!-- Description -->
+                                        <div class="flex-grow-1 py-2 py-lg-2 mr-0 mr-sm-0 mr-md-5">
+                                            <p class="text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                                Optio esse minima nulla corrupti.
+                                                <br>Temporibus consectetur eligendi doloribus perferendis, modi, neque
+                                                ab, doloremque obcaecati.
+                                            </p>
+                                        </div>
+
+                                        <!--Progress-->
+                                        <div class="d-block d-sm-flex mt-0">
+                                            <span class="text-sm mr-4">Skills</span>
+                                            <div class="w-progress">
+                                                <ngb-progressbar type="success" [value]="88" class="progress-sm mt-1">
+                                                </ngb-progressbar>
+                                            </div>
+                                            <span class="text-sm ml-sm-4 ml-0">88%</span>
+                                        </div>
+                                    </div>
+                                    <!-- Container Description -->
+                                </div>
+                                <!--Info-->
+                            </div>
+
+                            <!-- Border -->
+                            <div class="border m-3"></div>
+
+                            <!-- Indicators -->
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-pulse text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Earnings</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>221,250</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-shopping-bag text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Expenses</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>162,800</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-star text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column text-dark-75">
+                                        <span class="text-sm">Investment</span>
+                                        <span class="text-md">
+                                            <span class="text-dark-50 font-weight-bold">$</span>693,300</span>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-document-signed text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column flex-lg-fill">
+                                        <span class="text-sm">63 Tasks</span>
+                                        <a href="javascript:void(0);" class="text-primary">View</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                    <span class="mr-4 icon-center">
+                                        <i class="fi-rr-comment-alt text-muted icon-sm"></i>
+                                    </span>
+                                    <div class="d-flex flex-column">
+                                        <span class="text-sm">485Comments</span>
+                                        <a href="javascript:void(0);" class="text-primary">View</a>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center flex-lg-fill my-1">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-group hover-avatar-ungroup">
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                            <a href="javascript:void(0);" class="avatar rounded-circle avatar-sm">
+                                                <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                                    class="user user-chip-sm">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End >> Card Profile-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

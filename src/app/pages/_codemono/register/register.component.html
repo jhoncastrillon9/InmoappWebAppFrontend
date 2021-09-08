@@ -1,0 +1,75 @@
+<div class="vertical-center">
+    <div class="card card-center">
+        <div class="row m-3">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form class="container-form mt-4">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="row">
+                                <div class="col-md-12 col-12 mb-4 text-center">
+                                    <h3>Sign Up</h3>
+                                    <span class="text-md">Sign up to create your new account</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <label for="username">User name</label>
+                                <div class="input-icon input-icon-right">
+                                    <input type="text" class="form-control form-control-color" placeholder="">
+                                    <span>
+                                        <i class="fi-rr-user text-muted"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <label for="Email">password</label>
+                                <div class="input-icon input-icon-right">
+                                    <input type="password" class="form-control form-control-color" placeholder=""
+                                        autocomplete="">
+                                    <span>
+                                        <i class="fi-rr-unlock text-muted"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <label for="ConfirmPassword">Confirm password</label>
+                                <div class="input-icon input-icon-right">
+                                    <input type="password" class="form-control form-control-color" placeholder=""
+                                        autocomplete="">
+                                    <span>
+                                        <i class="fi-rr-lock text-muted"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pb-2">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+                            <div class="form-check mb-3">
+                                <input id="checkbox" type="checkbox">
+                                <label for="checkbox" class="text-xs mb-0">I Agree the terms and
+                                    conditions.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit"
+                                class="btn btn-primary btn-block col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1"
+                                [routerLink]="['/start']">Create my account</button>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                            <span class="text-xs text-muted mr-3">Already have an acocunt?</span>
+                            <a href="javascript:void(0);" [routerLink]="['/login']"><span
+                                    class="text-xs text-primary">Sign in</span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Rating</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/rating/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Basic demo</h6>
+                            <p class="m-0">A directive that helps visualising and interacting with a star rating bar</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <!--Basic demo -->
+                    <ngb-rating [(rate)]="currentRate1"></ngb-rating>
+                    <hr>
+                    <pre>Rate: <b>{{currentRate1}}</b></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Events and readonly ratings</h6>
+                            <p class="m-0">A directive that helps visualising and interacting with a star rating bar</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly">
+                    </ngb-rating>
+                    <hr>
+                    <pre>Selected: <b>{{selected}}</b></pre>
+                    <pre>Hovered: <b>{{hovered}}</b></pre>
+                    <button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}"
+                        (click)="readonly = !readonly">
+                        {{ readonly ? "readonly" : "editable"}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Custom star template</h6>
+                            <p class="m-0">Custom rating template provided as child element</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-rating [(rate)]="currentRate2">
+                        <ng-template let-fill="fill" let-index="index">
+                          <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                        </ng-template>
+                      </ngb-rating>
+                      <hr>
+                      <pre>Rate: <b>{{currentRate2}}</b></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Form integration</h6>
+                            <p class="m-0">NgModel and reactive forms can be used without the 'rate' binding</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="form-group">
+                        <ngb-rating [formControl]="ctrl">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                            </ng-template>
+                          </ngb-rating>
+
+                        <div class="form-text small">
+                          <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
+                          <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
+                        </div>
+                      </div>
+                      
+                      <hr>
+                      <pre>Model: <b>{{ ctrl.value }}</b></pre>
+                      <button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} mr-2" (click)="toggle()">
+                        {{ ctrl.disabled ? "control disabled" : " control enabled" }}
+                      </button>
+                      <button class="btn btn-sm btn-outline-primary mr-2" (click)="ctrl.setValue(null)">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

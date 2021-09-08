@@ -1,0 +1,154 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Tenant Form</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <!--<div class="d-flex align-items-center">
+            <span class="text-sm" for="description" *ngIf="editAction===true">Edit Tenant</span>
+            <span class="text-sm" for="description" *ngIf="editAction!==true">Create Tenant</span>
+        </div>-->
+    </div>
+</div>
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <!-- Listing -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-2">
+                    <div class="card">
+                        <!-- Loader -->
+                        <div class="loader-orion" *ngIf="showLoading===true">
+                            <div class="spinner-grow text-primary m-auto" role="status">
+                            </div>
+                        </div>
+                        <div class="card-header align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title m-1">Tenant</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="frmTenant" (ngSubmit)="saveForm()">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="tenantName">TenantName</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="tenantName"
+                                                [ngClass]="{ 'is-invalid': validation && f.tenantName.errors }">
+                                            <div *ngIf="validation && f.tenantName.errors" class="invalid-feedback">
+                                                <div *ngIf="f.tenantName.errors.required">TenantName is required</div>
+                                                <div *ngIf="f.tenantName.errors.maxlength">Maximum field length is 200</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="document">Document</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="document"
+                                                [ngClass]="{ 'is-invalid': validation && f.document.errors }">
+                                            <div *ngIf="validation && f.document.errors" class="invalid-feedback">
+                                                <div *ngIf="f.document.errors.maxlength">Maximum field length is 50</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="telephone">Telephone</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="telephone"
+                                                [ngClass]="{ 'is-invalid': validation && f.telephone.errors }">
+                                            <div *ngIf="validation && f.telephone.errors" class="invalid-feedback">
+                                                <div *ngIf="f.telephone.errors.maxlength">Maximum field length is 30</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="mobile">Mobile</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="mobile"
+                                                [ngClass]="{ 'is-invalid': validation && f.mobile.errors }">
+                                            <div *ngIf="validation && f.mobile.errors" class="invalid-feedback">
+                                                <div *ngIf="f.mobile.errors.required">Mobile is required</div>
+                                                <div *ngIf="f.mobile.errors.maxlength">Maximum field length is 30</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="email"
+                                                [ngClass]="{ 'is-invalid': validation && f.email.errors }">
+                                            <div *ngIf="validation && f.email.errors" class="invalid-feedback">
+                                                <div *ngIf="f.email.errors.maxlength">Maximum field length is 80</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="address">Address</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="address"
+                                                [ngClass]="{ 'is-invalid': validation && f.address.errors }">
+                                            <div *ngIf="validation && f.address.errors" class="invalid-feedback">
+                                                <div *ngIf="f.address.errors.maxlength">Maximum field length is 200</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="observation">Observation</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="observation"
+                                                [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
+                                            <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
+                                                <div *ngIf="f.observation.errors.maxlength">Maximum field length is 500</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="CompayId">CompayId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
+                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end mt-3">
+                                        <button type="button" class="btn btn-default mr-3"
+                                            [routerLink]="['/Tenants/tenant']">Cancel</button>
+                                        <button type="button" class="btn btn-primary" type="submit"
+                                            >Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

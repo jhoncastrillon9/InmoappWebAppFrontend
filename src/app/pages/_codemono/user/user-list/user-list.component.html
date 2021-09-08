@@ -1,0 +1,250 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Users List</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter"
+                (click)="openFilter(true)">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
+                [routerLink]="['add']">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+        <!-- Actions -->
+    </div>
+</div>
+<!-- Action Bar-->
+
+<!-- Option sidebar -->
+<p-sidebar [(visible)]="showFiller" [showCloseIcon]="false" position="right" styleClass="filter-sidebar">
+    <!-- Start >> Option sidebar -->
+    <nav>
+        <!-- Start >> Title -->
+        <div class="row pb-0 mr-0 ml-0">
+            <div class="col-12 filter-sidebar-title text-left">
+                <h5 class="mb-4 pt-4">Filters</h5>
+            </div>
+        </div>
+        <!-- End >> Title -->
+
+        <!-- Start >> Options content -->
+        <div class="p-4 text-left overflow-auto filter-content">
+            <form [formGroup]="frmFilter">
+                <div class="row pb-4">
+                    <div class="col-12 mt-4">
+                        <label for="Status">Status</label>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-12">
+
+                        <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic"
+                            formControlName="active">
+                            <label ngbButtonLabel class="btn-outline-primary">
+                                <input ngbButton type="radio" [value]="true"> active
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-primary">
+                                <input ngbButton type="radio" [value]="false"> Inactive
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-primary">
+                                <input ngbButton type="radio" [value]=""> All
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control form-control-color" formControlName="firstName"
+                                aria-describedby="firstName">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control form-control-color" formControlName="lastName"
+                                aria-describedby="lastName">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="username">User Name</label>
+                            <input type="text" class="form-control form-control-color" formControlName="username"
+                                aria-describedby="username">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="username">User Name</label>
+                            <ng-select class="form-control-color" [searchable]="false"
+                                [clearable]="false" formControlName="userTypeId">
+                                <ng-option *ngFor="let item of userTypeList" [value]="item.userTypeId">
+                                    {{item.userTypeName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 col-sm-6 col-6 text-left">
+                        <button class="btn btn-block btn-default" (click)="resetForm()">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-6 text-right">
+                        <button class="btn btn-block btn-primary" (click)="searchList()">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="mt-2"></div>
+        </div>
+        <!-- Start >> Options content -->
+    </nav>
+    <!-- End >> Option sidebar -->
+</p-sidebar>
+
+<!-- Container -->
+<div class="m-sm-4 m-3">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <!-- Loader -->
+                <div class="loader-orion" *ngIf="showLoading===true">
+                    <div class="spinner-grow text-primary m-auto" role="status">
+                    </div>
+                </div>
+                <!-- User Table -->
+                <p-table #dt class="table" [value]="users" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="{first} to {last} of {totalRecords}" sortMode="multiple"
+                    [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['firstName','userTypeName','username']"
+                    styleClass="p-datatable-responsive-demo">
+
+                    <!-- Title table -->
+                    <ng-template pTemplate="caption">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-8 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Title -->
+                                <h5 class="m-3">Table User</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Search -->
+                                <!-- <div class="d-flex align-items-center">
+                                  
+                                </div> -->
+                                <div class="input-group m-3">
+                                    <div class="input-icon input-icon-right">
+                                        <input pInputText type="text" class="form-control form-control-color"
+                                            (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                            placeholder="Search">
+                                        <span>
+                                            <i class="fi-rr-search text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-template>
+
+                    <!-- Header table -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="th1" pSortableColumn="userId">#
+                                <p-sortIcon field="userId"></p-sortIcon>
+                            </th>
+                            <th class="th2">Avatar</th>
+                            <th class="th3" pSortableColumn="firstName">Name
+                                <p-sortIcon field="firstName"></p-sortIcon>
+                            </th>
+                            <th class="th4" pSortableColumn="userTypeName"> User Type
+                                <p-sortIcon field="userTypeName"></p-sortIcon>
+                            </th>
+                            <th class="th5" pSortableColumn="username">User Name
+                                <p-sortIcon field="username"></p-sortIcon>
+                            </th>
+                            <th class="th6">Status</th>
+                            <th class="th7">Actions</th>
+                        </tr>
+                    </ng-template>
+
+                    <!-- Body table -->
+                    <ng-template pTemplate="body" let-user>
+                        <tr>
+                            <td>
+                                <label class="p-column-title">#</label>
+                                <label class="p-right">{{user.userId}}</label>
+                            </td>
+                            <td>
+                                <label class="p-column-title">Avatar</label>
+                                <img alt="user" src="./assets/images/male_avatar.svg" class="user user-chip-lg p-right">
+                            </td>
+                            <td>
+                                <label class="p-column-title">Name</label>
+                                <label class="p-right">{{user.firstName}} {{user.lastName}}</label>
+                            </td>
+                            <td>
+                                <label class="p-column-title">User Type Id</label>
+                                <label class="p-right">{{user.userTypeName}}</label>
+                            </td>
+                            <td>
+                                <label class="p-column-title">User Name</label>
+                                <label class="p-right">{{user.username}}</label>
+                            </td>
+                            <td>
+                                <label class="p-column-title">Status</label>
+                                <button class="btn btn-sm p-right" type="button"
+                                    [ngClass]="{'btn-success': user.active==1,'btn-danger':user.active==0}"
+                                    (click)="changeStatus(user.active, user)">
+                                    {{user.active? 'Enabled':'Disabled'}}
+                                </button>
+                            </td>
+                            <td>
+                                <label class="p-column-title">Actions</label>
+
+                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom"
+                                    ngbTooltip="edit" [routerLink]="['/user/edit/', user.userId]">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(user)" placement="bottom"
+                                    ngbTooltip="Remove">
+                                    <i class="fi-rr-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </ng-template>
+
+                    <!-- Empty table -->
+                    <ng-template pTemplate="emptymessage">
+                        <tr *ngIf="showLoading===false">
+                            <td colspan="7" class="text-center">
+                                No data found.
+                            </td>
+                        </tr>
+                        <tr *ngIf="showLoading===true">
+                            <td colspan="7" class="text-center">
+                                <span>&nbsp;</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">HistoryBankAccount List</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter"
+                aria-label="Filter" (click)="openFilter(true)">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
+                aria-label="Add"  [routerLink]="['add']">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+        <!-- Actions -->
+    </div>
+</div>
+<!-- Action Bar-->
+
+<!-- Option sidebar -->
+<p-sidebar [(visible)]="showFiller" [showCloseIcon]="false" position="right" styleClass="filter-sidebar">
+    <!-- Start >> Option sidebar -->
+    <nav>
+        <!-- Start >> Title -->
+        <div class="row pb-0 mr-0 ml-0">
+            <div class="col-12 filter-sidebar-title text-left">
+                <h5 class="mb-4 pt-4">Filters</h5>
+            </div>
+        </div>
+        <!-- End >> Title -->
+
+        <!-- Start >> Options content -->
+        <div class="p-4 text-left overflow-auto">
+            <form [formGroup]="frmFilter">
+
+
+                <div class="row pb-4">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="historyBankAccountId">HistoryBankAccountId</label>
+                            <input type="text" class="form-control form-control-color" formControlName="historyBankAccountId" aria-describedby="historyBankAccountId">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="paymentTypeId">PaymentTypeId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="paymentTypeId">
+                                <ng-option *ngFor="let item of paymentTypeList" [value]="item.paymentTypeId">{{item.paymentTypeName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="bankAccountId">BankAccountId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="bankAccountId">
+                                <ng-option *ngFor="let item of bankAccountList" [value]="item.bankAccountId">{{item.bankAccountName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="accountsToPayContractsId">AccountsToPayContractsId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsToPayContractsId">
+                                <ng-option *ngFor="let item of accountsToPayContractList" [value]="item.accountsToPayContractId">{{item.accountsToPayContractName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="accountsToReceivableContractsId">AccountsToReceivableContractsId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsToReceivableContractsId">
+                                <ng-option *ngFor="let item of accountsToReceivableContractList" [value]="item.accountsToReceivableContractId">{{item.accountsToReceivableContractName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="obervation">Obervation</label>
+                            <input type="text" class="form-control form-control-color" formControlName="obervation" aria-describedby="obervation">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="compayId">CompayId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
+                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 col-sm-6 col-6 text-left">
+                        <button class="btn btn-block btn-default" (click)="resetForm()">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-6 text-right">
+                        <button class="btn btn-block btn-primary" (click)="searchList()">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Start >> Options content -->
+    </nav>
+    <!-- End >> Option sidebar -->
+</p-sidebar>
+
+<!-- Container -->
+<div class="m-sm-4 m-3">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <!-- Loader -->
+                <div class="loader-orion" *ngIf="showLoading===true">
+                    <div class="spinner-grow text-primary m-auto" role="status">
+                    </div>
+                </div>
+                <!-- HistoryBankAccount Table -->
+                <p-table #dt class="table" [value]="historyBankAccounts" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="{first} to {last} of {totalRecords}" sortMode="multiple"
+                    [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['historyBankAccountId','paymentTypeId','value','bankAccountId','accountsToPayContractsId','accountsToReceivableContractsId','obervation','compayId']"
+                    styleClass="p-datatable-responsive-demo">
+
+                    <!-- Title table -->
+                    <ng-template pTemplate="caption">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-8 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Title -->
+                                <h5 class="m-3">Table HistoryBankAccount</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Search -->
+                                <!-- <div class="d-flex align-items-center">
+                                  
+                                </div> -->
+                                <div class="input-group m-3">
+                                    <div class="input-icon input-icon-right">
+                                        <input pInputText type="text" class="form-control form-control-color"
+                                            (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                            placeholder="Search">
+                                        <span>
+                                            <i class="fi-rr-search text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-template>
+
+                    <!-- Header table -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="th1" pSortableColumn="historyBankAccountId">HistoryBankAccountId
+                                <p-sortIcon field="historyBankAccountId"></p-sortIcon>
+                            </th>
+                            <th class="th2" pSortableColumn="paymentTypeId">PaymentTypeId
+                                <p-sortIcon field="paymentTypeId"></p-sortIcon>
+                            </th>
+                            <th class="th3" pSortableColumn="value">Value
+                                <p-sortIcon field="value"></p-sortIcon>
+                            </th>
+                            <th class="th4" pSortableColumn="bankAccountId">BankAccountId
+                                <p-sortIcon field="bankAccountId"></p-sortIcon>
+                            </th>
+                            <th class="th5" pSortableColumn="accountsToPayContractsId">AccountsToPayContractsId
+                                <p-sortIcon field="accountsToPayContractsId"></p-sortIcon>
+                            </th>
+                            <th class="th6" pSortableColumn="accountsToReceivableContractsId">AccountsToReceivableContractsId
+                                <p-sortIcon field="accountsToReceivableContractsId"></p-sortIcon>
+                            </th>
+                            <th class="th7" pSortableColumn="obervation">Obervation
+                                <p-sortIcon field="obervation"></p-sortIcon>
+                            </th>
+                            <th class="th8" pSortableColumn="compayId">CompayId
+                                <p-sortIcon field="compayId"></p-sortIcon>
+                            </th>
+                            <th class="th9">Actions</th>
+
+                        </tr>
+                    </ng-template>
+
+                    <!-- Body table -->
+                    <ng-template pTemplate="body" let-historyBankAccount>
+                        <tr>
+                            <td>
+                                <label class="p-column-title">HistoryBankAccountId</label>
+                                <label class="p-right">{{historyBankAccount.historyBankAccountId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">PaymentTypeId</label>
+                                <label class="p-right">{{historyBankAccount.paymentTypeId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Value</label>
+                                <label class="p-right">{{historyBankAccount.value}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">BankAccountId</label>
+                                <label class="p-right">{{historyBankAccount.bankAccountId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">AccountsToPayContractsId</label>
+                                <label class="p-right">{{historyBankAccount.accountsToPayContractsId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">AccountsToReceivableContractsId</label>
+                                <label class="p-right">{{historyBankAccount.accountsToReceivableContractsId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Obervation</label>
+                                <label class="p-right">{{historyBankAccount.obervation}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">CompayId</label>
+                                <label class="p-right">{{historyBankAccount.compayId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Actions</label>
+                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Edit"
+                                    ngbTooltip="Edit" [routerLink]="['/Banks/historyBankAccount/edit/', historyBankAccount.historyBankAccountId]">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(historyBankAccount)" placement="bottom" aria-label="Remove"
+                                    ngbTooltip="Remove">
+                                    <i class="fi-rr-trash"></i>
+                                </button>
+                            </td>
+
+
+                        </tr>
+                    </ng-template>
+
+                    <!-- Empty table -->
+                    <ng-template pTemplate="emptymessage">
+                        <tr *ngIf="showLoading===false">
+                            <td colspan="9" class="text-center">
+                                No data found.
+                            </td>
+                        </tr>
+                        <tr *ngIf="showLoading===true">
+                            <td colspan="9" class="text-center">
+                                <span>&nbsp;</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

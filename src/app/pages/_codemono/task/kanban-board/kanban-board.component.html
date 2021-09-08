@@ -1,0 +1,924 @@
+<!-- Start >> Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap">
+            <h5 class="">Kaban Board</h5>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-danger mr-1" type="button" placement="bottom" ngbTooltip="Download">
+                <i class="fi-rr-download"></i>
+            </button>
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
+                [routerLink]="['add']">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- End >> Action Bar-->
+
+<div class="m-4">
+    <!-- Project cards -->
+    <div class="row mt-4">
+        <div class="col-xl-12 col-lg-12 col-sm-12 col-12 mb-4">
+            <div class="card overflow-hidden">
+                <div class="container-kanban">
+                    <div class="kanban-board" data-toggle="dragula"
+                        data-containers="[&quot;kanban-blacklist&quot;, &quot;kanban-to-do&quot;, &quot;kanban-in-progress&quot;, &quot;kanban-testing&quot;, &quot;kanban-done&quot;]">
+                        <div class="kanban-col px-0">
+                            <div class="card-list card-list-flush">
+                                <div class="card-list-title row align-items-center m-2">
+                                    <div class="col">
+                                        <h6 class="mb-0">Blacklist</h6>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="actions">
+                                            <a class="action-item mr-2" href="javascript:void(0);" data-toggle="modal"><i
+                                                    class="far fa-plus"></i></a>
+                                            <div class="dropdown" data-toggle="dropdown">
+                                                <a href="javascript:void(0);" class="action-item" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="far fa-ellipsis-h"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0);" class="dropdown-item">Refresh</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Manage Widgets</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-list-body" id="kanban-blacklist">
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-success">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Call with Dave</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <i class="fi-rr-clip mr-1"></i>4
+                                                        <i class="fi-rr-comment-alt mr-1"></i>6
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="avatar" src="./assets/images/avatars/avatar-3.svg" class="user user-chip-md">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Webpixels website redesign</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-danger">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Dashboard cards</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-success">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Call with Dave</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Empty container -->
+                                    <span class="empty-container" data-placeholder="Empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-col px-0">
+                            <div class="card-list card-list-flush">
+                                <div class="card-list-title row align-items-center m-2">
+                                    <div class="col">
+                                        <h6 class="mb-0">To do</h6>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="actions">
+                                            <a class="action-item mr-2" href="javascript:void(0);" data-toggle="modal"><i
+                                                    class="far fa-plus"></i></a>
+                                            <div class="dropdown" data-toggle="dropdown">
+                                                <a href="javascript:void(0);" class="action-item" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="far fa-ellipsis-h"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0);" class="dropdown-item">Refresh</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Manage Widgets</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-list-body" id="kanban-to-do">
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-success">Urgent</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Application wireframe</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Webpixels website redesign</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-success">Urgent</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Application wireframe</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Webpixels website redesign</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Empty container -->
+                                    <span class="empty-container" data-placeholder="Empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-col px-0">
+                            <div class="card-list card-list-flush">
+                                <div class="card-list-title row align-items-center m-2">
+                                    <div class="col">
+                                        <h6 class="mb-0">In progress</h6>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="actions">
+                                            <a class="action-item mr-2" href="javascript:void(0);" data-toggle="modal"><i
+                                                    class="far fa-plus"></i></a>
+                                            <div class="dropdown" data-toggle="dropdown">
+                                                <a href="javascript:void(0);" class="action-item" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="far fa-ellipsis-h"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0);" class="dropdown-item">Refresh</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Manage Widgets</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-list-body" id="kanban-in-progress">
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-success">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Call with Dave</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);"
+                                                        class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder"
+                                                            src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Webpixels website redesign</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border shadow-none m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-danger">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Dashboard cards</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Empty container -->
+                                    <span class="empty-container" data-placeholder="Empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-col px-0">
+                            <div class="card-list card-list-flush">
+                                <div class="card-list-title row align-items-center m-3">
+                                    <div class="col">
+                                        <h6 class="mb-0">Testing</h6>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="actions">
+                                            <a class="action-item mr-2" href="javascript:void(0);" data-toggle="modal"><i
+                                                    class="far fa-plus"></i></a>
+                                            <div class="dropdown" data-toggle="dropdown">
+                                                <a href="javascript:void(0);" class="action-item" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="far fa-ellipsis-h"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0);" class="dropdown-item">Refresh</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Manage Widgets</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-list-body" id="kanban-testing">
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-success">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Call with Dave</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Empty container -->
+                                    <span class="empty-container" data-placeholder="Empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-col px-0">
+                            <div class="card-list card-list-flush">
+                                <div class="card-list-title row align-items-center m-2">
+                                    <div class="col">
+                                        <h6 class="mb-0">Done</h6>
+                                    </div>
+                                    <div class="col text-right">
+                                        <div class="actions">
+                                            <a class="action-item mr-2"
+                                                href="javascript:void(0);"
+                                                data-toggle="modal"><i class="far fa-plus"></i></a>
+                                            <div class="dropdown" data-toggle="dropdown">
+                                                <a href="javascript:void(0);"
+                                                    class="action-item" role="button" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    <i class="far fa-ellipsis-h"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item">Refresh</a>
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item">Manage Widgets</a>
+                                                    <a href="javascript:void(0);"
+                                                        class="dropdown-item">Settings</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-list-body" id="kanban-done">
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-success">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Call with Dave</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span
+                                                        class="badge badge-pill badge-xs badge-warning">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Lunch meeting</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Webpixels website redesign</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-danger">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Dashboard cards</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Webpixels website redesign</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-progress draggable-item border m-3">
+                                        <div class="card-body">
+                                            <div class="row align-items-center mb-2">
+                                                <div class="col-6">
+                                                    <span class="badge badge-pill badge-xs badge-danger">Priority</span>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <span class="text-sm">70%</span>
+                                                </div>
+                                            </div>
+                                            <a class="h6" href="javascript:void(0);" data-toggle="modal">Dashboard cards</a>
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <div class="actions d-inline-block">
+                                                        <div class="action-item mr-2">
+                                                            <i class="far fa-paperclip mr-2"></i>4
+                                                        </div>
+                                                        <div class="action-item mr-3">
+                                                            <i class="far fa-comment-alt mr-2"></i>6
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <a href="javascript:void(0);" class="avatar avatar-sm rounded-circle m-0">
+                                                        <img alt="Image placeholder" src="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Empty container -->
+                                    <span class="empty-container" data-placeholder="Empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

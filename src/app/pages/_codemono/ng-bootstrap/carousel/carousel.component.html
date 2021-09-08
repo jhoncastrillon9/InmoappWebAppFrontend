@@ -1,0 +1,176 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Carousel</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/carousel/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Carousel</h6>
+                            <p class="m-0">Carousel is a component to easily create and control slideshows.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-carousel *ngIf="images1">
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img [src]="images1[0]" alt="Random first slide">
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="text-light">First slide label</h3>
+                                <p class="text-light">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img [src]="images1[1]" alt="Random second slide">
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="text-light">Second slide label</h3>
+                                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img [src]="images1[2]" alt="Random third slide">
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="text-light">Third slide label</h3>
+                                <p class="text-light">Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                                </p>
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Navigation arrows and indicators</h6>
+                            <p class="m-0">Carousel is a component to easily create and control slideshows.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-carousel *ngIf="images2" [showNavigationArrows]="showNavigationArrows"
+                        [showNavigationIndicators]="showNavigationIndicators">
+                        <ng-template ngbSlide *ngFor="let image of images2">
+                            <div class="picsum-img-wrapper">
+                                <img [src]="image" alt="Random slide">
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="text-light">No mouse navigation</h3>
+                                <p class="text-light">This carousel hides navigation arrows and indicators.</p>
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+
+                    <hr>
+
+                    <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+                        <button type="button" (click)="showNavigationArrows = !showNavigationArrows"
+                            class="btn btn-outline-primary btn-sm">Toggle navigation arrows</button>
+                        <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators"
+                            class="btn btn-outline-primary btn-sm">Toggle navigation indicators</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Caroulse Pause/cycle</h6>
+                            <p class="m-0">Carousel is a component to easily create and control slideshows.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover"
+                        [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+                        <ng-template ngbSlide *ngFor="let img of images3; index as i">
+                            <div class="carousel-caption">
+                                <h3 class="text-light">My slide {{i + 1}} title</h3>
+                            </div>
+                            <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank"
+                                rel="nofollow noopener noreferrer">
+                                <div class="picsum-img-wrapper">
+                                    <img [src]="img" alt="My image {{i + 1}} description">
+                                </div>
+                            </a>
+                        </ng-template>
+                    </ngb-carousel>
+
+                    <hr>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="pauseOnHover" [(ngModel)]="pauseOnHover">
+                        <label class="form-check-label" for="pauseOnHover">Pause on hover</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="pauseOnFocus" [(ngModel)]="pauseOnFocus">
+                        <label class="form-check-label" for="pauseOnFocus">Pause on focus</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="unpauseOnArrow"
+                            [(ngModel)]="unpauseOnArrow">
+                        <label class="form-check-label" for="unpauseOnArrow">Unpause when clicking on arrows</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="pauseOnIndicator"
+                            [(ngModel)]="pauseOnIndicator">
+                        <label class="form-check-label" for="pauseOnIndicator">Pause when clicking on navigation
+                            indicator</label>
+                    </div>
+                    <button type="button" (click)="togglePaused()" class="btn btn-outline-primary btn-sm mt-3">
+                        {{paused ? 'Cycle' : 'Pause' }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

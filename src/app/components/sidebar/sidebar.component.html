@@ -1,0 +1,351 @@
+<!-- Start >> Sidebar  -->
+<nav class="sidebar">
+    <!-- Start >> Header Sidebar -->
+    <div class="sidebar-header text-muted text-center">
+
+        <!-- <img class="img-xl m-5" src="" alt="you logo" /> -->
+        <svg class="svgColor img-xl mb-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383.66 425.68">
+            <path
+                d="M383.53,213c0,26,.35,52-.11,77.91-.37,21-9.67,37.82-27.71,48.44q-67.92,40-136.54,78.77c-17.79,10.08-36.84,10.1-54.5.16q-69-38.81-137.1-79.17C10,328.65.54,311.91.34,291.35-.1,244.41.19,197.46.23,150.51c0-7.31-.73-14.68.4-21.94C3.53,110,12.5,95.22,29,85.66,74.22,59.5,119.32,33.18,164.75,7.46c17.79-10.07,36.88-9.85,54.51.08Q288,46.24,355.94,86.43c17.5,10.33,26.88,26.79,27.38,47.12.65,26.46.16,52.95.16,79.42Z" />
+            <path d="M315.77,212.69A123.94,123.94,0,1,1,191.93,88.9,123.94,123.94,0,0,1,315.77,212.69Z" fill="#fff" />
+            <path
+                d="M252.83,213.13a60.8,60.8,0,0,1-61.14,60.67c-33.87,0-60.84-27.29-60.8-61.51,0-33.49,27.44-60.46,61.38-60.43C225.83,151.9,252.85,179.23,252.83,213.13Z" />
+        </svg>
+
+        <!-- Title app -->
+        <h3 class="title-sidebar">{{title}}</h3>
+        <!-- Border -->
+        <div class="border-bottom mt-5"></div>
+
+    </div>
+     <!-- End >> Header Sidebar -->
+
+    <!-- Start >> Body Sidebar -->
+    <ul class="list-unstyled components">
+        <li class="menu" routerLinkActive="active">
+            <a href="javascript:void(0);" class="ghost-primary icon-center" [routerLink]="['/start']">
+                <i class="fi-rr-apps mr-3"></i> Dashboard
+            </a>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Banks" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Banks
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Banks">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsStatus']" routerLinkActive="active">AccountsStatus</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsToPayContract']" routerLinkActive="active">AccountsToPayContract</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsToReceivableContract']" routerLinkActive="active">AccountsToReceivableContract</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']" routerLinkActive="active">BankAccount</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/historyBankAccount']" routerLinkActive="active">HistoryBankAccount</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/paymentType']" routerLinkActive="active">PaymentType</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Banks)-->
+
+
+
+
+
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Commons" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Commons
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Commons">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Commons/city']" routerLinkActive="active">City</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Commons/neighborhood']" routerLinkActive="active">Neighborhood</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Commons/state']" routerLinkActive="active">State</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Commons/zone']" routerLinkActive="active">Zone</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Commons)-->
+
+
+
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Companies" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Companies
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Companies">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Companies/company']" routerLinkActive="active">Company</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Companies)-->
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Contracts" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Contracts
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Contracts">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Contracts/contract']" routerLinkActive="active">Contract</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Contracts/contractsStatus']" routerLinkActive="active">ContractsStatus</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Contracts/tenantsByContract']" routerLinkActive="active">TenantsByContract</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Contracts)-->
+
+
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Owners" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Owners
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Owners">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Owners/owner']" routerLinkActive="active">Owner</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Owners)-->
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Properties" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Properties
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Properties">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Properties/images']" routerLinkActive="active">Images</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Properties/iva']" routerLinkActive="active">Iva</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Properties/property']" routerLinkActive="active">Property</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Properties/propertyCategory']" routerLinkActive="active">PropertyCategory</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Properties/propertyStatus']" routerLinkActive="active">PropertyStatus</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Properties/typeOffer']" routerLinkActive="active">TypeOffer</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Properties)-->
+
+
+
+
+
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#Tenants" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Tenants
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Tenants">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Tenants/tenant']" routerLinkActive="active">Tenant</a>
+                </li>
+                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Tenants)-->
+            </ul>
+        </li>
+        <!--CODEMONO: NO REMOVE THIS COMMENT (MENU)-->
+
+
+
+
+
+
+
+
+        <li class="menu" routerLinkActive="active">
+            <a href="#profile" class="dropdown-toggle-sidebar ghost-primary icon-center"
+                data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-heart mr-3"></i> Profile
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="profile">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/profile/profile-list']" routerLinkActive="active">Profile List</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="javascript:void(0);" class="ghost-primary icon-center" [routerLink]="['/user']">
+                <i class="fi-rr-user mr-3"></i> <span>Users</span>
+            </a>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#ngboostrap" class="dropdown-toggle-sidebar ghost-primary icon-center"
+                data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-shield mr-3"></i> NgBootstrap
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="ngboostrap">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/accordion']" routerLinkActive="active">Accordion</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/alert']" routerLinkActive="active">Alert</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/buttons']" routerLinkActive="active">Buttons</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/carousel']" routerLinkActive="active">Carousel</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/collapse']" routerLinkActive="active">Collapse</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/datepicker']" routerLinkActive="active">Datepicker</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/dropdown']" routerLinkActive="active">Dropdown</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/modal']" routerLinkActive="active">Modal</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/nav']" routerLinkActive="active">Nav</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/pagination']" routerLinkActive="active">Pagination</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/popover']" routerLinkActive="active">Popover</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/progressbar']" routerLinkActive="active">Progressbar</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/rating']" routerLinkActive="active">Rating</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/table']" routerLinkActive="active">Table</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/timepicker']" routerLinkActive="active">Timepicker</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/toast']" routerLinkActive="active">Toast</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/tooltip']" routerLinkActive="active">Tooltip</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/ng-bootstrap/typeahead']" routerLinkActive="active">Typeahead</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu" routerLinkActive="active">
+            <a href="#projects" class="dropdown-toggle-sidebar ghost-primary icon-center"
+                data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-vector mr-3"></i> Projects
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="projects">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/projects/card-list']" routerLinkActive="active">Card List</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/projects/table-list']" routerLinkActive="active">Table List</a>
+                </li>
+            </ul>
+        </li>
+        <!-- <li class="menu" routerLinkActive="active">
+            <a href="#task" class="dropdown-toggle-sidebar ghost-primary icon-center"
+                data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-form mr-3"></i> Task
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
+            </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="task">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/task/kaban-board']" routerLinkActive="active">Kaban Board</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/task/create-task']" routerLinkActive="active">Create Task</a>
+                </li>
+            </ul>
+        </li> -->
+        <li class="menu">
+            <a href="javascript:void(0);" class="ghost-primary icon-center">
+                <i class="fi-rr-resources mr-3"></i> Components
+            </a>
+        </li>
+    </ul>
+     <!-- End >> Body Sidebar -->
+
+</nav>
+<!-- End >> Sidebar  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

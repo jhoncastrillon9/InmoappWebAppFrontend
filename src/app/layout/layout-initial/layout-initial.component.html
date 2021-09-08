@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <p-sidebar [(visible)]="sidebar" [style]="{width:'15.625em'}" [showCloseIcon]="false" position="left">
+        <app-sidebar></app-sidebar>
+    </p-sidebar>
+
+    <!-- Content -->
+    <div id="content">
+
+        <!-- Navbar -->
+        <app-navbar (sidebar)="sidebar = $event" (option)="option = $event"></app-navbar>
+
+        <!-- Option sidebar -->
+        <p-sidebar [(visible)]="option" [style]="{width:'15.625em'}" [showCloseIcon]="false" position="right">
+            <app-options></app-options>
+        </p-sidebar>
+
+        <!-- Route -->
+        <router-outlet></router-outlet>
+
+    </div>
+</div>

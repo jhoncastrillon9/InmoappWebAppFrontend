@@ -1,0 +1,200 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Tooltip</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/tooltip/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Quick and easy tooltips</h6>
+                            <p class="m-0">A lightweight and extensible directive for fancy tooltip creation</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12 mb-3 d-flex justify-content-start">
+                            <button type="button" class="btn btn-primary btn-block" placement="top"
+                                ngbTooltip="Tooltip on top">
+                                Tooltip on top
+                            </button>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-12 mb-3">
+                            <button type="button" class="btn btn-primary btn-block" placement="right"
+                                ngbTooltip="Tooltip on right">
+                                Tooltip on right
+                            </button>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-12 mb-3">
+                            <button type="button" class="btn btn-primary btn-block" placement="bottom"
+                                ngbTooltip="Tooltip on bottom">
+                                Tooltip on bottom
+                            </button>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-12 mb-3">
+                            <button type="button" class="btn btn-primary btn-block" placement="left"
+                                ngbTooltip="Tooltip on left">
+                                Tooltip on left
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">HTML and bindings in tooltips</h6>
+                            <p class="m-0">A lightweight and extensible directive for fancy tooltip creation</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        Tooltips can contain any arbitrary HTML, Angular bindings and even directives!
+                        Simply enclose desired content in a <code>&lt;ng-template&gt;</code> element.
+                    </p>
+
+                    <ng-template #tipContent>Hello, <b>{{name}}</b>!</ng-template>
+                    <button type="button" class="btn btn-outline-primary" [ngbTooltip]="tipContent">
+                        I've got markup and bindings in my tooltip!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Custom and manual triggers</h6>
+                            <p class="m-0">A lightweight and extensible directive for fancy tooltip creation</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        You can easily override open and close triggers by specifying event names (separated by
+                        <code>:</code>) in the <code>triggers</code> property.
+                    </p>
+
+                    <button type="button" class="btn btn-primary" ngbTooltip="You see, I show up on click!"
+                        triggers="click:blur">
+                        Click me!
+                    </button>
+
+                    <hr>
+                    <p>
+                        Alternatively you can take full manual control over tooltip opening / closing events.
+                    </p>
+
+                    <button type="button" class="btn btn-outline-primary mr-2" ngbTooltip="What a great tip!"
+                        [autoClose]="false" triggers="manual" #t="ngbTooltip" (click)="t.open()">
+                        Click me to open a tooltip
+                    </button>
+                    <button type="button" class="btn btn-outline-primary mr-2" (click)="t.close()">
+                        Click me to close a tooltip
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Automatic closing with keyboard and mouse</h6>
+                            <p class="m-0">A lightweight and extensible directive for fancy tooltip creation</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>As for some other popup-based widgets, you can set the tooltip to close automatically upon some
+                        events.</p>
+                    <p>In the following examples, they will all close on <code>Escape</code> as well as:</p>
+
+                    <ul>
+                        <li class="mb-2">
+                            click inside:
+                            <button type="button" class="btn btn-outline-primary" triggers="click"
+                                [autoClose]="'inside'" ngbTooltip="Click inside or press Escape to close">
+                                Click to toggle
+                            </button>
+                        </li>
+
+                        <li class="mb-2">
+                            click outside:
+                            <button type="button" class="btn btn-outline-primary" triggers="click"
+                                [autoClose]="'outside'" ngbTooltip="Click outside or press Escape to close">
+                                Click to toggle
+                            </button>
+                        </li>
+
+                        <li class="mb-2">
+                            all clicks:
+                            <button type="button" class="btn btn-outline-primary" triggers="click" [autoClose]="true"
+                                ngbTooltip="Click anywhere or press Escape to close (try the toggling element too)"
+                                #tooltip3="ngbTooltip">
+                                Click to toggle
+                            </button>
+
+                            &nbsp;
+
+                            <button type="button" class="btn btn-outline-primary mr-2" (click)="tooltip3.toggle()">
+                                Click to toggle the external tooltip
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

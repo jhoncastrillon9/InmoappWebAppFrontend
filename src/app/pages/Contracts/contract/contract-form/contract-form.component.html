@@ -1,0 +1,200 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Contract Form</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <!--<div class="d-flex align-items-center">
+            <span class="text-sm" for="description" *ngIf="editAction===true">Edit Contract</span>
+            <span class="text-sm" for="description" *ngIf="editAction!==true">Create Contract</span>
+        </div>-->
+    </div>
+</div>
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <!-- Listing -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-2">
+                    <div class="card">
+                        <!-- Loader -->
+                        <div class="loader-orion" *ngIf="showLoading===true">
+                            <div class="spinner-grow text-primary m-auto" role="status">
+                            </div>
+                        </div>
+                        <div class="card-header align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title m-1">Contract</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="frmContract" (ngSubmit)="saveForm()">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="publishDate">ContractDate</label>
+                                            <div class="input-group d-flex mb-4">
+                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy"
+                                                    ngbDatepicker #dpContractDate="ngbDatepicker" formControlName="contractDate"
+                                                    [ngClass]="{ 'is-invalid': validation && f.contractDate.errors }">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary icon-center calendar" (click)="dpContractDate.toggle()" type="button">
+                                                        <i class="fi-rr-calendar"></i>
+                                                    </button>
+                                                </div>
+                                                <div *ngIf="validation && f.contractDate.errors" class="invalid-feedback">
+                                                <div *ngIf="f.contractDate.errors.required">ContractDate is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="publishDate">InnitialDate</label>
+                                            <div class="input-group d-flex mb-4">
+                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy"
+                                                    ngbDatepicker #dpInnitialDate="ngbDatepicker" formControlName="innitialDate"
+                                                    [ngClass]="{ 'is-invalid': validation && f.innitialDate.errors }">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary icon-center calendar" (click)="dpInnitialDate.toggle()" type="button">
+                                                        <i class="fi-rr-calendar"></i>
+                                                    </button>
+                                                </div>
+                                                <div *ngIf="validation && f.innitialDate.errors" class="invalid-feedback">
+                                                <div *ngIf="f.innitialDate.errors.required">InnitialDate is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="quantityMonths">QuantityMonths</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="quantityMonths"
+                                                [ngClass]="{ 'is-invalid': validation && f.quantityMonths.errors }">
+                                            <div *ngIf="validation && f.quantityMonths.errors" class="invalid-feedback">
+                                                <div *ngIf="f.quantityMonths.errors.required">QuantityMonths is required</div>
+                                                <div *ngIf="f.quantityMonths.errors.pattern">Only integer numbers</div>
+                                                <div *ngIf="f.quantityMonths.errors.min">Minimum value is -2147483648</div>
+                                                <div *ngIf="f.quantityMonths.errors.max">Maximum value is 2147483647</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="rentalFeeForOwner">RentalFeeForOwner</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="rentalFeeForOwner"
+                                                [ngClass]="{ 'is-invalid': validation && f.rentalFeeForOwner.errors }">
+                                            <div *ngIf="validation && f.rentalFeeForOwner.errors" class="invalid-feedback">
+                                                <div *ngIf="f.rentalFeeForOwner.errors.required">RentalFeeForOwner is required</div>
+                                                <div *ngIf="f.rentalFeeForOwner.errors.pattern">Only numbers</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="rentalFeeForTennat">RentalFeeForTennat</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="rentalFeeForTennat"
+                                                [ngClass]="{ 'is-invalid': validation && f.rentalFeeForTennat.errors }">
+                                            <div *ngIf="validation && f.rentalFeeForTennat.errors" class="invalid-feedback">
+                                                <div *ngIf="f.rentalFeeForTennat.errors.required">RentalFeeForTennat is required</div>
+                                                <div *ngIf="f.rentalFeeForTennat.errors.pattern">Only numbers</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="observation">Observation</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="observation"
+                                                [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
+                                            <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
+                                                <div *ngIf="f.observation.errors.maxlength">Maximum field length is 300</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="StatusId">StatusId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="statusId">
+                                                <ng-option *ngFor="let item of contractsStatusList" [value]="item.contractsStatusId">{{item.contractsStatusName}}
+                                                </ng-option>
+                                            </ng-select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="PropertyId">PropertyId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId"
+                                                [ngClass]="{ 'is-invalid': validation && f.propertyId.errors }">
+                                                <ng-option *ngFor="let item of propertyList" [value]="item.propertyId">{{item.propertyName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.propertyId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.propertyId.errors.required">PropertyId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="TenantId">TenantId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="tenantId"
+                                                [ngClass]="{ 'is-invalid': validation && f.tenantId.errors }">
+                                                <ng-option *ngFor="let item of tenantList" [value]="item.tenantId">{{item.tenantName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.tenantId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.tenantId.errors.required">TenantId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="CompayId">CompayId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
+                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end mt-3">
+                                        <button type="button" class="btn btn-default mr-3"
+                                            [routerLink]="['/Contracts/contract']">Cancel</button>
+                                        <button type="button" class="btn btn-primary" type="submit"
+                                            >Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

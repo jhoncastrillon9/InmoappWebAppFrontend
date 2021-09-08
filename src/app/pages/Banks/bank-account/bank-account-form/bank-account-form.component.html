@@ -1,0 +1,99 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">BankAccount Form</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <!--<div class="d-flex align-items-center">
+            <span class="text-sm" for="description" *ngIf="editAction===true">Edit BankAccount</span>
+            <span class="text-sm" for="description" *ngIf="editAction!==true">Create BankAccount</span>
+        </div>-->
+    </div>
+</div>
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <!-- Listing -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-2">
+                    <div class="card">
+                        <!-- Loader -->
+                        <div class="loader-orion" *ngIf="showLoading===true">
+                            <div class="spinner-grow text-primary m-auto" role="status">
+                            </div>
+                        </div>
+                        <div class="card-header align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title m-1">BankAccount</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="frmBankAccount" (ngSubmit)="saveForm()">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="bankAccountName">BankAccountName</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="bankAccountName"
+                                                [ngClass]="{ 'is-invalid': validation && f.bankAccountName.errors }">
+                                            <div *ngIf="validation && f.bankAccountName.errors" class="invalid-feedback">
+                                                <div *ngIf="f.bankAccountName.errors.required">BankAccountName is required</div>
+                                                <div *ngIf="f.bankAccountName.errors.maxlength">Maximum field length is 50</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="total">Total</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="total"
+                                                [ngClass]="{ 'is-invalid': validation && f.total.errors }">
+                                            <div *ngIf="validation && f.total.errors" class="invalid-feedback">
+                                                <div *ngIf="f.total.errors.required">Total is required</div>
+                                                <div *ngIf="f.total.errors.pattern">Only numbers</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="CompayId">CompayId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
+                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end mt-3">
+                                        <button type="button" class="btn btn-default mr-3"
+                                            [routerLink]="['/Banks/bankAccount']">Cancel</button>
+                                        <button type="button" class="btn btn-primary" type="submit"
+                                            >Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

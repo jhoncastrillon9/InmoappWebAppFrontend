@@ -1,0 +1,192 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Collapse</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/collapse/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Collapse</h6>
+                            <p class="m-0">A directive to provide a simple way of hiding and showing elements on the page.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()"
+                            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                            Toggle
+                        </button>
+                    </p>
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                        <div class="card">
+                            <div class="card-body border">
+                                You can collapse this card by clicking Toggle
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Responsive Navbar</h6>
+                            <p class="m-0">A responsive navbar can be achieved with an ngbCollapse directive</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <!-- Navbar -->
+                    <nav id="navbar" class="navbar navbar-expand-lg mb-2 border">
+                        <!-- Navbar items start -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item icon-center">
+                                <!-- <img class="user user-chip-md mr-2" src="" alt="you logo" /> -->
+                                <svg class="svgColor user user-chip-md mr-2" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 383.66 425.68">
+                                    <path
+                                        d="M383.53,213c0,26,.35,52-.11,77.91-.37,21-9.67,37.82-27.71,48.44q-67.92,40-136.54,78.77c-17.79,10.08-36.84,10.1-54.5.16q-69-38.81-137.1-79.17C10,328.65.54,311.91.34,291.35-.1,244.41.19,197.46.23,150.51c0-7.31-.73-14.68.4-21.94C3.53,110,12.5,95.22,29,85.66,74.22,59.5,119.32,33.18,164.75,7.46c17.79-10.07,36.88-9.85,54.51.08Q288,46.24,355.94,86.43c17.5,10.33,26.88,26.79,27.38,47.12.65,26.46.16,52.95.16,79.42Z" />
+                                    <path
+                                        d="M315.77,212.69A123.94,123.94,0,1,1,191.93,88.9,123.94,123.94,0,0,1,315.77,212.69Z"
+                                        fill="#fff" />
+                                    <path
+                                        d="M252.83,213.13a60.8,60.8,0,0,1-61.14,60.67c-33.87,0-60.84-27.29-60.8-61.51,0-33.49,27.44-60.46,61.38-60.43C225.83,151.9,252.85,179.23,252.83,213.13Z" />
+                                </svg>
+                            </li>
+                            <li class="nav-item d-flex align-items-center mr-2">
+                                <h5 class="p-0 m-0"> My App</h5>
+                            </li>
+                            <li class="nav-item">
+                                <button class="navbar-toggler menu-small btn-icon text-muted btn-menu-small"
+                                    data-toggle="collapse" data-target="#navbarNavbtn"
+                                    aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <i class="fi-rr-menu-burger"></i>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Dropdown menu -->
+                        <div class="dropdown dropdown-animate menu-large hideshow show">
+                            <a class="nav-link" href="javascript:void(0);" role="button" id="dropdownApplication"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Menu
+                                <i class="dropdown-toggle-icon fi-rr-angle-down"></i>
+                                <i class="dropdown-toggle-icon fi-rr-angle-up"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-arrow p-lg-3" aria-labelledby="dropdownApplication">
+                                <a class="dropdown-item" href="javascript:void(0);">Page 1</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Page 2</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Page 3</a>
+                            </div>
+                        </div>
+
+                        <!-- Navbar items icons  -->
+                        <div class="ml-auto">
+                            <ul class="navbar-nav">
+                                <!-- Nav item options -->
+                                <li class="nav-item">
+                                    <button class="btn btn-icon ghost-danger" id="sidebarOptions">
+                                        <i class="fi-rr-heart"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Navbar-collapse menu-->
+                        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNavbtn">
+                            <a href="javascript:void(0);" class="d-flex justify-content-between align-items-center list-menu-title"
+                                data-toggle="collapse" data-target="#menuNav" aria-controls="menuNav"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                Menu
+                                <i class="fi-rr-angle-down text-sm"></i>
+                                <i class="fi-rr-angle-up text-sm"></i>
+                            </a>
+
+                            <div class="collapse navbar-collapse" id="menuNav">
+                                <ul class="list-group">
+                                    <li class="list-menu-item">
+                                        <a class="nav-link" href="javascript:void(0);">Page 1</a>
+                                    </li>
+                                    <li class="list-menu-item">
+                                        <a class="nav-link" href="javascript:void(0);">Page 2</a>
+                                    </li>
+                                    <li class="list-menu-item">
+                                        <a class="nav-link" href="javascript:void(0);">Page 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <p>
+                        These steps were used to create this responsive navbar.
+                    </p>
+
+                    <ol>
+                        <li>
+                            Add a property to the component to track whether the menu is open.
+                            In this example, the property is called <code>isMenuCollapsed</code>.
+                        </li>
+                        <li>
+                            Add an <code>ngbCollapse</code> directive to the element
+                            with the <code>navbar-collapse</code> CSS class. Use the
+                            property in the component as the value for the directive.
+                        </li>
+                        <li>
+                            When the navbar toggler button is clicked, toggle the
+                            value of the property in the component.
+                        </li>
+                        <li>
+                            If you would like the menu to close when a link is clicked,
+                            add a <code>(click)</code> handler to each link and set the
+                            property on the component to true to hide the menu.
+                        </li>
+                    </ol>
+
+                    <p>
+                        Resize your browser window to see it in action!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

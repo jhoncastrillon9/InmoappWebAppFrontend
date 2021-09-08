@@ -1,0 +1,320 @@
+<!-- Start >> Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg mb-0">
+  <!-- Start >> Navbar items -->
+  <ul class="navbar-nav">
+    <!-- Nav item side icon -->
+    <li class="nav-item btn-menu ghost-primary icon-center" (click)="openSidebar()">
+      <div class="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </li>
+
+    <li class="nav-item icon-center">
+      <!-- Logo App -->
+      <!-- <img class="user user-chip-md mr-2" src="" alt="you logo" /> -->
+      <svg class="svgColor user user-chip-md mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383.66 425.68">
+        <path
+          d="M383.53,213c0,26,.35,52-.11,77.91-.37,21-9.67,37.82-27.71,48.44q-67.92,40-136.54,78.77c-17.79,10.08-36.84,10.1-54.5.16q-69-38.81-137.1-79.17C10,328.65.54,311.91.34,291.35-.1,244.41.19,197.46.23,150.51c0-7.31-.73-14.68.4-21.94C3.53,110,12.5,95.22,29,85.66,74.22,59.5,119.32,33.18,164.75,7.46c17.79-10.07,36.88-9.85,54.51.08Q288,46.24,355.94,86.43c17.5,10.33,26.88,26.79,27.38,47.12.65,26.46.16,52.95.16,79.42Z" />
+        <path d="M315.77,212.69A123.94,123.94,0,1,1,191.93,88.9,123.94,123.94,0,0,1,315.77,212.69Z" fill="#fff" />
+        <path
+          d="M252.83,213.13a60.8,60.8,0,0,1-61.14,60.67c-33.87,0-60.84-27.29-60.8-61.51,0-33.49,27.44-60.46,61.38-60.43C225.83,151.9,252.85,179.23,252.83,213.13Z" />
+      </svg>
+    </li>
+  </ul>
+  <!-- End >> Navbar items -->
+
+  <!-- Start >> Dropdown menu -->
+  <div class="dropdown dropdown-animate menu-large">
+    <a class="nav-link" href="javascript:void(0);" role="button" id="dropdownApplication" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Application
+      <i class="dropdown-toggle-icon fi-rr-angle-down"></i>
+      <i class="dropdown-toggle-icon fi-rr-angle-up"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-arrow p-lg-3" aria-labelledby="dropdownApplication">
+      <h5 class="dropdown-header">My Aplications</h5>
+      <a class="dropdown-item" href="javascript:void(0);" [routerLink]="['/projects/card-list']">Project</a>
+      <a class="dropdown-item" href="javascript:void(0);">Task</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="javascript:void(0);">
+        <span><i class="far fa-calendar-alt"></i></span>
+        <span class="ml-2">Calendar</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="dropdown dropdown-animate menu-large">
+    <a class="nav-link" href="javascript:void(0);" role="button" id="dropdownwidgets" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Widgets
+      <i class="dropdown-toggle-icon fi-rr-angle-down"></i>
+      <i class="dropdown-toggle-icon fi-rr-angle-up"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-arrow p-lg-3" aria-labelledby="dropdownwidgets">
+      <h5 class="dropdown-header">My Widgets</h5>
+      <a class="dropdown-item" href="javascript:void(0);">Cards</a>
+      <a class="dropdown-item" href="javascript:void(0);">Chips</a>
+      <a class="dropdown-item" href="javascript:void(0);">Tables</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="javascript:void(0);">
+        <span>View all widgets</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="dropdown dropdown-animate menu-large">
+    <a class="nav-link" href="javascript:void(0);" role="button" id="dropdownDocs" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Docs
+      <i class="dropdown-toggle-icon fi-rr-angle-down"></i>
+      <i class="dropdown-toggle-icon fi-rr-angle-up"></i>
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-arrow p-lg-3" aria-labelledby="dropdownDocs">
+      <a class="dropdown-item" href="javascript:void(0);">
+        <span><i class="fas fa-file-alt"></i></span>
+        <span class="ml-2">Documentation</span>
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);">
+        <span><i class="fab fa-dashcube"></i></span>
+        <span class="ml-2">Components</span>
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);">
+        <span><i class="fab fa-instalod"></i></span>
+        <span class="ml-2">Installation</span>
+      </a>
+    </div>
+  </div>
+  <!-- End >> Dropdown menu -->
+
+  <!-- Start >> Navbar items icons  -->
+  <div class="ml-auto">
+    <ul class="navbar-nav">
+
+      <!-- Menu collapse icon -->
+      <li class="nav-item dropdown dropdown-animate menu-small">
+        <a class="btn btn-icon btn-menu-small ghost-default" data-toggle="collapse"
+          data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fi-rr-apps-sort"></i>
+        </a>
+      </li>
+
+      <!-- Nav item notifications -->
+      <li class="nav-item dropdown dropdown-animate">
+        <a class="btn btn-icon ghost-secondary" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-label="Notifications" aria-expanded="false" href="javascript:void(0);">
+          <i class="fi-rr-bell"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dm-icon dropdown-menu-arrow p-0">
+          <div class="py-3 px-3 border-bottom">
+            <h5 class="mb-0">Notifications</h5>
+          </div>
+          <div class="list-group list-group-flush">
+            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right">
+                <div>
+                  <span class="avatar circle bg-primary">AS</span>
+                </div>
+                <div class="flex-fill ml-3">
+                  <div class="h6 text-sm mb-0">Airi Satou <small class="float-right text-muted">New</small>
+                  </div>
+                  <p class="text-sm mb-0">
+                    Lorem ipsum dolor sit amet consectetur adipiscing
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right">
+                <div>
+                  <span class="avatar circle bg-secondary">AR</span>
+                </div>
+                <div class="flex-fill ml-3">
+                  <div class="h6 text-sm mb-0">Angelica Ramos <small class="float-right text-muted">New</small>
+                  </div>
+                  <p class="text-sm mb-0">
+                    Lorem ipsum dolor sit amet consectetur adipiscing
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right">
+                <div>
+                  <span class="avatar circle bg-tertiary">BG</span>
+                </div>
+                <div class="flex-fill ml-3">
+                  <div class="h6 text-sm mb-0">Bradley Greer <small class="float-right text-muted">New</small>
+                  </div>
+                  <p class="text-sm mb-0">
+                    Lorem ipsum dolor sit amet consectetur adipiscing
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right">
+                <div>
+                  <span class="avatar circle bg-warning">CV</span>
+                </div>
+                <div class="flex-fill ml-3">
+                  <div class="h6 text-sm mb-0">Caesar Vance <small class="float-right text-muted">New</small>
+                  </div>
+                  <p class="text-sm lh-140 mb-0">
+                    Lorem ipsum dolor sit amet consectetur adipiscing
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+              <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right">
+                <div>
+                  <span class="avatar circle bg-success">DR</span>
+                </div>
+                <div class="flex-fill ml-3">
+                  <div class="h6 text-sm mb-0">Dai Rios <small class="float-right text-muted">New</small>
+                  </div>
+                  <p class="text-sm lh-140 mb-0">
+                    Lorem ipsum dolor sit amet consectetur adipiscing
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="py-3 text-center">
+            <a href="javascript:void(0);" class="link link-sm text-sm">View all notifications</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav item options -->
+      <li class="nav-item">
+        <button class="btn btn-icon ghost-tertiary" (click)="openOptions()" aria-label="Settings">
+          <i class="fi-rr-settings"></i>
+        </button>
+      </li>
+
+      <!-- Nav item User -->
+      <li class="nav-item">
+        <div class="dropdown dropdown-animate">
+          <a class="badge badge-pill badge-transparent ghost-default user-lg" role="button" id="dropdownUser"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="javascript:void(0);">
+            <img src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default" alt="user-image">
+            <i class="dropdown-toggle-icon fi-rr-angle-down"></i>
+            <i class="dropdown-toggle-icon fi-rr-angle-up"></i>
+          </a>
+
+          <div class="dropdown-menu dm-user dropdown-menu-arrow" aria-labelledby="dropdownUser">
+            <div class="dropdown-header-user">
+              <div class="row pb-0">
+                <div class="col-md-3 col-sm-3 col-3">
+                  <img src="./assets/images/avatars/avatar-1.svg" class="user user-chip-xxlg bg-default aling-center-vertically"
+                    alt="user-image">
+                </div>
+                <div class="col-md-9 col-sm-9 col-9">
+                  <h5 class="text-light">Hello, {{currentUser?.username}}</h5>
+                  <span class="text-light">CRM Product Designer</span>
+                </div>
+              </div>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item-user icon-center ghost-primary">
+                <i class="fi-rr-user mr-2"></i> <span>My Profile</span>
+              </li>
+              <li class="list-group-item-user icon-center ghost-primary">
+                <i class="fi-rr-credit-card mr-2"></i> Subscriptions
+              </li>
+              <li class="list-group-item-user icon-center ghost-primary" (click)="signOut()">
+                <i class="fi-rr-sign-out mr-2"></i> Sign out
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <span class="badge badge-pill user-sm" role="button" id="" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default" alt="user-image">
+        </span>
+      </li>
+    </ul>
+  </div>
+  <!-- End >> Navbar items icons  -->
+
+  <!-- Start >> Navbar-collapse menu-->
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <a href="javascript:void(0);" class="d-flex justify-content-between align-items-center list-menu-title" data-toggle="collapse"
+      data-target="#menuApplication" aria-controls="menuApplication" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Application
+      <i class="fi-rr-angle-down text-sm"></i>
+      <i class="fi-rr-angle-up text-sm"></i>
+    </a>
+
+    <div class="collapse navbar-collapse" id="menuApplication">
+      <ul class="list-group">
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Project<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Taks</a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Calendar</a>
+        </li>
+      </ul>
+    </div>
+
+    <a href="javascript:void(0);" class="d-flex justify-content-between align-items-center list-menu-title" data-toggle="collapse"
+      data-target="#menuWidgets" aria-controls="menuWidgets" aria-expanded="false" aria-label="Toggle navigation">
+      Widgets
+      <i class="fi-rr-angle-down text-sm"></i>
+      <i class="fi-rr-angle-up text-sm"></i>
+    </a>
+
+    <div class="collapse navbar-collapse" id="menuWidgets">
+      <ul class="list-group">
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Cards<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Chips</a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Tables</a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">View all widgets</a>
+        </li>
+      </ul>
+    </div>
+
+    <a href="javascript:void(0);" class="d-flex justify-content-between align-items-center list-menu-title" data-toggle="collapse"
+      data-target="#menuDocs" aria-controls="menuDocs" aria-expanded="false" aria-label="Toggle navigation">
+      Docs
+      <i class="fi-rr-angle-down text-sm"></i>
+      <i class="fi-rr-angle-up text-sm"></i>
+    </a>
+
+    <div class="collapse navbar-collapse" id="menuDocs">
+      <ul class="list-group">
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Documentation <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Components</a>
+        </li>
+        <li class="list-menu-item">
+          <a class="nav-link" href="javascript:void(0);">Installation</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- End >> Navbar-collapse menu-->
+
+</nav>
+<!-- End >> Navbar -->

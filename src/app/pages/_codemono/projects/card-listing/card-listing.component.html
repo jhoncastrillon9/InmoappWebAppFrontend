@@ -1,0 +1,736 @@
+<!-- Start >> Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap">
+            <h5 class="">Projects Cards</h5>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-danger mr-1" type="button" placement="bottom" ngbTooltip="Download">
+                <i class="fi-rr-download"></i>
+            </button>
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- End >> Action Bar-->
+
+<div class="m-4">
+    <!-- Project cards -->
+    <div class="row mt-4">
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">01 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-primary">PW</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Project
+                            Website UI</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-success text-light m-2">Complete</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">100%</span></p>
+                        <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">02 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-secondary">AD</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">App Design</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-warning text-light m-2">Pending</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">60%</span></p>
+                        <ngb-progressbar type="warning" [value]="60" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">03 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <a href="javascript:void(0);" class="avatar rounded-circle avatar-lg hover-translate-y-n3">
+                        <div class="avatar avatar-lg circle bg-tertiary">ID</div>
+                    </a>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Illustation Design</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-warning text-light m-2">Pending</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">80%</span></p>
+                        <ngb-progressbar type="warning" [value]="80" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">04 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-warning">CL</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Component Library</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-warning text-light m-2">Pending</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">40%</span></p>
+                        <ngb-progressbar type="warning" [value]="40" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">06 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-danger">PI</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Payment Integration</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-danger text-light m-2">Delayed</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">10%</span></p>
+                        <ngb-progressbar type="danger" [value]="10" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">07 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-primary">WA</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Web Api .Net</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-success text-light m-2">Complete</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">100%</span></p>
+                        <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">08 Jan</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <a href="javascript:void(0);" class="avatar rounded-circle avatar-lg hover-translate-y-n3">
+                        <div class="avatar avatar-lg circle bg-secondary">AN</div>
+                    </a>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Api Node Js</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-warning text-light m-2">Pending</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">85%</span></p>
+                        <ngb-progressbar type="warning" [value]="85" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">01 Feb</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-tertiary">MA</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Mobile App Desing</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-warning text-light m-2">Pending</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">30%</span></p>
+                        <ngb-progressbar type="warning" [value]="30" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">02 Feb</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-warning">TI</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Template Integration</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-success text-light m-2">Complete</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">100%</span></p>
+                        <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">03 Feb</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <a href="javascript:void(0);" class="avatar rounded-circle avatar-lg hover-translate-y-n3">
+                        <div class="avatar avatar-lg circle bg-danger">PD</div>
+                    </a>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Project Database</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-warning text-light m-2">Pending</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">70%</span></p>
+                        <ngb-progressbar type="warning" [value]="70" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">04 Feb</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-primary">QT</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">QA Testing</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-danger text-light m-2">Stopped</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">75%</span></p>
+                        <ngb-progressbar type="danger" [value]="75" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-sm-6 mb-4">
+            <div class="card hover-shadow-lg">
+                <div class="card-header border-0 pb-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-0">05 Feb</h6>
+                        </div>
+                        <div class="text-right">
+                            <div class="actions">
+                                <button type="button" class="btn btn-icon ghost-secondary" placement="bottom"
+                                    ngbTooltip="comments">
+                                    <i class="fi-rr-comment-alt"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-warning" placement="bottom"
+                                    ngbTooltip="edit">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-icon ghost-success" placement="bottom"
+                                    ngbTooltip="details">
+                                    <i class="fi-rr-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <div class="avatar avatar-lg circle bg-secondary">CI</div>
+                    <h5 class="h6 my-4">
+                        <a href="javascript:void(0);">Component Integration UI</a>
+                    </h5>
+                    <div class="avatar-group hover-avatar-ungroup mb-3">
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                        <a href="javascript:void(0);">
+                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                class="user user-chip-md bg-default">
+                        </a>
+                    </div>
+                    <span class="clearfix"></span>
+                    <span class="badge badge-pill badge-success text-light m-2">Complete</span>
+                </div>
+                <div class="card-footer">
+                    <div class="actions">
+                        <p class="mb-2">Progress <span class="float-right">100%</span></p>
+                        <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1"></ngb-progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <!-- Pagination -->
+            <ngb-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page"></ngb-pagination>
+        </div>
+    </div>
+</div>

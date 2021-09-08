@@ -1,0 +1,105 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Images Form</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <!--<div class="d-flex align-items-center">
+            <span class="text-sm" for="description" *ngIf="editAction===true">Edit Images</span>
+            <span class="text-sm" for="description" *ngIf="editAction!==true">Create Images</span>
+        </div>-->
+    </div>
+</div>
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <!-- Listing -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-2">
+                    <div class="card">
+                        <!-- Loader -->
+                        <div class="loader-orion" *ngIf="showLoading===true">
+                            <div class="spinner-grow text-primary m-auto" role="status">
+                            </div>
+                        </div>
+                        <div class="card-header align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title m-1">Images</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="frmImages" (ngSubmit)="saveForm()">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="imageName">ImageName</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="imageName"
+                                                [ngClass]="{ 'is-invalid': validation && f.imageName.errors }">
+                                            <div *ngIf="validation && f.imageName.errors" class="invalid-feedback">
+                                                <div *ngIf="f.imageName.errors.maxlength">Maximum field length is 50</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="path">Path</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="path"
+                                                [ngClass]="{ 'is-invalid': validation && f.path.errors }">
+                                            <div *ngIf="validation && f.path.errors" class="invalid-feedback">
+                                                <div *ngIf="f.path.errors.required">Path is required</div>
+                                                <div *ngIf="f.path.errors.maxlength">Maximum field length is 150</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="isMain">IsMain</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="isMain">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="PropertyId">PropertyId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId"
+                                                [ngClass]="{ 'is-invalid': validation && f.propertyId.errors }">
+                                                <ng-option *ngFor="let item of propertyList" [value]="item.propertyId">{{item.propertyName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.propertyId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.propertyId.errors.required">PropertyId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end mt-3">
+                                        <button type="button" class="btn btn-default mr-3"
+                                            [routerLink]="['/Properties/images']">Cancel</button>
+                                        <button type="button" class="btn btn-primary" type="submit"
+                                            >Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

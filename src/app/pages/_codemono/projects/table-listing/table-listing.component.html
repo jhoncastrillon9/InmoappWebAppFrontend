@@ -1,0 +1,705 @@
+<!-- Start >> Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap">
+            <h5 class="">Projects List</h5>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-danger mr-1" type="button" placement="bottom" ngbTooltip="Download">
+                <i class="fi-rr-download"></i>
+            </button>
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- End >> Action Bar-->
+
+<div class="m-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-0 m-2">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Projects</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort w-250px" data-sort="name">Name</th>
+                                <th scope="col" class="sort w-125px" data-sort="budget">Budget</th>
+                                <th scope="col" class="sort w-125px" data-sort="status">Status</th>
+                                <th scope="col" class="sort w-150px" data-sort="users">Users</th>
+                                <th scope="col" class="sort w-150px" data-sort="Progress">Progress</th>
+                                <th scope="col" class="w-100px"></th>
+                                <th scope="col" class="w-200px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <div class="avatar avatar-md circle bg-primary">PW</div>
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Project Website UI</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $2000 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-success"></div>
+                                    <span>Complete</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);" >
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">100%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <div class="avatar avatar-md circle bg-secondary">AD</div>
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">App Design</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $2200 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-warning"></div>
+                                    <span>Pending</span>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);">
+                                        <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                            class="user user-chip-md bg-default">
+                                    </a>
+                                    <a href="javascript:void(0);">
+                                        <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                            class="user user-chip-md bg-default">
+                                    </a>
+                                    <a href="javascript:void(0);">
+                                        <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                            class="user user-chip-md bg-default">
+                                    </a>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="warning" [value]="60" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">60%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <div class="avatar avatar-md circle bg-tertiary">ID</div>
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Illustation Design</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $1500 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-warning"></div>
+                                    <span>Pending</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="warning" [value]="80" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">80%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div>
+                                            <div class="avatar avatar-md circle bg-warning">CL</div>
+                                        </div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Component Library</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $1200 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-warning"></div>
+                                    <span>Pending</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg"
+                                                class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="warning" [value]="40" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">40%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-danger">PI</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Payment Integration</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $2800 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-danger"></div>
+                                    <span>Delayed</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="danger" [value]="10" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">10%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-primary">WA</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Web Api .Net</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $3500 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-success"></div>
+                                    <span>Complete</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">100%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-secondary">AN</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Api Node Js</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $3400 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-warning"></div>
+                                    <span>Pending</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="warning" [value]="85" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">85%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-tertiary">MA</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Mobile App Desing</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $3200 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-warning"></div>
+                                    <span>Pending</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="warning" [value]="30" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">30%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-warning">TI</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Template Integration</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $4000 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-success"></div>
+                                    <span>Complete</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">100%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-danger">PD</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Project Database</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $3600 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-warning"></div>
+                                    <span>Pending</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-2.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="warning" [value]="70" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">70%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-primary">QT</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">QA Testing</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $3500 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-danger"></div>
+                                    <span>Stopped</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-5.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="danger" [value]="75" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">75%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="avatar avatar-md circle bg-secondary">CI</div>
+                                        <div class="media-body ml-4">
+                                            <a href="javascript:void(0);" class="name mb-0 h6 text-sm">Component Integration UI</a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    $3200 USD
+                                </td>
+                                <td>
+                                    <div class="status bg-success"></div>
+                                    <span>Complete</span>
+                                </td>
+                                <td>
+                                    <div class="avatar-group">
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-3.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-4.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                        <a href="javascript:void(0);">
+                                            <img alt="avatar" src="./assets/images/avatars/avatar-1.svg" class="user user-chip-md bg-default">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ngb-progressbar type="success" [value]="100" class="progress-sm mt-1">
+                                    </ngb-progressbar>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="completion mr-2">100%</span>
+                                    </div>
+                                </td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-icon ghost-secondary" placement="bottom" ngbTooltip="comments">
+                                        <i class="fi-rr-comment-alt"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-warning" placement="bottom" ngbTooltip="edit">
+                                        <i class="fi-rr-pencil"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-icon ghost-success" placement="bottom" ngbTooltip="details">
+                                        <i class="fi-rr-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12">
+                    <!-- Pagination -->
+                    <ngb-pagination class="d-flex justify-content-end" [collectionSize]="70" [(page)]="page"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

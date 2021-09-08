@@ -1,0 +1,233 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Images List</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter"
+                aria-label="Filter" (click)="openFilter(true)">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
+                aria-label="Add"  [routerLink]="['add']">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+        <!-- Actions -->
+    </div>
+</div>
+<!-- Action Bar-->
+
+<!-- Option sidebar -->
+<p-sidebar [(visible)]="showFiller" [showCloseIcon]="false" position="right" styleClass="filter-sidebar">
+    <!-- Start >> Option sidebar -->
+    <nav>
+        <!-- Start >> Title -->
+        <div class="row pb-0 mr-0 ml-0">
+            <div class="col-12 filter-sidebar-title text-left">
+                <h5 class="mb-4 pt-4">Filters</h5>
+            </div>
+        </div>
+        <!-- End >> Title -->
+
+        <!-- Start >> Options content -->
+        <div class="p-4 text-left overflow-auto">
+            <form [formGroup]="frmFilter">
+
+
+                <div class="row pb-4">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="imageId">ImageId</label>
+                            <input type="text" class="form-control form-control-color" formControlName="imageId" aria-describedby="imageId">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="imageName">ImageName</label>
+                            <input type="text" class="form-control form-control-color" formControlName="imageName" aria-describedby="imageName">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="path">Path</label>
+                            <input type="text" class="form-control form-control-color" formControlName="path" aria-describedby="path">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="isMain">IsMain</label>
+                            <input type="text" class="form-control form-control-color" formControlName="isMain" aria-describedby="isMain">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="propertyId">PropertyId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId">
+                                <ng-option *ngFor="let item of propertyList" [value]="item.propertyId">{{item.propertyName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 col-sm-6 col-6 text-left">
+                        <button class="btn btn-block btn-default" (click)="resetForm()">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-6 text-right">
+                        <button class="btn btn-block btn-primary" (click)="searchList()">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Start >> Options content -->
+    </nav>
+    <!-- End >> Option sidebar -->
+</p-sidebar>
+
+<!-- Container -->
+<div class="m-sm-4 m-3">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <!-- Loader -->
+                <div class="loader-orion" *ngIf="showLoading===true">
+                    <div class="spinner-grow text-primary m-auto" role="status">
+                    </div>
+                </div>
+                <!-- Images Table -->
+                <p-table #dt class="table" [value]="imagess" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="{first} to {last} of {totalRecords}" sortMode="multiple"
+                    [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['imageId','imageName','path','isMain','propertyId']"
+                    styleClass="p-datatable-responsive-demo">
+
+                    <!-- Title table -->
+                    <ng-template pTemplate="caption">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-8 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Title -->
+                                <h5 class="m-3">Table Images</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Search -->
+                                <!-- <div class="d-flex align-items-center">
+                                  
+                                </div> -->
+                                <div class="input-group m-3">
+                                    <div class="input-icon input-icon-right">
+                                        <input pInputText type="text" class="form-control form-control-color"
+                                            (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                            placeholder="Search">
+                                        <span>
+                                            <i class="fi-rr-search text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-template>
+
+                    <!-- Header table -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="th1" pSortableColumn="imageId">ImageId
+                                <p-sortIcon field="imageId"></p-sortIcon>
+                            </th>
+                            <th class="th2" pSortableColumn="imageName">ImageName
+                                <p-sortIcon field="imageName"></p-sortIcon>
+                            </th>
+                            <th class="th3" pSortableColumn="path">Path
+                                <p-sortIcon field="path"></p-sortIcon>
+                            </th>
+                            <th class="th4" pSortableColumn="isMain">IsMain
+                                <p-sortIcon field="isMain"></p-sortIcon>
+                            </th>
+                            <th class="th5" pSortableColumn="propertyId">PropertyId
+                                <p-sortIcon field="propertyId"></p-sortIcon>
+                            </th>
+                            <th class="th6">Actions</th>
+
+                        </tr>
+                    </ng-template>
+
+                    <!-- Body table -->
+                    <ng-template pTemplate="body" let-images>
+                        <tr>
+                            <td>
+                                <label class="p-column-title">ImageId</label>
+                                <label class="p-right">{{images.imageId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">ImageName</label>
+                                <label class="p-right">{{images.imageName}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Path</label>
+                                <label class="p-right">{{images.path}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">IsMain</label>
+                                <label class="p-right">{{images.isMain}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">PropertyId</label>
+                                <label class="p-right">{{images.propertyId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Actions</label>
+                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Edit"
+                                    ngbTooltip="Edit" [routerLink]="['/Properties/images/edit/', images.imageId]">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(images)" placement="bottom" aria-label="Remove"
+                                    ngbTooltip="Remove">
+                                    <i class="fi-rr-trash"></i>
+                                </button>
+                            </td>
+
+
+                        </tr>
+                    </ng-template>
+
+                    <!-- Empty table -->
+                    <ng-template pTemplate="emptymessage">
+                        <tr *ngIf="showLoading===false">
+                            <td colspan="6" class="text-center">
+                                No data found.
+                            </td>
+                        </tr>
+                        <tr *ngIf="showLoading===true">
+                            <td colspan="6" class="text-center">
+                                <span>&nbsp;</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

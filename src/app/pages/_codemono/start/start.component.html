@@ -1,0 +1,640 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar bg-transparent m-2">
+  <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+    <!-- Title -->
+    <div class="d-flex align-items-center flex-wrap mr-1">
+      <div class="d-flex align-items-baseline flex-wrap mr-5">
+        <h3 class="my-1 mr-3">Dashboard</h3>
+      </div>
+    </div>
+    <!-- Title -->
+
+    <!-- Actions -->
+    <div class="d-flex align-content-end">
+      <button class="btn btn-primary mr-1" type="button" placement="bottom" ngbTooltip="Check Sales">
+        <span>Check Sales</span>
+      </button>
+    </div>
+    <!-- Actions -->
+  </div>
+</div>
+<!-- Action Bar-->
+
+<!-- Container -->
+<div class="m-4">
+  <!-- Welcome -->
+  <div class="row pb-4">
+    <div class="col-12">
+      <div class="card bg-g">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-7 d-flex align-items-center">
+              <div>
+                <h4>Welcome back, John!</h4>
+                <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipiscing elit nisi aptent, habitasse ligula
+                  rutrum dictumst libero sapien pretium.</p>
+              </div>
+            </div>
+            <div class="col-md-5 text-right">
+              <img src="./assets/images/welcome_1.svg" style="height: 10em;" alt="welcome">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Welcome -->
+
+  <!-- Indicators -->
+  <div class="row">
+    <!-- Max Users -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+      <div class="card bg-primary">
+        <div class="card-body">
+          <div class="row">
+            <div
+              class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center text-md-left text-sm-left text-left">
+              <div class="avatar avatar-md square bg-transparent">
+                <i class="fi-rr-user icon-lg text-light"></i>
+              </div>
+              <div class="ml-3">
+                <span class="mb-0 text-muted text-lg text-light">Max Users</span>
+                <h4 class="mb-0 text-light">4 371</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Max Users -->
+
+    <!-- Orders -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+      <div class="card bg-secondary">
+        <div class="card-body">
+          <div class="row">
+            <div
+              class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center text-md-left text-sm-left text-left">
+              <div class="avatar avatar-md square bg-transparent">
+                <i class="fi-rr-shopping-bag icon-lg text-light"></i>
+              </div>
+              <div class="ml-3">
+                <span class="mb-0 text-muted text-lg text-light">Orders</span>
+                <h4 class="mb-0 text-light">2 358</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Orders -->
+
+    <!-- Items -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+      <div class="card bg-tertiary">
+        <div class="card-body">
+          <div class="row">
+            <div
+              class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center text-md-left text-sm-left text-left">
+              <div class="avatar avatar-md square bg-transparent">
+                <i class="fi-rr-shop icon-lg text-light"></i>
+              </div>
+              <div class="ml-3">
+                <span class="mb-0 text-muted text-lg text-light">Items</span>
+                <h4 class="mb-0 text-light">897</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Items -->
+
+    <!-- Revenue -->
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+      <div class="card bg-success">
+        <div class="card-body">
+          <div class="row">
+            <div
+              class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center text-md-left text-sm-left text-left">
+              <div class="avatar avatar-md square bg-transparent">
+                <i class="fi-rr-flag icon-lg text-light"></i>
+              </div>
+              <div class="ml-3">
+                <span class="mb-0 text-muted text-lg text-light">Revenue</span>
+                <h4 class="mb-0 text-light">$40 380</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Revenue -->
+
+  </div>
+  <!-- Indicators -->
+
+  <!-- charts -->
+  <div class="row">
+    <!-- Donut -->
+    <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <h4>Users and Orders</h4>
+              <ngx-chartjs [data]="dataDonut" [options]="optionsDonut" height="400" type="doughnut"></ngx-chartjs>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Donut -->
+
+    <!-- Line -->
+    <div class="col-lg-7 col-md-6 col-sm-12 col-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <h4>Revenues last 8 hours</h4>
+              <ngx-chartjs [data]="dataLine" [options]="optionsLine" height="400" type="line"></ngx-chartjs>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Line -->
+  </div>
+  <!-- charts -->
+
+  <!-- Widgets -->
+  <div class="row">
+    <div class="col-xl-4">
+      <div class="card mb-4" style="height: 560px;">
+        <div class="card-body">
+          <div class="d-flex flex-column h-180">
+            <h3 class="text-dark text-center fs-1 fw-bolder pt-15 lh-lg">Mobile Application
+            </h3>
+            <p class="text-lg text-center">Lorem ipsum dolor sit amet consectetur adipiscing elit sollicitudin nec
+              aliquam.</p>
+
+            <div class="mt-2 text-center">
+              <img src="./assets/images/app.svg" style="height: 20em;" alt="welcome">
+            </div>
+            <div class="text-center pt-7 mt-4">
+              <a href="javascript:void(0);" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                data-bs-target="#kt_modal_create_app">Create App</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-8">
+      <div class="card mb-4">
+        <div class="card-header border-0">
+          <h3 class="card-title mt-2">Project Leaders</h3>
+          <h6 class="card-subtitle mb-2 text-muted">Latest results</h6>
+          <div class="card-toolbar mt-4">
+            <ul class="nav nav-pills nav-pills-sm nav-light">
+              <li class="nav-item">
+                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 active fw-bolder me-2"
+                  data-bs-toggle="tab" href="javascript:void(0);">Day</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 fw-bolder me-2" data-bs-toggle="tab"
+                  href="javascript:void(0);">Week</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 fw-bolder" data-bs-toggle="tab"
+                  href="javascript:void(0);">Month</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-body pt-2 pb-0 mt-n3">
+          <div class="tab-content mt-5" id="myTabTables1">
+            <div class="tab-pane fade show active" id="kt_tab_pane_1_1" role="tabpanel"
+              aria-labelledby="kt_tab_pane_1_1">
+              <div class="table-responsive">
+                <table class="table border-0 align-middle">
+                  <thead class="border-0">
+                    <tr>
+                      <th class="p-0 w-50px border-0"></th>
+                      <th class="p-0 w-200px border-0"></th>
+                      <th class="p-0 w-100px border-0"></th>
+                      <th class="p-0 w-50px border-0"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>
+                        <div>
+                          <span class="avatar avatar-lg square">
+                            <i class="fi-rr-crown text-primary icon-sm"></i>
+                          </span>
+                        </div>
+                      </th>
+                      <td>
+                        <a href="javascript:void(0);" class="text-gray-800 fw-bolder text-hover-primary fs-6">Top
+                          Authors</a>
+                        <span class="text-muted fw-bold d-block mt-1">HTML/SCSS/ANGULAR, NODEJS</span>
+                      </td>
+                      <td>
+                        <div class="d-flex flex-column w-100 me-3">
+                          <ngb-progressbar type="primary" [value]="75"></ngb-progressbar>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <span class="mr-2"> 75% </span>
+                          <button class="btn btn-icon ghost-warning" id="sidebarOptions">
+                            <i class="fi-rr-arrow-right text-xxl"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <div>
+                          <span class="avatar avatar-lg square">
+                            <i class="fi-rr-user-add text-warning icon-sm"></i>
+                          </span>
+                        </div>
+                      </th>
+                      <td>
+                        <a href="javascript:void(0);" class="text-gray-800 fw-bolder text-hover-primary fs-6">New
+                          Users</a>
+                        <span class="text-muted fw-bold d-block mt-1">HTML/SCSS/ANGULAR, NODEJS</span>
+                      </td>
+                      <td>
+                        <div class="d-flex flex-column">
+                          <ngb-progressbar type="warning" [value]="50"></ngb-progressbar>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <span class="mr-2"> 50% </span>
+                          <button class="btn btn-icon ghost-warning" id="sidebarOptions">
+                            <i class="fi-rr-arrow-right text-xxl"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <div>
+                          <span class="avatar avatar-lg square">
+                            <i class="fi-rr-heart text-danger icon-sm"></i>
+                          </span>
+                        </div>
+                      </th>
+                      <td>
+                        <a href="javascript:void(0);" class="text-gray-800 fw-bolder text-hover-primary fs-6">Popular
+                          Authors</a>
+                        <span class="text-muted fw-bold d-block mt-1">HTML/SCSS/ANGULAR, NODEJS</span>
+                      </td>
+                      <td>
+                        <div class="d-flex flex-column w-100 me-3">
+                          <ngb-progressbar type="danger" [value]="30"></ngb-progressbar>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <span class="mr-2"> 30% </span>
+                          <button class="btn btn-icon ghost-warning" id="sidebarOptions">
+                            <i class="fi-rr-arrow-right text-xxl"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <div>
+                          <span class="avatar avatar-lg square">
+                            <i class="fi-rr-bookmark text-success icon-sm"></i>
+                          </span>
+                        </div>
+                      </th>
+                      <td>
+                        <a href="javascript:void(0);" class="text-gray-800 fw-bolder text-hover-primary fs-6">Weekly
+                          Bestsellers</a>
+                        <span class="text-muted fw-bold d-block mt-1">HTML/SCSS/ANGULAR, NODEJS</span>
+                      </td>
+                      <td>
+                        <div class="d-flex flex-column w-100 me-3">
+                          <ngb-progressbar type="success" [value]="80"></ngb-progressbar>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <span class="mr-2"> 80% </span>
+                          <button class="btn btn-icon ghost-warning" id="sidebarOptions">
+                            <i class="fi-rr-arrow-right text-xxl"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Widgets -->
+</div>
+<!-- Container -->
+
+<!-- <div class="row pb-3">
+    <div class="col-md-4 pb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text ">Some quick example text to build on the card title and make up the bulk of
+            the
+            card's content.</p>
+
+          <a href="javascript:void(0);" class="card-link text-secondary">Card link</a>
+          <a href="javascript:void(0);" class="card-link text-tertiary">Another link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 pb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text ">Some quick example text to build on the card title and make up the bulk of
+            the
+            card's content.</p>
+          <a href="javascript:void(0);" class="card-link text-secondary">Card link</a>
+          <a href="javascript:void(0);" class="card-link text-tertiary">Another link</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 pb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2">Card subtitle</h6>
+          <p class="card-text ">Some quick example text to build on the card title and make up the bulk of
+            the
+            card's content.</p>
+          <a href="javascript:void(0);" class="card-link text-secondary">Card link</a>
+          <a href="javascript:void(0);" class="card-link text-tertiary">Another link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-md-4 col-sm-12 col-xs-12 pb-2">
+      <div class="card" style="min-height: 300px;">
+        <div class="card-header align-items-center">
+          <h5 class="card-title m-1">Featured</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2">Special title treatment</h6>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12 pb-2">
+      <div class="card" style="min-height: 300px;">
+        <div class="card-header align-items-center">
+          <h5 class="card-title m-1">Reports</h5>
+        </div>
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0"
+                aria-valuemax="100"></div>
+            </div>
+            Gross value 10%
+          </li>
+          <li class="list-group-item">
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            Net volume from sales 30%
+          </li>
+          <li class="list-group-item">
+            <div class="progress">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            New volume from sales
+          </li>
+          <li class="list-group-item">
+            <div class="progress">
+              <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            Other
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12 pb-2">
+      <div class="card text-center" style="min-height: 300px;">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link bg-primary active" href="javascript:void(0);">Active</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0);">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="javascript:void(0);">Disabled</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-md-4 pb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Form Default</h5>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInput1" aria-describedby="emailHelp"
+                placeholder="Enter email" disabled>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">password</label>
+              <input type="password" class="form-control" id="exampleInput2" autocomplete="" placeholder="password">
+            </div>
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary" disabled>Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 pb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Form Color</h5>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">User Name</label>
+              <input type="email" class="form-control form-control-color form-control-lg" id="exampleInput3"
+                aria-describedby="emailHelp" placeholder="User name">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control form-control-color" id="exampleInput4"
+                aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">password</label>
+              <input type="password" class="form-control form-control-color form-control-sm" autocomplete=""
+                id="exampleInput5" placeholder="password">
+            </div>
+
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="exampleCheck2">
+              <label class="form-check-label" for="exampleCheck">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 pb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Example select</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect2">Example multiple select</label>
+              <select multiple class="form-control" id="exampleFormControlSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="row pb-3">
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary">Primary</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-secondary">Secondary</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-tertiary">Tertiary</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn  btn-outline-tertiary">Tertiary</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-success">Success</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-success">Success</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-danger">Danger</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-warning">Warning</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-dark">Dark</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-medium">Medium</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-medium">Medium</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-muted">muted</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-muted">muted</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-light">Light</button>
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-light">Light</button>
+  </div>
+</div> -->

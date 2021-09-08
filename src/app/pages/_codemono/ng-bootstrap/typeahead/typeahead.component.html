@@ -1,0 +1,171 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Typeahead</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/typeahead/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Simple Typeahead</h6>
+                            <p class="m-0">A component that helps with text highlighting.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    A typeahead example that gets values from a static <code>string[]</code>
+                    <ul>
+                        <li><code>debounceTime</code> operator</li>
+                        <li>kicks in only if 2+ characters typed</li>
+                        <li>limits to 10 results</li>
+                    </ul>
+
+                    <label for="typeahead-basic">Search for a state:</label>
+                    <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model1"
+                        [ngbTypeahead]="search1" />
+                    <hr>
+                    <pre>Model: {{ model1 | json }}</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Open on focus</h6>
+                            <p class="m-0">A component that helps with text highlighting.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    It is possible to get the focus events with the current input value to emit results on focus with a
+                    great flexibility.
+
+                    In this simple example, a search is done no matter the content of the input:
+
+                    <ul>
+                        <li>on empty input all options will be taken</li>
+                        <li>otherwise options will be filtered against the search term</li>
+                        <li>it will limit the display to 10 results in all cases</li>
+                    </ul>
+
+                    <label for="typeahead-focus">Search for a state:</label>
+                    <input id="typeahead-focus" type="text" class="form-control" [(ngModel)]="model2"
+                        [ngbTypeahead]="search2" (focus)="focus$.next($any($event).target.value)"
+                        (click)="click$.next($any($event).target.value)" #instance="ngbTypeahead" />
+                    <hr>
+                    <pre>Model: {{ model2 | json }}</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Wikipedia search</h6>
+                            <p class="m-0">A component that helps with text highlighting.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    A typeahead example that gets values from the <code>WikipediaService</code>
+                    <ul>
+                        <li>remote data retrieval</li>
+                        <li><code>debounceTime</code> operator</li>
+                        <li><code>tap</code> operator</li>
+                        <li><code>distinctUntilChanged</code> operator</li>
+                        <li><code>switchMap</code> operator</li>
+                        <li><code>catch</code> operator to display an error message in case of connectivity issue</li>
+                    </ul>
+
+                    <fieldset class="form-inline">
+                        <div class="form-group">
+                            <label for="typeahead-http">Search for a wiki page:</label>
+                            <input id="typeahead-http" type="text" class="form-control mx-sm-3"
+                                [class.is-invalid]="searchFailed" [(ngModel)]="model3" [ngbTypeahead]="search3"
+                                placeholder="Wikipedia search" />
+                            <small *ngIf="searching" class="form-text text-muted">searching...</small>
+                            <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.
+                            </div>
+                        </div>
+                    </fieldset>
+                    <hr>
+                    <pre>Model: {{ model3 | json }}</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Template for results</h6>
+                            <p class="m-0">A component that helps with text highlighting.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>A typeahead example that uses a custom template for results display, an object as the model,
+                        and the highlight directive to highlight the term inside the custom template.
+                    </p>
+
+                    <ng-template #rt let-r="result" let-t="term">
+                        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="mr-1"
+                            style="width: 16px">
+                        <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+                    </ng-template>
+
+                    <label for="typeahead-template">Search for a state:</label>
+                    <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="model4"
+                        [ngbTypeahead]="search4" [resultTemplate]="rt" [inputFormatter]="formatter" />
+                    <hr>
+                    <pre>Model: {{ model4 | json }}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">AccountsToReceivableContract Form</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <!--<div class="d-flex align-items-center">
+            <span class="text-sm" for="description" *ngIf="editAction===true">Edit AccountsToReceivableContract</span>
+            <span class="text-sm" for="description" *ngIf="editAction!==true">Create AccountsToReceivableContract</span>
+        </div>-->
+    </div>
+</div>
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <!-- Listing -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-2">
+                    <div class="card">
+                        <!-- Loader -->
+                        <div class="loader-orion" *ngIf="showLoading===true">
+                            <div class="spinner-grow text-primary m-auto" role="status">
+                            </div>
+                        </div>
+                        <div class="card-header align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title m-1">AccountsToReceivableContract</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="frmAccountsToReceivableContract" (ngSubmit)="saveForm()">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="quotaNumber">QuotaNumber</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="quotaNumber"
+                                                [ngClass]="{ 'is-invalid': validation && f.quotaNumber.errors }">
+                                            <div *ngIf="validation && f.quotaNumber.errors" class="invalid-feedback">
+                                                <div *ngIf="f.quotaNumber.errors.required">QuotaNumber is required</div>
+                                                <div *ngIf="f.quotaNumber.errors.pattern">Only integer numbers</div>
+                                                <div *ngIf="f.quotaNumber.errors.min">Minimum value is -2147483648</div>
+                                                <div *ngIf="f.quotaNumber.errors.max">Maximum value is 2147483647</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="value">Value</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="value"
+                                                [ngClass]="{ 'is-invalid': validation && f.value.errors }">
+                                            <div *ngIf="validation && f.value.errors" class="invalid-feedback">
+                                                <div *ngIf="f.value.errors.required">Value is required</div>
+                                                <div *ngIf="f.value.errors.pattern">Only numbers</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="publishDate">ExpirationDate</label>
+                                            <div class="input-group d-flex mb-4">
+                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy"
+                                                    ngbDatepicker #dpExpirationDate="ngbDatepicker" formControlName="expirationDate"
+                                                    [ngClass]="{ 'is-invalid': validation && f.expirationDate.errors }">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary icon-center calendar" (click)="dpExpirationDate.toggle()" type="button">
+                                                        <i class="fi-rr-calendar"></i>
+                                                    </button>
+                                                </div>
+                                                <div *ngIf="validation && f.expirationDate.errors" class="invalid-feedback">
+                                                <div *ngIf="f.expirationDate.errors.required">ExpirationDate is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="AccountsStatusId">AccountsStatusId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsStatusId">
+                                                <ng-option *ngFor="let item of accountsStatusList" [value]="item.accountsStatusId">{{item.accountsStatusName}}
+                                                </ng-option>
+                                            </ng-select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="ContractId">ContractId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="contractId"
+                                                [ngClass]="{ 'is-invalid': validation && f.contractId.errors }">
+                                                <ng-option *ngFor="let item of contractList" [value]="item.contractId">{{item.contractName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.contractId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.contractId.errors.required">ContractId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-4 col-12">
+                                        <div class="form-group">
+                                            <label for="CompayId">CompayId</label>
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
+                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                </ng-option>
+                                            </ng-select>
+                                            <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
+                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end mt-3">
+                                        <button type="button" class="btn btn-default mr-3"
+                                            [routerLink]="['/Banks/accountsToReceivableContract']">Cancel</button>
+                                        <button type="button" class="btn btn-primary" type="submit"
+                                            >Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

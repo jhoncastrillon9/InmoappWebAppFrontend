@@ -1,0 +1,135 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Toast</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/toast/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-md-6 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card" style="height: 26em;">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Declarative inline usage</h6>
+                            <p class="m-0">Toasts provide feedback messages as notifications to the user.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <h6 class="mb-3">Body only</h6>
+                    <ngb-toast [autohide]="false">
+                        I am a simple static toast.
+                    </ngb-toast>
+                    <br>
+                    <h6 class="mb-3">With a text header</h6>
+                    <ngb-toast *ngIf="show1" header="Hello" [autohide]="false" (hidden)="show=false">
+                        I am a simple static toast with a header.
+                    </ngb-toast>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card" style="height: 26em;">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Using a Template as header</h6>
+                            <p class="m-0">Toasts provide feedback messages as notifications to the user.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-toast *ngIf="show1" [autohide]="false" (hidden)="show=false">
+                        <ng-template ngbToastHeader>
+                            <i class="fi-rr-heart text-lg text-danger mr-1"></i>
+                            <strong class="mx-1">Fancy</strong>header here
+                        </ng-template>
+                        Hello, I am toast. Have you noticed my header has been generated from a Template?
+                    </ngb-toast>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card" style="height: 26em;">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Closeable toast</h6>
+                            <p class="m-0">Toasts provide feedback messages as notifications to the user</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <ngb-toast *ngIf="show2" header="Click my close icon →" [autohide]="false" (hidden)="close()">
+                        If you close me, I will automatically re-appear after a few seconds.
+                    </ngb-toast>
+                    <p *ngIf="!show2">I'll be back!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-12 mb-3">
+            <!-- Card -->
+            <div class="card" style="height: 26em;">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Toast management service</h6>
+                            <p class="m-0">Toasts provide feedback messages as notifications to the user</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>Please click one of the button to see a Toast being displayed in the top right corner of your screen:</p>
+                    <button class="btn btn-primary" (click)="showStandard()" ngbTooltip="Will disappear in 5s">Standard toast</button>&nbsp;
+                    <button class="btn btn-success" (click)="showSuccess()" ngbTooltip="Will disappear in 10s">Success toast</button>&nbsp;
+                    
+                    <ng-template #dangerTpl>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 24 24"><path d="M10.872 6.831l1.695 3.904 3.654-1.561-1.79 3.426 3.333.954-3.417 1.338 2.231 4.196-4.773-2.582-2.869 2.287.413-3.004-3.792-.726 2.93-1.74-1.885-2.512 3.427.646.843-4.626zm-.786-6.831l-1.665 9.119-6.512-1.228 3.639 4.851-5.548 3.294 7.108 1.361-.834 6.076 5.742-4.577 9.438 5.104-4.288-8.064 6.834-2.677-6.661-1.907 3.25-6.22-6.98 2.982-3.523-8.114z"/></svg>
+                      Danger Danger !
+                    </ng-template>
+                    <button class="btn btn-danger" (click)="showDanger(dangerTpl)" ngbTooltip="Will disappear in 15s">Danger toast</button>&nbsp;
+                    
+                    <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

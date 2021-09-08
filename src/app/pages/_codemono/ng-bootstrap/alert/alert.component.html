@@ -1,0 +1,137 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Alert</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
+                Ng Bootstrap page</span>
+
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
+                ngbTooltip="For more information check the official Ng Bootstrap page">
+                <i class="fi-rr-comment"></i>
+            </button>
+
+            <a href="https://ng-bootstrap.github.io/#/components/alert/examples" class="btn btn-icon ghost-warning"
+                type="button" placement="bottom" ngbTooltip="See Doc">
+                <i class="fi-rr-document"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Container -->
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Basic Alert</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <ngb-alert [dismissible]="false" class="bg-warning text-light border-0">
+                            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                        </ngb-alert>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">
+                                Closable Alert</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p *ngFor="let alert of alerts">
+                        <ngb-alert [class]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Self closing alert</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        Static self-closing alert that disappears after 20 seconds (refresh the page if it has already
+                        disappeared)
+                    </p>
+                    <ngb-alert class="bg-warning text-light border-0" #staticAlert *ngIf="!staticAlertClosed"
+                        (closed)="staticAlertClosed = true">Check out our
+                        awesome new
+                        features!</ngb-alert>
+                    <hr />
+
+                    <p>
+                        Show a self-closing success message that disappears after 5 seconds.
+                    </p>
+                    <ngb-alert class="bg-success text-light border-0" #selfClosingAlert *ngIf="successMessage"
+                        type="success" (closed)="successMessage = ''">{{
+                        successMessage }}
+                    </ngb-alert>
+                    <p>
+                        <button class="btn btn-primary" (click)="changeSuccessMessage()">Change message</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mb-3">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header actions-toolbar border-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col">
+                            <h6 class="d-inline-block mb-0">Custom alert</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <p>
+                        <ngb-alert type="custom" class="bg-gradient text-light border-0" [dismissible]="false">
+                            <strong>Whoa!</strong> This is a custom alert.
+                        </ngb-alert>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,207 @@
+<!-- Start >> Option sidebar -->
+<nav class="optionsidebar">
+    <!-- Start >> Title -->
+    <div class="row pb-0 mr-0 ml-0 border-bottom bg-primary">
+        <div class="col-md-12 text-center">
+            <h5 class="mb-0 p-4 text-light">Theme Options</h5>
+        </div>
+    </div>
+    <!-- End >> Title -->
+
+    <!-- Start >> Options content -->
+    <div class="card text-center overflow-auto">
+        <div class="card-body">
+            <form [formGroup]="OptionForm">
+                <div class="row">
+                    <div class="col-12 d-flex mt-3 mb-3">
+                        <div class="avatar img-lg bg-gradient rounded-circle m-auto shadow-blue" id="custom-circle">
+                            <i class="fi-rr-palette icon-lg text-light"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pb-4 border-bottom">
+                    <div class="col-12">
+                        <p>Customize the design that suits you best and see the changes in real time</p>
+                    </div>
+                </div>
+
+                <div class="row pb-4 border-bottom">
+                    <div class="col-12 mt-4">
+                        <h6 class="card-title">Navbar Size</h6>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-12">
+
+
+                        <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioNavbarSize"
+                            formControlName="navbar">
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="SM" id="optionSM" (click)="navbarSM()"> SM
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="MD" id="optionMD" (click)="navbarMD()"> MD
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="LG" id="optionLG" (click)="navbarLG()"> LG
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="XL" id="optionXL" (click)="navbarXL()"> XL
+                            </label>
+                        </div>
+
+
+                        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-tertiary active">
+                            <input type="radio" name="options" id="optionSM" autocomplete="off" (click)="navbarSM()"> SM
+                        </label>
+                        <label class="btn btn-outline-tertiary">
+                            <input type="radio" name="options" id="optionMD" autocomplete="off" (click)="navbarMD()"> MD
+                        </label>
+                        <label class="btn btn-outline-tertiary">
+                            <input type="radio" name="options" id="optionLG" autocomplete="off" (click)="navbarLG()"> LG
+                        </label>
+                        <label class="btn btn-outline-tertiary">
+                            <input type="radio" name="options" id="optionXL" autocomplete="off" (click)="navbarXL()"
+                                checked> XL
+                        </label>
+                    </div> -->
+                    </div>
+                </div>
+
+                <div class="row pb-4 border-bottom">
+                    <div class="col-12 mt-4">
+                        <h6 class="card-title">Navbar Position</h6>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-12">
+
+                        <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioNavbarSize"
+                            formControlName="position">
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Inherit" id="optionInherit"
+                                    (click)="navbarInherit()"> Inherit
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Sticky" id="optionSticky" (click)="navbarSticky()">
+                                Sticky
+                            </label>
+                        </div>
+
+                        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-tertiary active">
+                                <input type="radio" name="options" id="optionInherit" autocomplete="off"
+                                    (click)="navbarInherit()" checked> Inherit
+                            </label>
+                            <label class="btn btn-outline-tertiary">
+                                <input type="radio" name="options" id="optionSticky" autocomplete="off"
+                                    (click)="navbarSticky()"> Sticky
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="row pb-4 border-bottom">
+                    <div class="col-12 mt-4">
+                        <h6 class="card-title">Action Bar</h6>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-12">
+
+                        <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioNavbarSize"
+                            formControlName="actionbar">
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="On" id="optionOn" (click)="actionBarOn()">
+                                On
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Off" id="optionOff" (click)="actionBarOff()">
+                                Off
+                            </label>
+                        </div>
+
+                        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-tertiary active">
+                                <input type="radio" name="options" id="optionOn" autocomplete="off"
+                                    (click)="actionBarOn()" checked> On
+                            </label>
+                            <label class="btn btn-outline-tertiary">
+                                <input type="radio" name="options" id="optionOff" autocomplete="off"
+                                    (click)="actionBarOff()"> Off
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="row pb-4 border-bottom">
+                    <div class="col-12 mt-4">
+                        <h6 class="card-title">Theme Scheme</h6>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioNavbarSize"
+                            formControlName="scheme">
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Dark" id="optionDark" (click)="dark()">
+                                Dark
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Light" id="optionLight" (click)="light()">
+                                Light
+                            </label>
+                        </div>
+                        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-tertiary">
+                                <input type="radio" name="options" id="optionDark" autocomplete="off" (click)="dark()">
+                                Dark
+                            </label>
+                            <label class="btn btn-outline-tertiary active">
+                                <input type="radio" name="options" id="optionLight" autocomplete="off" checked
+                                    (click)="light()"> Light
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col-12 mt-4">
+                        <h6 class="card-title">Theme Color</h6>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioNavbarSize"
+                            formControlName="color">
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Blue" id="optionBlue" (click)="blue()">
+                                Blue
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Orange" id="optionOrange" (click)="orange()">
+                                Orange
+                            </label>
+                            <label ngbButtonLabel class="btn-outline-tertiary">
+                                <input ngbButton type="radio" value="Green" id="optionGreen" (click)="green()">
+                                Green
+                            </label>
+                        </div>
+
+                        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-tertiary">
+                                <input type="radio" name="options" id="optionBlue" autocomplete="off" (click)="blue()"
+                                    checked> Blue
+                            </label>
+                            <label class="btn btn-outline-tertiary">
+                                <input type="radio" name="options" id="optionOrange" autocomplete="off"
+                                    (click)="orange()">
+                                Orange
+                            </label>
+                            <label class="btn btn-outline-tertiary">
+                                <input type="radio" name="options" id="optionGreen" autocomplete="off"
+                                    (click)="green()">
+                                Green
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- Start >> Options content -->
+</nav>
+<!-- End >> Option sidebar -->

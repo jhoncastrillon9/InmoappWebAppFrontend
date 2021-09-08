@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*Import Font*/
+// @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+/*Import Icons*/
+@import 'assets/scss/icons/uicons-regular-rounded.css';
+
+/* Import colors theme */
+@import 'assets/scss/colors/colors.scss';
+
+/* Import custom theme */
+@import 'assets/scss/theme/theme.scss';
+

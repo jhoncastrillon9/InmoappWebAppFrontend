@@ -1,0 +1,483 @@
+<!-- Action Bar-->
+<div id="actionbar" class="action-bar show-action-bar m-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between content-action-bar">
+        <!-- Title -->
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h5 class="my-1 mr-3">Property List</h5>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter"
+                aria-label="Filter" (click)="openFilter(true)">
+                <i class="fi-rr-filter"></i>
+            </button>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
+                aria-label="Add"  [routerLink]="['add']">
+                <i class="fi-rr-plus"></i>
+            </button>
+        </div>
+        <!-- Actions -->
+    </div>
+</div>
+<!-- Action Bar-->
+
+<!-- Option sidebar -->
+<p-sidebar [(visible)]="showFiller" [showCloseIcon]="false" position="right" styleClass="filter-sidebar">
+    <!-- Start >> Option sidebar -->
+    <nav>
+        <!-- Start >> Title -->
+        <div class="row pb-0 mr-0 ml-0">
+            <div class="col-12 filter-sidebar-title text-left">
+                <h5 class="mb-4 pt-4">Filters</h5>
+            </div>
+        </div>
+        <!-- End >> Title -->
+
+        <!-- Start >> Options content -->
+        <div class="p-4 text-left overflow-auto">
+            <form [formGroup]="frmFilter">
+
+
+                <div class="row pb-4">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="propertyId">PropertyId</label>
+                            <input type="text" class="form-control form-control-color" formControlName="propertyId" aria-describedby="propertyId">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="idIva">IdIva</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="idIva">
+                                <ng-option *ngFor="let item of ivaList" [value]="item.ivaId">{{item.ivaName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <input type="text" class="form-control form-control-color" formControlName="code" aria-describedby="code">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control form-control-color" formControlName="title" aria-describedby="title">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" class="form-control form-control-color" formControlName="description" aria-describedby="description">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control form-control-color" formControlName="address" aria-describedby="address">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="reception">Reception</label>
+                            <input type="text" class="form-control form-control-color" formControlName="reception" aria-describedby="reception">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="pool">Pool</label>
+                            <input type="text" class="form-control form-control-color" formControlName="pool" aria-describedby="pool">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="observation">Observation</label>
+                            <input type="text" class="form-control form-control-color" formControlName="observation" aria-describedby="observation">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="propertyStatusId">PropertyStatusId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyStatusId">
+                                <ng-option *ngFor="let item of propertyStatusList" [value]="item.propertyStatusId">{{item.propertyStatusName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="cityId">CityId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="cityId">
+                                <ng-option *ngFor="let item of cityList" [value]="item.cityId">{{item.cityName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="zoneId">ZoneId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="zoneId">
+                                <ng-option *ngFor="let item of zoneList" [value]="item.zoneId">{{item.zoneName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="ownerId">OwnerId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="ownerId">
+                                <ng-option *ngFor="let item of ownerList" [value]="item.ownerId">{{item.ownerName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="propertyCategoryId">PropertyCategoryId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyCategoryId">
+                                <ng-option *ngFor="let item of propertyCategoryList" [value]="item.propertyCategoryId">{{item.propertyCategoryName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="typeOfferId">TypeOfferId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="typeOfferId">
+                                <ng-option *ngFor="let item of typeOfferList" [value]="item.typeOfferId">{{item.typeOfferName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="form-group">
+                            <label for="compayId">CompayId</label>
+                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
+                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 col-sm-6 col-6 text-left">
+                        <button class="btn btn-block btn-default" (click)="resetForm()">
+                            Reset
+                        </button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-6 text-right">
+                        <button class="btn btn-block btn-primary" (click)="searchList()">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Start >> Options content -->
+    </nav>
+    <!-- End >> Option sidebar -->
+</p-sidebar>
+
+<!-- Container -->
+<div class="m-sm-4 m-3">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <!-- Loader -->
+                <div class="loader-orion" *ngIf="showLoading===true">
+                    <div class="spinner-grow text-primary m-auto" role="status">
+                    </div>
+                </div>
+                <!-- Property Table -->
+                <p-table #dt class="table" [value]="propertys" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="{first} to {last} of {totalRecords}" sortMode="multiple"
+                    [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['propertyId','idIva','code','title','description','address','priceOwner','percentage','feeCompany','recruitmentDate','finalPrice','rooms','toilets','reception','pool','area','observation','propertyStatusId','cityId','zoneId','ownerId','propertyCategoryId','typeOfferId','compayId']"
+                    styleClass="p-datatable-responsive-demo">
+
+                    <!-- Title table -->
+                    <ng-template pTemplate="caption">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-8 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Title -->
+                                <h5 class="m-3">Table Property</h5>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex align-items-center">
+                                <!-- Search -->
+                                <!-- <div class="d-flex align-items-center">
+                                  
+                                </div> -->
+                                <div class="input-group m-3">
+                                    <div class="input-icon input-icon-right">
+                                        <input pInputText type="text" class="form-control form-control-color"
+                                            (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                            placeholder="Search">
+                                        <span>
+                                            <i class="fi-rr-search text-muted"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ng-template>
+
+                    <!-- Header table -->
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="th1" pSortableColumn="propertyId">PropertyId
+                                <p-sortIcon field="propertyId"></p-sortIcon>
+                            </th>
+                            <th class="th2" pSortableColumn="idIva">IdIva
+                                <p-sortIcon field="idIva"></p-sortIcon>
+                            </th>
+                            <th class="th3" pSortableColumn="code">Code
+                                <p-sortIcon field="code"></p-sortIcon>
+                            </th>
+                            <th class="th4" pSortableColumn="title">Title
+                                <p-sortIcon field="title"></p-sortIcon>
+                            </th>
+                            <th class="th5" pSortableColumn="description">Description
+                                <p-sortIcon field="description"></p-sortIcon>
+                            </th>
+                            <th class="th6" pSortableColumn="address">Address
+                                <p-sortIcon field="address"></p-sortIcon>
+                            </th>
+                            <th class="th7" pSortableColumn="priceOwner">PriceOwner
+                                <p-sortIcon field="priceOwner"></p-sortIcon>
+                            </th>
+                            <th class="th8" pSortableColumn="percentage">Percentage
+                                <p-sortIcon field="percentage"></p-sortIcon>
+                            </th>
+                            <th class="th9" pSortableColumn="feeCompany">FeeCompany
+                                <p-sortIcon field="feeCompany"></p-sortIcon>
+                            </th>
+                            <th class="th10" pSortableColumn="recruitmentDate">RecruitmentDate
+                                <p-sortIcon field="recruitmentDate"></p-sortIcon>
+                            </th>
+                            <th class="th11" pSortableColumn="finalPrice">FinalPrice
+                                <p-sortIcon field="finalPrice"></p-sortIcon>
+                            </th>
+                            <th class="th12" pSortableColumn="rooms">Rooms
+                                <p-sortIcon field="rooms"></p-sortIcon>
+                            </th>
+                            <th class="th13" pSortableColumn="toilets">Toilets
+                                <p-sortIcon field="toilets"></p-sortIcon>
+                            </th>
+                            <th class="th14" pSortableColumn="reception">Reception
+                                <p-sortIcon field="reception"></p-sortIcon>
+                            </th>
+                            <th class="th15" pSortableColumn="pool">Pool
+                                <p-sortIcon field="pool"></p-sortIcon>
+                            </th>
+                            <th class="th16" pSortableColumn="area">Area
+                                <p-sortIcon field="area"></p-sortIcon>
+                            </th>
+                            <th class="th17" pSortableColumn="observation">Observation
+                                <p-sortIcon field="observation"></p-sortIcon>
+                            </th>
+                            <th class="th18" pSortableColumn="propertyStatusId">PropertyStatusId
+                                <p-sortIcon field="propertyStatusId"></p-sortIcon>
+                            </th>
+                            <th class="th19" pSortableColumn="cityId">CityId
+                                <p-sortIcon field="cityId"></p-sortIcon>
+                            </th>
+                            <th class="th20" pSortableColumn="zoneId">ZoneId
+                                <p-sortIcon field="zoneId"></p-sortIcon>
+                            </th>
+                            <th class="th21" pSortableColumn="ownerId">OwnerId
+                                <p-sortIcon field="ownerId"></p-sortIcon>
+                            </th>
+                            <th class="th22" pSortableColumn="propertyCategoryId">PropertyCategoryId
+                                <p-sortIcon field="propertyCategoryId"></p-sortIcon>
+                            </th>
+                            <th class="th23" pSortableColumn="typeOfferId">TypeOfferId
+                                <p-sortIcon field="typeOfferId"></p-sortIcon>
+                            </th>
+                            <th class="th24" pSortableColumn="compayId">CompayId
+                                <p-sortIcon field="compayId"></p-sortIcon>
+                            </th>
+                            <th class="th25">Actions</th>
+
+                        </tr>
+                    </ng-template>
+
+                    <!-- Body table -->
+                    <ng-template pTemplate="body" let-property>
+                        <tr>
+                            <td>
+                                <label class="p-column-title">PropertyId</label>
+                                <label class="p-right">{{property.propertyId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">IdIva</label>
+                                <label class="p-right">{{property.idIva}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Code</label>
+                                <label class="p-right">{{property.code}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Title</label>
+                                <label class="p-right">{{property.title}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Description</label>
+                                <label class="p-right">{{property.description}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Address</label>
+                                <label class="p-right">{{property.address}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">PriceOwner</label>
+                                <label class="p-right">{{property.priceOwner}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Percentage</label>
+                                <label class="p-right">{{property.percentage}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">FeeCompany</label>
+                                <label class="p-right">{{property.feeCompany}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">RecruitmentDate</label>
+                                <label class="p-right">{{property.recruitmentDate | customDate}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">FinalPrice</label>
+                                <label class="p-right">{{property.finalPrice}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Rooms</label>
+                                <label class="p-right">{{property.rooms}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Toilets</label>
+                                <label class="p-right">{{property.toilets}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Reception</label>
+                                <label class="p-right">{{property.reception}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Pool</label>
+                                <label class="p-right">{{property.pool}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Area</label>
+                                <label class="p-right">{{property.area}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Observation</label>
+                                <label class="p-right">{{property.observation}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">PropertyStatusId</label>
+                                <label class="p-right">{{property.propertyStatusId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">CityId</label>
+                                <label class="p-right">{{property.cityId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">ZoneId</label>
+                                <label class="p-right">{{property.zoneId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">OwnerId</label>
+                                <label class="p-right">{{property.ownerId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">PropertyCategoryId</label>
+                                <label class="p-right">{{property.propertyCategoryId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">TypeOfferId</label>
+                                <label class="p-right">{{property.typeOfferId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">CompayId</label>
+                                <label class="p-right">{{property.compayId}}</label>
+                            </td>
+
+                            <td>
+                                <label class="p-column-title">Actions</label>
+                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Edit"
+                                    ngbTooltip="Edit" [routerLink]="['/Properties/property/edit/', property.propertyId]">
+                                    <i class="fi-rr-pencil"></i>
+                                </button>
+                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(property)" placement="bottom" aria-label="Remove"
+                                    ngbTooltip="Remove">
+                                    <i class="fi-rr-trash"></i>
+                                </button>
+                            </td>
+
+
+                        </tr>
+                    </ng-template>
+
+                    <!-- Empty table -->
+                    <ng-template pTemplate="emptymessage">
+                        <tr *ngIf="showLoading===false">
+                            <td colspan="25" class="text-center">
+                                No data found.
+                            </td>
+                        </tr>
+                        <tr *ngIf="showLoading===true">
+                            <td colspan="25" class="text-center">
+                                <span>&nbsp;</span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
