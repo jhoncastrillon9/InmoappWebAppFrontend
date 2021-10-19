@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/start']);
         }, 1000);
       }).catch((error) => {
-        Swal.fire('Wrong username o password', 'Try again', 'error');
+        Swal.fire('Email o contraseña invalido', 'Intenta de nuevo', 'error');
         this.loading = false;
         this.error = error;
         this.cd.detectChanges();

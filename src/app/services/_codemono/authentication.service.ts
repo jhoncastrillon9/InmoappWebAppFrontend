@@ -61,6 +61,38 @@ export class AuthenticationService {
     });
   }
 
+  register(user: UserModel): any {
+    const url = environment.URL_SER_NODE + `authentication/Register`;
+
+    // console.log(url);
+    return new Promise((resolve, reject) => {
+      this.http
+        .post<any>(url, user)
+        .subscribe((res: any) => {
+
+            // console.log(res);
+            const dataResult = res.data;
+            if (dataResult.authenticated === 1) {
+              let user = new UserModel();
+              user = dataResult;
+              user.token = res.token;
+              user.avatar = user.avatar;
+              this.localService.setJsonValue(environment.APP_ID, user);
+              this.currentUserSubject.next(user);
+              resolve(user);
+              return;
+            }
+            reject(res.data);
+            return;
+        },
+          (err) => {
+            reject(err);
+          },
+          () => {}
+        );
+    });
+  }
+
   logout(): void {
     // localStorage.clear();
     localStorage.removeItem('df4dafc979b8afb15494b946dfb024ebceb0405f12205cf3c0d6188c78854f06');

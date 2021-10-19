@@ -22,14 +22,13 @@
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="row">
                                 <div class="col-md-12 col-12 text-center mb-4">
-                                    <h3>Hello, Welcome Back</h3>
+                                    <h3>Hola, Bienvenido de regreso!</h3>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <label for="username">User name</label>
+                                <label for="username">Email</label>
                                 <div class="input-icon input-icon-right">
-                                    <input type="text" class="form-control form-control-color" name="usuario"
-                                        formControlName="username" autocomplete="off" required>
+                                    <input type="email" class="form-control form-control-color" name="usuario" formControlName="username" autocomplete="off" required>
                                     <span>
                                         <i class="fi-rr-user text-muted"></i>
                                     </span>
@@ -37,10 +36,9 @@
                             </div>
 
                             <div class="input-group mb-3">
-                                <label for="password">password</label>
+                                <label for="password">Contraseña</label>
                                 <div class="input-icon input-icon-right">
-                                    <input type="password" class="form-control form-control-color" name="clave"
-                                        formControlName="password" autocomplete="off" required>
+                                    <input type="password" class="form-control form-control-color" name="clave" formControlName="password" autocomplete="off" required>
                                     <span>
                                         <i class="fi-rr-lock text-muted"></i>
                                     </span>
@@ -51,27 +49,27 @@
                     <div class="row pb-2">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-md-left text-center mb-2">
                             <input id="checkUser" type="checkbox">
-                            <label for="checkUser" class="text-xs mb-0">Remember me</label>
+                            <label for="checkUser" class="text-xs mb-0">Recordar contraseña</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-md-right text-center mb-2">
                             <a href="javascript:void(0);">
-                                <label class="text-xs mb-0" for="forgot-password">Forgot password?</label>
+                                <label class="text-xs mb-0" for="forgot-password">Recordar contraseña?</label>
                             </a>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                             <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">
-                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Start Now
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Iniciar Sesión
                             </button>
                         </div>
                     </div>
 
                     <div class="row mb-5">
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                            <span class="text-xs text-muted mr-3">Don't have account?</span>
+                            <span class="text-sm text-muted mr-3">¿No tienes una cuenta?</span>
                             <a href="javascript:void(0);" [routerLink]="['/register']"><span
-                                    class="text-xs text-primary">Create account</span></a>
+                                    class="text-md text-primary">Crear cuenta GRATIS!</span></a>
                         </div>
                     </div>
                 </form>

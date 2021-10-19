@@ -15,6 +15,8 @@ export class UserModel {
     public disabledBy?: number,
     public disabledAt?: Date,
     public active?: number,
+    public companyName?: string,
+    public email?: string,
 
     public token?: string
 
