@@ -8,8 +8,8 @@
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="row">
                                 <div class="col-md-12 col-12 mb-4 text-center">
-                                    <h3>Crea una cuenta GRATIS!</h3>
-                                    <span class="text-md">Bienvenido</span>
+                                    <h3>¡Crea tu cuenta GRATIS!</h3>
+                                    <span class="text-md">Prueba todas nuestras funciones</span>
                                 </div>
                             </div>
 
@@ -21,16 +21,24 @@
                                         <i class="fi-rr-user text-muted"></i>
                                     </span>
                                 </div>
+                                <span class="text-danger" *ngIf="frmRegister.controls['firstName'].errors !=null
+                                && (frmRegister.controls['firstName'].dirty || frmRegister.controls['firstName'].touched)">
+                                    Nombre no valido.
+                                </span>
                             </div>
 
                             <div class="input-group mb-3">
                                 <label for="email">Tu Email</label>
                                 <div class="input-icon input-icon-right">
                                     <input type="email" class="form-control form-control-color" formControlName="email" placeholder="" required>
-                                    <span>
-                                        <i class="fi-rr-user text-muted"></i>
+                                    <span>    
+                                        <i class="fi fi-rr-envelope text-muted"></i>                                                                            
                                     </span>
                                 </div>
+                                <span class="text-danger" *ngIf="frmRegister.controls['email'].errors !=null
+                                && (frmRegister.controls['email'].dirty || frmRegister.controls['email'].touched)">
+                                    Email no valido.
+                                </span>
                             </div>
 
                             <div class="input-group mb-3">
@@ -41,6 +49,10 @@
                                         <i class="fi fi-rr-building text-muted"></i>
                                     </span>
                                 </div>
+                                <span class="text-danger" *ngIf="frmRegister.controls['companyName'].errors !=null
+                                && (frmRegister.controls['companyName'].dirty || frmRegister.controls['companyName'].touched)">
+                                    Nombre de la inmobiliaria no valido.
+                                </span>
                             </div>
 
                             <div class="input-group mb-3">
@@ -51,25 +63,18 @@
                                         <i class="fi-rr-unlock text-muted"></i>
                                     </span>
                                 </div>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <label for="confirmPassword">Comfirmar contraseña</label>
-                                <div class="input-icon input-icon-right">
-                                    <input type="password" class="form-control form-control-color" formControlName="confirmPassword" placeholder="" required>
-                                    <span>
-                                        <i class="fi-rr-lock text-muted"></i>
-                                    </span>
-                                </div>
+                                <span class="text-danger" *ngIf="frmRegister.controls['password'].errors !=null
+                                && (frmRegister.controls['password'].dirty || frmRegister.controls['password'].touched)">
+                                    Contraseña no validad, Mínimo 4 Maxímo 20.
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="row pb-2">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-                            <div class="form-check mb-3">
-                                <input id="checkbox" type="checkbox">
-                                <label for="checkbox" class="text-xs mb-0">Acepto los terminos y condiciones.</label>
-                            </div>
+                            <span class="form-check mb-3">
+                                Al crear tu cuenta aceptas nuestros Términos y <br>Condiciones y Política de Tratamiento de Datos.
+                            </span>
                         </div>
                     </div>
                     <div class="row mb-3">

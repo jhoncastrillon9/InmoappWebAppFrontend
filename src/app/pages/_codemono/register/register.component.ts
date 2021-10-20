@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from 'src/app/models/_codemono/user.model';
 import { AuthenticationService } from 'src/app/services/_codemono/authentication.service';
@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     if (this.authenticationService.currentUserValueAcceso) {
       this.router.navigate(['/inicio']);
     }
+
     this.createForm();
   }
 
@@ -42,32 +43,19 @@ export class RegisterComponent implements OnInit {
 
     setTimeout(() => {
       this.theme.loadConfigurationLogin();
-    }, 50);
+    }, 50); 
   }
 
   createForm(): void {
     this.frmRegister = this.formBuilder.group({
       firstName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       companyName: ['', Validators.required],
-      password: ['', [Validators.required, Validators.min(4), Validators.max(20)]],
-      confirmPassword: ['', [Validators.required, Validators.min(4), Validators.max(20), this.validatePassword]],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]]     
     });
-  }
-
-  private validatePassword(control: AbstractControl) {
-    const password = control.value;
-    const comfirmPassword = this.frmRegister.get('password');
-    let error = null;
-    if (password != comfirmPassword) {
-      error = { ...error, dollar: 'needs a dollar symbol' };
-    }
-    return error;
-  }
+  } 
 
   onSubmit(): void {
-    const em = this.frmRegister.get('email');
-    console.log(em);
     if (this.frmRegister.invalid) {
 
       const form = document.getElementsByClassName('container-form')[0] as HTMLFormElement;
