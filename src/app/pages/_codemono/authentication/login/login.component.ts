@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   createForm(): void {
     this.frmLogin = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['',  [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       password: ['', Validators.required],
     });
   }
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.authenticationService
-      .login(this.frmLogin.controls.username.value, this.frmLogin.controls.password.value)
+      .login(this.frmLogin.controls.email.value, this.frmLogin.controls.password.value)
       .then(() => {
         setTimeout(() => {
           this.router.navigate(['/start']);

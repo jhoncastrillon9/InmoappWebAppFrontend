@@ -22,17 +22,21 @@
                         <div class="col-md-12 col-sm-12 col-12">
                             <div class="row">
                                 <div class="col-md-12 col-12 text-center mb-4">
-                                    <h3>Hola, Bienvenido de regreso!</h3>
+                                    <h3>¡Hola, Ingresa a tu cuenta!</h3>
                                 </div>
                             </div>
                             <div class="input-group mb-3">
                                 <label for="username">Email</label>
                                 <div class="input-icon input-icon-right">
-                                    <input type="email" class="form-control form-control-color" name="usuario" formControlName="username" autocomplete="off" required>
+                                    <input type="email" class="form-control form-control-color" name="email" formControlName="email" autocomplete="off" required>
                                     <span>
                                         <i class="fi-rr-user text-muted"></i>
                                     </span>
                                 </div>
+                                <span class="text-danger" *ngIf="frmLogin.controls['email'].errors !=null
+                                && (frmLogin.controls['email'].dirty || frmLogin.controls['email'].touched)">
+                                    Email no valido.
+                                </span>
                             </div>
 
                             <div class="input-group mb-3">
@@ -40,27 +44,27 @@
                                 <div class="input-icon input-icon-right">
                                     <input type="password" class="form-control form-control-color" name="clave" formControlName="password" autocomplete="off" required>
                                     <span>
-                                        <i class="fi-rr-lock text-muted"></i>
+                                        <i class="fi fi-rr-envelope text-muted"></i>   
                                     </span>
                                 </div>
+                                <span class="text-danger" *ngIf="frmLogin.controls['password'].errors !=null
+                                && (frmLogin.controls['password'].dirty || frmLogin.controls['password'].touched)">
+                                    Contraseña es obligatoria.
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="row pb-2">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-md-left text-center mb-2">
-                            <input id="checkUser" type="checkbox">
-                            <label for="checkUser" class="text-xs mb-0">Recordar contraseña</label>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-md-right text-center mb-2">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-md-right text-center mb-2">
                             <a href="javascript:void(0);">
-                                <label class="text-xs mb-0" for="forgot-password">Recordar contraseña?</label>
+                                <label class="text-md mb-0" for="forgot-password">¿Recordar contraseña?</label>
                             </a>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                             <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">
-                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Iniciar Sesión
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Ingresar
                             </button>
                         </div>
                     </div>
