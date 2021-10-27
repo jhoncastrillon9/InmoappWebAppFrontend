@@ -4,19 +4,17 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">AccountsStatus List</h5>
+                <h5 class="my-1 mr-3">Finanzas</h5>
             </div>
         </div>
 
         <!-- Actions -->
         <div class="d-flex align-items-center">
-            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter"
-                aria-label="Filter" (click)="openFilter(true)">
-                <i class="fi-rr-filter"></i>
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
+                Filtrar<i class="fi-rr-filter"></i>
             </button>
-            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
-                aria-label="Add"  [routerLink]="['add']">
-                <i class="fi-rr-plus"></i>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
+               Nuevo <i class="fi-rr-plus"></i>
             </button>
         </div>
         <!-- Actions -->
@@ -31,7 +29,7 @@
         <!-- Start >> Title -->
         <div class="row pb-0 mr-0 ml-0">
             <div class="col-12 filter-sidebar-title text-left">
-                <h5 class="mb-4 pt-4">Filters</h5>
+                <h5 class="mb-4 pt-4">Filtros</h5>
             </div>
         </div>
         <!-- End >> Title -->
@@ -62,13 +60,13 @@
                 <div class="row mb-3">
                     <div class="col-md-6 col-sm-6 col-6 text-left">
                         <button class="btn btn-block btn-default" (click)="resetForm()">
-                            Reset
+                            Limpiar
                         </button>
                     </div>
 
                     <div class="col-md-6 col-sm-6 col-6 text-right">
                         <button class="btn btn-block btn-primary" (click)="searchList()">
-                            Apply
+                            Aplicar
                         </button>
                     </div>
                 </div>
@@ -90,9 +88,7 @@
                     </div>
                 </div>
                 <!-- AccountsStatus Table -->
-                <p-table #dt class="table" [value]="accountsStatuss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-                    currentPageReportTemplate="{first} to {last} of {totalRecords}" sortMode="multiple"
-                    [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['accountsStatusId','accountsStatusName']"
+                <p-table #dt class="table" [value]="accountsStatuss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="{first} de {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['accountsStatusId','accountsStatusName']"
                     styleClass="p-datatable-responsive-demo">
 
                     <!-- Title table -->
@@ -100,7 +96,7 @@
                         <div class="row">
                             <div class="col-lg-9 col-md-8 col-sm-6 col-12 d-flex align-items-center">
                                 <!-- Title -->
-                                <h5 class="m-3">Table AccountsStatus</h5>
+                                <h5 class="m-3">Estado de las cuentas</h5>
                             </div>
                             <div class="col-lg-3 col-md-4 col-sm-6 col-12 d-flex align-items-center">
                                 <!-- Search -->
@@ -109,9 +105,7 @@
                                 </div> -->
                                 <div class="input-group m-3">
                                     <div class="input-icon input-icon-right">
-                                        <input pInputText type="text" class="form-control form-control-color"
-                                            (input)="dt.filterGlobal($event.target.value, 'contains')"
-                                            placeholder="Search">
+                                        <input pInputText type="text" class="form-control form-control-color" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Buscar">
                                         <span>
                                             <i class="fi-rr-search text-muted"></i>
                                         </span>
@@ -131,7 +125,7 @@
                             <th class="th2" pSortableColumn="accountsStatusName">AccountsStatusName
                                 <p-sortIcon field="accountsStatusName"></p-sortIcon>
                             </th>
-                            <th class="th3">Actions</th>
+                            <th class="th3">Opciones</th>
 
                         </tr>
                     </ng-template>
@@ -150,13 +144,11 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">Actions</label>
-                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Edit"
-                                    ngbTooltip="Edit" [routerLink]="['/Banks/accountsStatus/edit/', accountsStatus.accountsStatusId]">
+                                <label class="p-column-title">Opciones</label>
+                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Editar" ngbTooltip="Editar" [routerLink]="['/Banks/accountsStatus/edit/', accountsStatus.accountsStatusId]">
                                     <i class="fi-rr-pencil"></i>
                                 </button>
-                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(accountsStatus)" placement="bottom" aria-label="Remove"
-                                    ngbTooltip="Remove">
+                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(accountsStatus)" placement="bottom" aria-label="Eliminar" ngbTooltip="Eliminar">
                                     <i class="fi-rr-trash"></i>
                                 </button>
                             </td>
@@ -169,7 +161,7 @@
                     <ng-template pTemplate="emptymessage">
                         <tr *ngIf="showLoading===false">
                             <td colspan="3" class="text-center">
-                                No data found.
+                                No hay elementos para mostrar.
                             </td>
                         </tr>
                         <tr *ngIf="showLoading===true">

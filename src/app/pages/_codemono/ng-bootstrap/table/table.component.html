@@ -13,13 +13,11 @@
             <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
                 Ng Bootstrap page</span>
 
-            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
-                ngbTooltip="For more information check the official Ng Bootstrap page">
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left" ngbTooltip="For more information check the official Ng Bootstrap page">
                 <i class="fi-rr-comment"></i>
             </button>
 
-            <a href="https://ng-bootstrap.github.io/#/components/table/examples" class="btn btn-icon ghost-warning"
-                type="button" placement="bottom" ngbTooltip="See Doc">
+            <a href="https://ng-bootstrap.github.io/#/components/table/examples" class="btn btn-icon ghost-warning" type="button" placement="bottom" ngbTooltip="See Doc">
                 <i class="fi-rr-document"></i>
             </a>
         </div>
@@ -56,9 +54,7 @@
                             <tr *ngFor="let country of countries; index as i">
                                 <th scope="row">{{ i + 1 }}</th>
                                 <td>
-                                    <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                        class="mr-2" style="width: 20px">
-                                    {{ country.name }}
+                                    <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px"> {{ country.name }}
                                 </td>
                                 <td>{{ country.area | number }}</td>
                                 <td>{{ country.population | number }}</td>
@@ -94,8 +90,7 @@
 
                     <form>
                         <div class="form-group form-inline">
-                            Full text search: <input class="form-control ml-2" type="text" name="searchTerm"
-                                [(ngModel)]="service.searchTerm" />
+                            Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" />
                             <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
                         </div>
 
@@ -112,8 +107,7 @@
                                 <tr *ngFor="let country of countries$ | async">
                                     <th scope="row">{{ country.id }}</th>
                                     <td>
-                                        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                            class="mr-2" style="width: 20px">
+                                        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
                                         <ngb-highlight [result]="country.name" [term]="service.searchTerm">
                                         </ngb-highlight>
                                     </td>
@@ -122,20 +116,17 @@
                                         </ngb-highlight>
                                     </td>
                                     <td>
-                                        <ngb-highlight [result]="country.population | number"
-                                            [term]="service.searchTerm"></ngb-highlight>
+                                        <ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <div class="d-flex justify-content-between p-2">
-                            <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page"
-                                [pageSize]="service.pageSize">
+                            <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
                             </ngb-pagination>
 
-                            <select class="custom-select" style="width: auto" name="pageSize"
-                                [(ngModel)]="service.pageSize">
+                            <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
                                 <option [ngValue]="2">2 items per page</option>
                                 <option [ngValue]="4">4 items per page</option>
                                 <option [ngValue]="6">6 items per page</option>
@@ -162,8 +153,7 @@
                             <div class="form-group form-inline float-right d-flex align-content-center m-0">
                                 <div class="input-group">
                                     <div class="input-icon input-icon-right">
-                                        <input type="text" class="form-control form-control-color" name="searchTerm"
-                                            [(ngModel)]="service.searchTerm" placeholder="Search">
+                                        <input type="text" class="form-control form-control-color" name="searchTerm" [(ngModel)]="service.searchTerm" placeholder="Buscar">
                                         <span>
                                             <i class="fi-rr-search text-muted"></i>
                                         </span>
@@ -190,8 +180,7 @@
                                 <tr *ngFor="let country of countries$ | async">
                                     <th scope="row">{{ country.id }}</th>
                                     <td>
-                                        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-                                            class="mr-2" style="width: 20px">
+                                        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
                                         <ngb-highlight [result]="country.name" [term]="service.searchTerm">
                                         </ngb-highlight>
                                     </td>
@@ -200,20 +189,17 @@
                                         </ngb-highlight>
                                     </td>
                                     <td>
-                                        <ngb-highlight [result]="country.population | number"
-                                            [term]="service.searchTerm"></ngb-highlight>
+                                        <ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <div class="d-flex justify-content-between p-2">
-                            <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page"
-                                [pageSize]="service.pageSize">
+                            <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
                             </ngb-pagination>
 
-                            <select class="custom-select" style="width: auto" name="pageSize"
-                                [(ngModel)]="service.pageSize">
+                            <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
                                 <option [ngValue]="2">2 items per page</option>
                                 <option [ngValue]="4">4 items per page</option>
                                 <option [ngValue]="6">6 items per page</option>

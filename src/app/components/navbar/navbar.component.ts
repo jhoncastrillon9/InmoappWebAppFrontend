@@ -3,6 +3,9 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { UserModel } from 'src/app/models/_codemono/user.model';
 import { AuthenticationService } from 'src/app/services/_codemono/authentication.service';
 import { ThemeService } from 'src/app/services/_codemono/theme.service';
+import { RoleEmun } from 'src/app/Emuns/Users/RoleEnum';
+import { BaseComponent } from 'src/app/base/base.component';
+import { extend } from 'jquery';
 
 declare var $: any;
 
@@ -11,16 +14,15 @@ declare var $: any;
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent extends BaseComponent {
 
   @Output() sidebar = new EventEmitter<boolean>();
   @Output() option = new EventEmitter<boolean>();
 
-  // User
-  currentUser: UserModel;
+  
 
   // MediaMatcher
-  mediaQuery;
+  mediaQuery: MediaQueryList;
   mediaQueryListener: () => void;
 
   // SideBars
@@ -29,6 +31,7 @@ export class NavbarComponent implements OnInit {
 
   // tslint:disable-next-line: max-line-length
   constructor(changeDetectorRef: ChangeDetectorRef, public auth: AuthenticationService, mediaMatcher: MediaMatcher, public theme: ThemeService) {
+    super(auth);
     this.mediaQuery = mediaMatcher.matchMedia('(min-width: 991px)');
 
     this.mediaQueryListener = () => {
@@ -55,10 +58,12 @@ export class NavbarComponent implements OnInit {
       this.theme.loadConfiguration();
     }, 50);
 
-    // Load current user
-    this.currentUser = this.auth.currentUserValue;
+    super.ngOnInit();
   }
 
+/**
+ * Salir
+ */
   signOut(): void{
     this.auth.logout();
   }

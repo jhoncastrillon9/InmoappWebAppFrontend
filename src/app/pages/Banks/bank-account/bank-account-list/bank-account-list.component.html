@@ -10,13 +10,11 @@
 
         <!-- Actions -->
         <div class="d-flex align-items-center">
-            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filter"
-                aria-label="Filter" (click)="openFilter(true)">
-                <i class="fi-rr-filter"></i>
+            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
+                Filtrar<i class="fi-rr-filter"></i>
             </button>
-            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Add"
-                aria-label="Add"  [routerLink]="['add']">
-                <i class="fi-rr-plus"></i>
+            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
+               Nuevo <i class="fi-rr-plus"></i>
             </button>
         </div>
         <!-- Actions -->
@@ -31,7 +29,7 @@
         <!-- Start >> Title -->
         <div class="row pb-0 mr-0 ml-0">
             <div class="col-12 filter-sidebar-title text-left">
-                <h5 class="mb-4 pt-4">Filters</h5>
+                <h5 class="mb-4 pt-4">Filtros</h5>
             </div>
         </div>
         <!-- End >> Title -->
@@ -72,13 +70,13 @@
                 <div class="row mb-3">
                     <div class="col-md-6 col-sm-6 col-6 text-left">
                         <button class="btn btn-block btn-default" (click)="resetForm()">
-                            Reset
+                            Limpiar
                         </button>
                     </div>
 
                     <div class="col-md-6 col-sm-6 col-6 text-right">
                         <button class="btn btn-block btn-primary" (click)="searchList()">
-                            Apply
+                            Aplicar
                         </button>
                     </div>
                 </div>
@@ -100,9 +98,7 @@
                     </div>
                 </div>
                 <!-- BankAccount Table -->
-                <p-table #dt class="table" [value]="bankAccounts" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-                    currentPageReportTemplate="{first} to {last} of {totalRecords}" sortMode="multiple"
-                    [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['bankAccountId','bankAccountName','total','compayId']"
+                <p-table #dt class="table" [value]="bankAccounts" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="{first} de {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['bankAccountId','bankAccountName','total','compayId']"
                     styleClass="p-datatable-responsive-demo">
 
                     <!-- Title table -->
@@ -119,9 +115,7 @@
                                 </div> -->
                                 <div class="input-group m-3">
                                     <div class="input-icon input-icon-right">
-                                        <input pInputText type="text" class="form-control form-control-color"
-                                            (input)="dt.filterGlobal($event.target.value, 'contains')"
-                                            placeholder="Search">
+                                        <input pInputText type="text" class="form-control form-control-color" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Buscar">
                                         <span>
                                             <i class="fi-rr-search text-muted"></i>
                                         </span>
@@ -147,7 +141,7 @@
                             <th class="th4" pSortableColumn="compayId">CompayId
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
-                            <th class="th5">Actions</th>
+                            <th class="th5">Opciones</th>
 
                         </tr>
                     </ng-template>
@@ -176,13 +170,11 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">Actions</label>
-                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Edit"
-                                    ngbTooltip="Edit" [routerLink]="['/Banks/bankAccount/edit/', bankAccount.bankAccountId]">
+                                <label class="p-column-title">Opciones</label>
+                                <button class="btn btn-icon ghost-warning p-right" type="button" placement="bottom" arial-label="Editar" ngbTooltip="Editar" [routerLink]="['/Banks/bankAccount/edit/', bankAccount.bankAccountId]">
                                     <i class="fi-rr-pencil"></i>
                                 </button>
-                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(bankAccount)" placement="bottom" aria-label="Remove"
-                                    ngbTooltip="Remove">
+                                <button class="btn btn-icon ghost-danger p-right" type="button" (click)="delete(bankAccount)" placement="bottom" aria-label="Eliminar" ngbTooltip="Eliminar">
                                     <i class="fi-rr-trash"></i>
                                 </button>
                             </td>
@@ -195,7 +187,7 @@
                     <ng-template pTemplate="emptymessage">
                         <tr *ngIf="showLoading===false">
                             <td colspan="5" class="text-center">
-                                No data found.
+                                No hay elementos para mostrar.
                             </td>
                         </tr>
                         <tr *ngIf="showLoading===true">

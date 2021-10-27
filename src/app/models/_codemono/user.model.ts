@@ -14,11 +14,12 @@ export class UserModel {
     public updatedAt?: Date,
     public disabledBy?: number,
     public disabledAt?: Date,
+    public companyId?: number,
     public active?: number,
     public companyName?: string,
     public email?: string,
-
-    public token?: string
+    public token?: string,
+    public roles?: number[]
 
   ) { }
 }

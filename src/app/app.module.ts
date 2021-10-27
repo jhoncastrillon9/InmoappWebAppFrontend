@@ -15,11 +15,13 @@ import { AuthGuard } from './guards/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidebarModule} from 'primeng/sidebar';
 import { SidebarContentModule } from './components/sidebar/sidebar.module';
+import { BaseComponent } from './base/base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutInitialComponent,
+    BaseComponent,
   ],
   imports: [
     CommonModule,

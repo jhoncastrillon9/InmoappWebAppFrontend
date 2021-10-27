@@ -18,204 +18,213 @@
         <div class="border-bottom mt-5"></div>
 
     </div>
-     <!-- End >> Header Sidebar -->
+    <!-- End >> Header Sidebar -->
 
     <!-- Start >> Body Sidebar -->
     <ul class="list-unstyled components">
         <li class="menu" routerLinkActive="active">
             <a href="javascript:void(0);" class="ghost-primary icon-center" [routerLink]="['/start']">
-                <i class="fi-rr-apps mr-3"></i> Dashboard
+                <i class="fi-rr-apps mr-3"></i> Inicio
             </a>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#Banks" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Banks
+        <!-- INMUEBLES -->
+        <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,PropertyUser')" class="menu" routerLinkActive="active">
+            <a href="#Properties" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+
+                <i class="fi-rr-home mr-3"></i> Inmuebles
+
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
             </a>
 
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Banks">
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsStatus']" routerLinkActive="active">AccountsStatus</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsToPayContract']" routerLinkActive="active">AccountsToPayContract</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsToReceivableContract']" routerLinkActive="active">AccountsToReceivableContract</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']" routerLinkActive="active">BankAccount</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Banks/historyBankAccount']" routerLinkActive="active">HistoryBankAccount</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Banks/paymentType']" routerLinkActive="active">PaymentType</a>
-                </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Banks)-->
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Properties">
 
+                <ng-container>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Properties/property']" routerLinkActive="active">Inmuebles</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Properties/images']" routerLinkActive="active">Imagenes</a>
+                    </li>
+
+                </ng-container>
+
+                <ng-container *ngIf="containsRole('SuperAdmin')">
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Commons/city']" routerLinkActive="active">Ciudades</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Commons/neighborhood']" routerLinkActive="active">Barrios</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Commons/state']" routerLinkActive="active">Estados</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Commons/zone']" routerLinkActive="active">Zonas</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Properties/iva']" routerLinkActive="active">Impuestos</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Properties/propertyCategory']" routerLinkActive="active">Categorias</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Properties/propertyStatus']" routerLinkActive="active">Estado de inmuebles</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Properties/typeOffer']" routerLinkActive="active">Tipos de oferta</a>
+                    </li>
+                </ng-container>
 
 
 
 
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#Commons" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Commons
+
+        <!-- PERSONAS -->
+        <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,TennatUser,OwnerUser')" class="menu" routerLinkActive="active">
+            <a href="#Owners" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-users mr-3"></i> Personas
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
             </a>
 
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Commons">
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Commons/city']" routerLinkActive="active">City</a>
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Owners">
+                <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,OwnerUser')">
+                    <a href="javascript:void(0);" [routerLink]="['/Owners/owner']" routerLinkActive="active">Propietarios</a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Commons/neighborhood']" routerLinkActive="active">Neighborhood</a>
+                <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,TennatUser')">
+                    <a href="javascript:void(0);" [routerLink]="['/Tenants/tenant']" routerLinkActive="active">Arrendatarios</a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Commons/state']" routerLinkActive="active">State</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Commons/zone']" routerLinkActive="active">Zone</a>
-                </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Commons)-->
-
-
-
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#Companies" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Companies
-                <i class="fi-rr-angle-down icon-right"></i>
-                <i class="fi-rr-angle-up icon-right"></i>
-            </a>
 
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Companies">
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Companies/company']" routerLinkActive="active">Company</a>
-                </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Companies)-->
-            </ul>
-        </li>
-        <li class="menu" routerLinkActive="active">
+        <!-- CONTRATOS -->
+        <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,ContractUser')" class="menu" routerLinkActive="active">
             <a href="#Contracts" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Contracts
+                <i class="fi-rr-document mr-3"></i> Contratos
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
             </a>
 
             <ul class="collapse list-unstyled margin-collapse-sidebar" id="Contracts">
                 <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Contracts/contract']" routerLinkActive="active">Contract</a>
+                    <a href="javascript:void(0);" [routerLink]="['/Contracts/contract']" routerLinkActive="active">Contratos</a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Contracts/contractsStatus']" routerLinkActive="active">ContractsStatus</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Contracts/tenantsByContract']" routerLinkActive="active">TenantsByContract</a>
-                </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Contracts)-->
+                <ng-container *ngIf="containsRole('SuperAdmin')">
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Contracts/contractsStatus']" routerLinkActive="active">Estado de contratos</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [routerLink]="['/Contracts/tenantsByContract']" routerLinkActive="active">Arrendatarios por Contratos</a>
+                    </li>
+                </ng-container>
+
 
 
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#Owners" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Owners
+
+        <!-- FINANZAS -->
+        <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="menu" routerLinkActive="active">
+            <a href="#Banks" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-dollar mr-3"></i> Finanzas
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
             </a>
 
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Owners">
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Banks">
                 <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Owners/owner']" routerLinkActive="active">Owner</a>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']" routerLinkActive="active">Bancos</a>
                 </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Owners)-->
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsToReceivableContract']" routerLinkActive="active">Cuentas por cobrar</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsToPayContract']" routerLinkActive="active">Cuentas por pagar</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/historyBankAccount']" routerLinkActive="active">Transacciones</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/paymentType']" routerLinkActive="active">Tipos de pago</a>
+                </li>
+                <li *ngIf="containsRole('SuperAdmin')">
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsStatus']" routerLinkActive="active">Estado de cuentas</a>
+                </li>
+
+
+
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#Properties" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Properties
+
+
+        <!-- INTEGRACIONES CON PORTALES -->
+        <li *ngIf="containsRole('SuperAdmin,CompanyAdmin,IntegrationsUser')" class="menu" routerLinkActive="active">
+            <a href="#Commons" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-data-transfer mr-3"></i> Integraciones con portales
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
             </a>
 
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Properties">
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Commons">
                 <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Properties/images']" routerLinkActive="active">Images</a>
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/paymentType']" routerLinkActive="active">Integraciones</a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Properties/iva']" routerLinkActive="active">Iva</a>
+                <li *ngIf="containsRole('SuperAdmin')">
+                    <a href="javascript:void(0);" [routerLink]="['/Banks/accountsStatus']" routerLinkActive="active">Estado de Integraciones</a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Properties/property']" routerLinkActive="active">Property</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Properties/propertyCategory']" routerLinkActive="active">PropertyCategory</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Properties/propertyStatus']" routerLinkActive="active">PropertyStatus</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Properties/typeOffer']" routerLinkActive="active">TypeOffer</a>
-                </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Properties)-->
-
-
-
-
 
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#Tenants" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Tenants
-                <i class="fi-rr-angle-down icon-right"></i>
-                <i class="fi-rr-angle-up icon-right"></i>
+        <!-- USUARIOS -->
+        <li *ngIf="containsRole('SuperAdmin')" class="menu" routerLinkActive="active">
+            <a href="javascript:void(0);" class="ghost-primary icon-center" [routerLink]="['/user']">
+                <i class="fi-rr-users mr-3"></i> <span>Usuarios</span>
             </a>
-
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Tenants">
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/Tenants/tenant']" routerLinkActive="active">Tenant</a>
-                </li>
-                <!--CODEMONO: NO REMOVE THIS COMMENT (OPTION_Tenants)-->
-            </ul>
         </li>
-        <!--CODEMONO: NO REMOVE THIS COMMENT (MENU)-->
 
-
-
-
-
-
-
-
+        <!-- MI PERFIL -->
         <li class="menu" routerLinkActive="active">
-            <a href="#profile" class="dropdown-toggle-sidebar ghost-primary icon-center"
-                data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-heart mr-3"></i> Profile
+            <a href="#profile" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-user mr-3"></i> Mi perfil
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
             </a>
 
             <ul class="collapse list-unstyled margin-collapse-sidebar" id="profile">
                 <li>
-                    <a href="javascript:void(0);" [routerLink]="['/profile/profile-list']" routerLinkActive="active">Profile List</a>
+                    <a href="javascript:void(0);" [routerLink]="['/user/edit/', currentUser?.userId]" routerLinkActive="active">Mi perfil</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/user/edit/', currentUser?.userId]" routerLinkActive="active">Mi suscripción</a>
                 </li>
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="javascript:void(0);" class="ghost-primary icon-center" [routerLink]="['/user']">
-                <i class="fi-rr-user mr-3"></i> <span>Users</span>
+
+        <!-- CONFIGURACIONES -->
+        <li *ngIf="containsRole('SuperAdmin,CompanyAdmin')" class="menu" routerLinkActive="active">
+            <a href="#Companies" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
+                <i class="fi-rr-settings mr-3"></i> Configuraciones
+                <i class="fi-rr-angle-down icon-right"></i>
+                <i class="fi-rr-angle-up icon-right"></i>
             </a>
+
+            <ul class="collapse list-unstyled margin-collapse-sidebar" id="Companies">
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/Companies/company/edit/', currentUser?.companyId]" routerLinkActive="active">Inmobiliaria</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" [routerLink]="['/user/edit/', currentUser?.userId]" routerLinkActive="active">Mi suscripción</a>
+                </li>
+            </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#ngboostrap" class="dropdown-toggle-sidebar ghost-primary icon-center"
-                data-toggle="collapse" aria-expanded="false">
+
+
+        <!-- EJEMPLOS DE BOOSTRAP -->
+        <li *ngIf="containsRole('SuperAdmin')" class="menu" routerLinkActive="active">
+            <a href="#ngboostrap" class="dropdown-toggle-sidebar ghost-primary icon-center" data-toggle="collapse" aria-expanded="false">
                 <i class="fi-rr-shield mr-3"></i> NgBootstrap
                 <i class="fi-rr-angle-down icon-right"></i>
                 <i class="fi-rr-angle-up icon-right"></i>
@@ -278,74 +287,9 @@
                 </li>
             </ul>
         </li>
-        <li class="menu" routerLinkActive="active">
-            <a href="#projects" class="dropdown-toggle-sidebar ghost-primary icon-center"
-                data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-vector mr-3"></i> Projects
-                <i class="fi-rr-angle-down icon-right"></i>
-                <i class="fi-rr-angle-up icon-right"></i>
-            </a>
 
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="projects">
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/projects/card-list']" routerLinkActive="active">Card List</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/projects/table-list']" routerLinkActive="active">Table List</a>
-                </li>
-            </ul>
-        </li>
-        <!-- <li class="menu" routerLinkActive="active">
-            <a href="#task" class="dropdown-toggle-sidebar ghost-primary icon-center"
-                data-toggle="collapse" aria-expanded="false">
-                <i class="fi-rr-form mr-3"></i> Task
-                <i class="fi-rr-angle-down icon-right"></i>
-                <i class="fi-rr-angle-up icon-right"></i>
-            </a>
-
-            <ul class="collapse list-unstyled margin-collapse-sidebar" id="task">
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/task/kaban-board']" routerLinkActive="active">Kaban Board</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" [routerLink]="['/task/create-task']" routerLinkActive="active">Create Task</a>
-                </li>
-            </ul>
-        </li> -->
-        <li class="menu">
-            <a href="javascript:void(0);" class="ghost-primary icon-center">
-                <i class="fi-rr-resources mr-3"></i> Components
-            </a>
-        </li>
     </ul>
-     <!-- End >> Body Sidebar -->
+    <!-- End >> Body Sidebar -->
 
 </nav>
 <!-- End >> Sidebar  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
