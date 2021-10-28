@@ -42,11 +42,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="bankAccountName">BankAccountName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="bankAccountName"
-                                                [ngClass]="{ 'is-invalid': validation && f.bankAccountName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="bankAccountName" [ngClass]="{ 'is-invalid': validation && f.bankAccountName.errors }">
                                             <div *ngIf="validation && f.bankAccountName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.bankAccountName.errors.required">BankAccountName is required</div>
-                                                <div *ngIf="f.bankAccountName.errors.maxlength">Maximum field length is 50</div>
+                                                <div *ngIf="f.bankAccountName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,8 +53,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="total">Total</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="total"
-                                                [ngClass]="{ 'is-invalid': validation && f.total.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="total" [ngClass]="{ 'is-invalid': validation && f.total.errors }">
                                             <div *ngIf="validation && f.total.errors" class="invalid-feedback">
                                                 <div *ngIf="f.total.errors.required">Total is required</div>
                                                 <div *ngIf="f.total.errors.pattern">Only numbers</div>
@@ -66,8 +64,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="CompayId">CompayId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
-                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
                                                 <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
@@ -82,10 +79,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Banks/bankAccount']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Banks/bankAccount']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

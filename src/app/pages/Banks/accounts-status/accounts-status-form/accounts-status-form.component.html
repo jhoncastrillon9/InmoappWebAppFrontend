@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">AccountsStatus Form</h5>
+                <h5 class="my-1 mr-3">Finanzas</h5>
             </div>
         </div>
 
@@ -31,7 +31,8 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">AccountsStatus</h5>
+                                    <h5 *ngIf="editAction===true" class="card-title m-1">Editar estado de banco</h5>
+                                    <h5 *ngIf="editAction!==true" class="card-title m-1">Crear nuevo estado de banco</h5>
                                 </div>
 
                             </div>
@@ -41,11 +42,10 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="accountsStatusName">AccountsStatusName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="accountsStatusName"
-                                                [ngClass]="{ 'is-invalid': validation && f.accountsStatusName.errors }">
+                                            <label for="accountsStatusName">Nombre del estado</label>
+                                            <input type="text" class="form-control form-control-color" formControlName="accountsStatusName" [ngClass]="{ 'is-invalid': validation && f.accountsStatusName.errors }">
                                             <div *ngIf="validation && f.accountsStatusName.errors" class="invalid-feedback">
-                                                <div *ngIf="f.accountsStatusName.errors.maxlength">Maximum field length is 50</div>
+                                                <div *ngIf="f.accountsStatusName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
                                             </div>
                                         </div>
                                     </div>
@@ -55,10 +55,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Banks/accountsStatus']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Banks/accountsStatus']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

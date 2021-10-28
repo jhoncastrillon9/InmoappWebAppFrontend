@@ -42,10 +42,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="imageName">ImageName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="imageName"
-                                                [ngClass]="{ 'is-invalid': validation && f.imageName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="imageName" [ngClass]="{ 'is-invalid': validation && f.imageName.errors }">
                                             <div *ngIf="validation && f.imageName.errors" class="invalid-feedback">
-                                                <div *ngIf="f.imageName.errors.maxlength">Maximum field length is 50</div>
+                                                <div *ngIf="f.imageName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
                                             </div>
                                         </div>
                                     </div>
@@ -53,11 +52,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="path">Path</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="path"
-                                                [ngClass]="{ 'is-invalid': validation && f.path.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="path" [ngClass]="{ 'is-invalid': validation && f.path.errors }">
                                             <div *ngIf="validation && f.path.errors" class="invalid-feedback">
                                                 <div *ngIf="f.path.errors.required">Path is required</div>
-                                                <div *ngIf="f.path.errors.maxlength">Maximum field length is 150</div>
+                                                <div *ngIf="f.path.errors.maxlength">La cantidad de caracteres no puede ser mayor a 150</div>
                                             </div>
                                         </div>
                                     </div>
@@ -72,8 +70,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="PropertyId">PropertyId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId"
-                                                [ngClass]="{ 'is-invalid': validation && f.propertyId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId" [ngClass]="{ 'is-invalid': validation && f.propertyId.errors }">
                                                 <ng-option *ngFor="let item of propertyList" [value]="item.propertyId">{{item.propertyName}}
                                                 </ng-option>
                                             </ng-select>
@@ -88,10 +85,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Properties/images']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Properties/images']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

@@ -10,11 +10,11 @@
 
         <!-- Actions -->
         <div class="d-flex align-items-center">
-            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
-                Filtrar<i class="fi-rr-filter"></i>
+            <button class="btn btn-icon-reb ghost-warning mr-3" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
+                Filtrar &nbsp;<i class="fi-rr-filter"></i>
             </button>
-            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
-               Nuevo <i class="fi-rr-plus"></i>
+            <button class="btn btn-icon-reb ghost-success mr-3" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
+                Nuevo &nbsp;<i class="fi-rr-plus"></i>
             </button>
         </div>
         <!-- Actions -->
@@ -42,14 +42,14 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsStatusId">AccountsStatusId</label>
+                            <label for="accountsStatusId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="accountsStatusId" aria-describedby="accountsStatusId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsStatusName">AccountsStatusName</label>
+                            <label for="accountsStatusName">Nombre del estado</label>
                             <input type="text" class="form-control form-control-color" formControlName="accountsStatusName" aria-describedby="accountsStatusName">
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <!-- AccountsStatus Table -->
-                <p-table #dt class="table" [value]="accountsStatuss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="{first} de {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['accountsStatusId','accountsStatusName']"
+                <p-table #dt class="table" [value]="accountsStatuss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} - {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['accountsStatusId','accountsStatusName']"
                     styleClass="p-datatable-responsive-demo">
 
                     <!-- Title table -->
@@ -119,10 +119,10 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="accountsStatusId">AccountsStatusId
+                            <th class="th1" pSortableColumn="accountsStatusId">Id
                                 <p-sortIcon field="accountsStatusId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="accountsStatusName">AccountsStatusName
+                            <th class="th2" pSortableColumn="accountsStatusName">Nombre del estado
                                 <p-sortIcon field="accountsStatusName"></p-sortIcon>
                             </th>
                             <th class="th3">Opciones</th>
@@ -134,12 +134,12 @@
                     <ng-template pTemplate="body" let-accountsStatus>
                         <tr>
                             <td>
-                                <label class="p-column-title">AccountsStatusId</label>
+                                <label class="p-column-title">Id</label>
                                 <label class="p-right">{{accountsStatus.accountsStatusId}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">AccountsStatusName</label>
+                                <label class="p-column-title">Nombre del estado</label>
                                 <label class="p-right">{{accountsStatus.accountsStatusName}}</label>
                             </td>
 

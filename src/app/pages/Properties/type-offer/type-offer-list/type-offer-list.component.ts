@@ -73,7 +73,7 @@ export class TypeOfferListComponent implements OnInit {
       },
       (err) => { 
         //console.log(err);
-        Swal.fire('Error', 'Unexpected error', 'error');
+        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
       },
       () => {
         this.showLoading = false;
@@ -92,30 +92,30 @@ export class TypeOfferListComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>Do you want to enable this record?</h4>  <br>
-        <strong>Record # ${typeOffer.typeOfferId}</strong>`,
+        html: `<h4>¿Quieres activar este registro?</h4>  <br>
+        <strong>Registro # ${typeOffer.typeOfferId}</strong>`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.typeOfferService.enable(typeOffer.typeOfferId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('Error', res.data[0].message, 'error');
+              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
               return;
             }
 
-            Swal.fire('Edit', 'Record enabled', 'success').then(() => {
+            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
               this.load();
             });
           },
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('Error', 'Unexpected error', 'error');
+            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
           },
           () => {
             // Complete
@@ -126,30 +126,30 @@ export class TypeOfferListComponent implements OnInit {
     if (status) {
       Swal.fire({
         // title: '',
-        html: `<h4>Do you want to disable this record?</h4>
-        <br> <strong>Record # ${typeOffer.typeOfferId}</strong>`,
+        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
+        <br> <strong>Registro # ${typeOffer.typeOfferId}</strong>`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.typeOfferService.disable(typeOffer.typeOfferId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('Error', res.data[0].message, 'error');
+              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
               return;
             }
 
-            Swal.fire('Edit', 'Record disabled', 'success').then(() => {
+            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
               this.load();
             });
           },
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('Error', 'Unexpected error', 'error');
+            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
           },
           () => {
             // Complete
@@ -164,20 +164,20 @@ export class TypeOfferListComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>Do you want to <strong><u>delete permanently</u></strong> this record?</h4>  <br>
-        <strong>Record # ${typeOffer.typeOfferId}</strong>`,
+        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> este registro?</h4>  <br>
+        <strong>No podras recuperar el registro # ${typeOffer.typeOfferId}</strong>`,
         // icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.typeOfferService.delete(typeOffer.typeOfferId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('Error', res.data[0].message, 'error');
+              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
               return;
             }
 
@@ -188,7 +188,7 @@ export class TypeOfferListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('Error', 'Unexpected error', 'error');
+            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
           },
           () => {
             // Complete

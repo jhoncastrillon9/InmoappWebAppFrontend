@@ -10,11 +10,11 @@
 
         <!-- Actions -->
         <div class="d-flex align-items-center">
-            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
-                Filtrar<i class="fi-rr-filter"></i>
+            <button class="btn btn-icon-reb ghost-warning mr-3" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
+                Filtrar &nbsp;<i class="fi-rr-filter"></i>
             </button>
-            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
-               Nuevo <i class="fi-rr-plus"></i>
+            <button class="btn btn-icon-reb ghost-success mr-3" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
+                Nuevo &nbsp;<i class="fi-rr-plus"></i>
             </button>
         </div>
         <!-- Actions -->
@@ -210,7 +210,7 @@
                     </div>
                 </div>
                 <!-- Property Table -->
-                <p-table #dt class="table" [value]="propertys" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="{first} de {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['propertyId','idIva','code','title','description','address','priceOwner','percentage','feeCompany','recruitmentDate','finalPrice','rooms','toilets','reception','pool','area','observation','propertyStatusId','cityId','zoneId','ownerId','propertyCategoryId','typeOfferId','compayId']"
+                <p-table #dt class="table" [value]="propertys" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} - {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['propertyId','idIva','code','title','description','address','priceOwner','percentage','feeCompany','recruitmentDate','finalPrice','rooms','toilets','reception','pool','area','observation','propertyStatusId','cityId','zoneId','ownerId','propertyCategoryId','typeOfferId','compayId']"
                     styleClass="p-datatable-responsive-demo">
 
                     <!-- Title table -->

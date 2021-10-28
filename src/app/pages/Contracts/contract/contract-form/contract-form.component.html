@@ -43,16 +43,14 @@
                                         <div class="form-group">
                                             <label for="publishDate">ContractDate</label>
                                             <div class="input-group d-flex mb-4">
-                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy"
-                                                    ngbDatepicker #dpContractDate="ngbDatepicker" formControlName="contractDate"
-                                                    [ngClass]="{ 'is-invalid': validation && f.contractDate.errors }">
+                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy" ngbDatepicker #dpContractDate="ngbDatepicker" formControlName="contractDate" [ngClass]="{ 'is-invalid': validation && f.contractDate.errors }">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary icon-center calendar" (click)="dpContractDate.toggle()" type="button">
                                                         <i class="fi-rr-calendar"></i>
                                                     </button>
                                                 </div>
                                                 <div *ngIf="validation && f.contractDate.errors" class="invalid-feedback">
-                                                <div *ngIf="f.contractDate.errors.required">ContractDate is required</div>
+                                                    <div *ngIf="f.contractDate.errors.required">ContractDate is required</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,16 +60,14 @@
                                         <div class="form-group">
                                             <label for="publishDate">InnitialDate</label>
                                             <div class="input-group d-flex mb-4">
-                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy"
-                                                    ngbDatepicker #dpInnitialDate="ngbDatepicker" formControlName="innitialDate"
-                                                    [ngClass]="{ 'is-invalid': validation && f.innitialDate.errors }">
+                                                <input class="form-control form-control-color" placeholder="dd/mm/yyyy" ngbDatepicker #dpInnitialDate="ngbDatepicker" formControlName="innitialDate" [ngClass]="{ 'is-invalid': validation && f.innitialDate.errors }">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary icon-center calendar" (click)="dpInnitialDate.toggle()" type="button">
                                                         <i class="fi-rr-calendar"></i>
                                                     </button>
                                                 </div>
                                                 <div *ngIf="validation && f.innitialDate.errors" class="invalid-feedback">
-                                                <div *ngIf="f.innitialDate.errors.required">InnitialDate is required</div>
+                                                    <div *ngIf="f.innitialDate.errors.required">InnitialDate is required</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -80,8 +76,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="quantityMonths">QuantityMonths</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="quantityMonths"
-                                                [ngClass]="{ 'is-invalid': validation && f.quantityMonths.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="quantityMonths" [ngClass]="{ 'is-invalid': validation && f.quantityMonths.errors }">
                                             <div *ngIf="validation && f.quantityMonths.errors" class="invalid-feedback">
                                                 <div *ngIf="f.quantityMonths.errors.required">QuantityMonths is required</div>
                                                 <div *ngIf="f.quantityMonths.errors.pattern">Only integer numbers</div>
@@ -94,8 +89,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="rentalFeeForOwner">RentalFeeForOwner</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="rentalFeeForOwner"
-                                                [ngClass]="{ 'is-invalid': validation && f.rentalFeeForOwner.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="rentalFeeForOwner" [ngClass]="{ 'is-invalid': validation && f.rentalFeeForOwner.errors }">
                                             <div *ngIf="validation && f.rentalFeeForOwner.errors" class="invalid-feedback">
                                                 <div *ngIf="f.rentalFeeForOwner.errors.required">RentalFeeForOwner is required</div>
                                                 <div *ngIf="f.rentalFeeForOwner.errors.pattern">Only numbers</div>
@@ -106,8 +100,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="rentalFeeForTennat">RentalFeeForTennat</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="rentalFeeForTennat"
-                                                [ngClass]="{ 'is-invalid': validation && f.rentalFeeForTennat.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="rentalFeeForTennat" [ngClass]="{ 'is-invalid': validation && f.rentalFeeForTennat.errors }">
                                             <div *ngIf="validation && f.rentalFeeForTennat.errors" class="invalid-feedback">
                                                 <div *ngIf="f.rentalFeeForTennat.errors.required">RentalFeeForTennat is required</div>
                                                 <div *ngIf="f.rentalFeeForTennat.errors.pattern">Only numbers</div>
@@ -118,10 +111,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="observation">Observation</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="observation"
-                                                [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="observation" [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
                                             <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
-                                                <div *ngIf="f.observation.errors.maxlength">Maximum field length is 300</div>
+                                                <div *ngIf="f.observation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 300</div>
                                             </div>
                                         </div>
                                     </div>
@@ -139,8 +131,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="PropertyId">PropertyId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId"
-                                                [ngClass]="{ 'is-invalid': validation && f.propertyId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="propertyId" [ngClass]="{ 'is-invalid': validation && f.propertyId.errors }">
                                                 <ng-option *ngFor="let item of propertyList" [value]="item.propertyId">{{item.propertyName}}
                                                 </ng-option>
                                             </ng-select>
@@ -153,8 +144,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="TenantId">TenantId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="tenantId"
-                                                [ngClass]="{ 'is-invalid': validation && f.tenantId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="tenantId" [ngClass]="{ 'is-invalid': validation && f.tenantId.errors }">
                                                 <ng-option *ngFor="let item of tenantList" [value]="item.tenantId">{{item.tenantName}}
                                                 </ng-option>
                                             </ng-select>
@@ -167,8 +157,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="CompayId">CompayId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
-                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
                                                 <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
@@ -183,10 +172,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Contracts/contract']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Contracts/contract']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

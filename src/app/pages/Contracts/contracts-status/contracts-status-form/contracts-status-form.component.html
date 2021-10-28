@@ -42,11 +42,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="contractsStatusName">ContractsStatusName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="contractsStatusName"
-                                                [ngClass]="{ 'is-invalid': validation && f.contractsStatusName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="contractsStatusName" [ngClass]="{ 'is-invalid': validation && f.contractsStatusName.errors }">
                                             <div *ngIf="validation && f.contractsStatusName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.contractsStatusName.errors.required">ContractsStatusName is required</div>
-                                                <div *ngIf="f.contractsStatusName.errors.maxlength">Maximum field length is 200</div>
+                                                <div *ngIf="f.contractsStatusName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
                                             </div>
                                         </div>
                                     </div>
@@ -56,10 +55,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Contracts/contractsStatus']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Contracts/contractsStatus']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

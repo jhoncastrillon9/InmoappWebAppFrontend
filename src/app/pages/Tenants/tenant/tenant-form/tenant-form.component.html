@@ -42,11 +42,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="tenantName">TenantName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="tenantName"
-                                                [ngClass]="{ 'is-invalid': validation && f.tenantName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="tenantName" [ngClass]="{ 'is-invalid': validation && f.tenantName.errors }">
                                             <div *ngIf="validation && f.tenantName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.tenantName.errors.required">TenantName is required</div>
-                                                <div *ngIf="f.tenantName.errors.maxlength">Maximum field length is 200</div>
+                                                <div *ngIf="f.tenantName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,10 +53,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="document">Document</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="document"
-                                                [ngClass]="{ 'is-invalid': validation && f.document.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="document" [ngClass]="{ 'is-invalid': validation && f.document.errors }">
                                             <div *ngIf="validation && f.document.errors" class="invalid-feedback">
-                                                <div *ngIf="f.document.errors.maxlength">Maximum field length is 50</div>
+                                                <div *ngIf="f.document.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
                                             </div>
                                         </div>
                                     </div>
@@ -65,10 +63,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="telephone">Telephone</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="telephone"
-                                                [ngClass]="{ 'is-invalid': validation && f.telephone.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="telephone" [ngClass]="{ 'is-invalid': validation && f.telephone.errors }">
                                             <div *ngIf="validation && f.telephone.errors" class="invalid-feedback">
-                                                <div *ngIf="f.telephone.errors.maxlength">Maximum field length is 30</div>
+                                                <div *ngIf="f.telephone.errors.maxlength">La cantidad de caracteres no puede ser mayor a 30</div>
                                             </div>
                                         </div>
                                     </div>
@@ -76,11 +73,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="mobile">Mobile</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="mobile"
-                                                [ngClass]="{ 'is-invalid': validation && f.mobile.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="mobile" [ngClass]="{ 'is-invalid': validation && f.mobile.errors }">
                                             <div *ngIf="validation && f.mobile.errors" class="invalid-feedback">
                                                 <div *ngIf="f.mobile.errors.required">Mobile is required</div>
-                                                <div *ngIf="f.mobile.errors.maxlength">Maximum field length is 30</div>
+                                                <div *ngIf="f.mobile.errors.maxlength">La cantidad de caracteres no puede ser mayor a 30</div>
                                             </div>
                                         </div>
                                     </div>
@@ -88,10 +84,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="email"
-                                                [ngClass]="{ 'is-invalid': validation && f.email.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="email" [ngClass]="{ 'is-invalid': validation && f.email.errors }">
                                             <div *ngIf="validation && f.email.errors" class="invalid-feedback">
-                                                <div *ngIf="f.email.errors.maxlength">Maximum field length is 80</div>
+                                                <div *ngIf="f.email.errors.maxlength">La cantidad de caracteres no puede ser mayor a 80</div>
                                             </div>
                                         </div>
                                     </div>
@@ -99,10 +94,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="address">Address</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="address"
-                                                [ngClass]="{ 'is-invalid': validation && f.address.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="address" [ngClass]="{ 'is-invalid': validation && f.address.errors }">
                                             <div *ngIf="validation && f.address.errors" class="invalid-feedback">
-                                                <div *ngIf="f.address.errors.maxlength">Maximum field length is 200</div>
+                                                <div *ngIf="f.address.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
                                             </div>
                                         </div>
                                     </div>
@@ -110,10 +104,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="observation">Observation</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="observation"
-                                                [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="observation" [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
                                             <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
-                                                <div *ngIf="f.observation.errors.maxlength">Maximum field length is 500</div>
+                                                <div *ngIf="f.observation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 500</div>
                                             </div>
                                         </div>
                                     </div>
@@ -121,8 +114,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="CompayId">CompayId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
-                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
                                                 <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
@@ -137,10 +129,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Tenants/tenant']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Tenants/tenant']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

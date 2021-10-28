@@ -5,7 +5,9 @@
   * 2020 © CodeMono | All rights reserved
 */
 
+
 /*  Global variables */
+
 $font-primary: "Rubik";
 $font-secondary: sans-serif;
 $font-size: 16px;
@@ -14,6 +16,7 @@ $margin: 0;
 $transition: 0.3s ease all;
 
 /* Body style */
+
 body {
     font-family: $font-primary;
     font-size: $font-size;
@@ -22,31 +25,32 @@ body {
     color: $font-color;
     background-color: $background-color;
     transition: $transition;
-
     &.dark {
         color: $font-color-dark;
         background-color: $background-color-dark;
     }
 }
 
+
 /* Title App sidebar */
+
 .title-sidebar {
     color: $font-color-inerit-dark !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-inerit !important;
     }
 }
 
+
 /* Custom theme components */
+
 label {
     display: inline-block;
     margin-bottom: 0.5rem;
     font-size: 0.9em;
     color: $font-color !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark !important;
     }
@@ -69,13 +73,14 @@ h6 {
     line-height: 1.2;
     color: $font-color-hover !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
     }
 }
 
+
 /* Theme Selector Colors */
+
 .blue-option {
     border-color: var(--color-primary-blue) !important;
     color: var(--color-primary-blue) !important;
@@ -136,13 +141,12 @@ h6 {
     color: var(--color-primary-green-contrast) !important;
 }
 
-/* Background colors */
 
+/* Background colors */
 
 .bg-default {
     background-color: $background-color;
     transition: $transition;
-
     body.dark & {
         background-color: $background-color-dark;
     }
@@ -151,11 +155,9 @@ h6 {
 .bg-primary {
     background-color: var(--color-primary-blue) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green) !important;
     }
@@ -164,11 +166,9 @@ h6 {
 .bg-secondary {
     background-color: var(--color-secondary-blue) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange) !important;
     }
-
     body.green & {
         background-color: var(--color-secondary-green) !important;
     }
@@ -177,11 +177,9 @@ h6 {
 .bg-tertiary {
     background-color: var(--color-tertiary-blue) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green) !important;
     }
@@ -218,17 +216,17 @@ h6 {
 .bg-gradient {
     background: linear-gradient(45deg, var(--color-primary-blue), var(--color-secondary-blue)) !important;
     transition: $transition;
-
     body.orange & {
         background: linear-gradient(45deg, var(--color-primary-orange), var(--color-secondary-orange)) !important;
     }
-
     body.green & {
         background: linear-gradient(45deg, var(--color-primary-green), var(--color-secondary-green)) !important;
     }
 }
 
+
 /* Carousel */
+
 .carousel-inner {
     position: relative;
     width: 100%;
@@ -245,7 +243,9 @@ h6 {
     outline: 0 !important;
 }
 
+
 /* Close button */
+
 button.close {
     padding: 0 !important;
     border: 0;
@@ -256,7 +256,6 @@ button.close {
     width: 1em;
     margin: 0 !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark !important;
         background-color: $background-color-dark;
@@ -275,13 +274,14 @@ button.close {
 .close:hover {
     color: $font-color-hover !important;
     text-decoration: none;
-
     body.dark & {
         color: $font-color-hover-dark !important;
     }
 }
 
+
 /* button close modal */
+
 button.close-modal {
     padding: 0;
     background-color: transparent;
@@ -290,7 +290,6 @@ button.close-modal {
     height: 1em;
     border-radius: 50%;
     width: 1em;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -308,14 +307,15 @@ button.close-modal {
     color: $font-color-hover;
     text-decoration: none;
     background-color: $background-color;
-
     body.dark & {
         color: $font-color-hover-dark;
         background-color: $background-color-dark;
     }
 }
 
+
 /* Alert */
+
 .alert-dismissible .close {
     position: relative;
     left: 0;
@@ -329,7 +329,9 @@ button.close-modal {
     padding-right: 1rem;
 }
 
+
 /* Buttons small */
+
 .btn-menu-small:hover {
     color: $font-color !important;
 }
@@ -338,14 +340,15 @@ button.close-modal {
     color: $font-color-hover !important;
     background-color: rgb(0 0 0 / 6%) !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
         background-color: rgb(202 202 202 / 19%) !important;
     }
 }
 
+
 /* Button icon */
+
 .btn-icon {
     position: relative;
     display: -ms-inline-flexbox;
@@ -365,13 +368,18 @@ button.close-modal {
     color: var(--color-medium);
 }
 
+.btn-icon-reb {
+    border-radius: 2em;
+}
+
+
 /* Tooltip */
+
 .tooltip-inner {
     background: $background-inerit;
     color: $font-color;
     box-shadow: $box-shadow;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
         color: $font-color-dark;
@@ -387,7 +395,6 @@ button.close-modal {
 .bs-tooltip-bottom .arrow::before {
     border-bottom-color: $background-inerit;
     transition: $transition;
-
     body.dark & {
         border-bottom-color: $background-inerit-dark;
     }
@@ -397,7 +404,6 @@ button.close-modal {
 .bs-tooltip-top .arrow::before {
     border-top-color: $background-inerit;
     transition: $transition;
-
     body.dark & {
         border-top-color: $background-inerit-dark;
     }
@@ -407,7 +413,6 @@ button.close-modal {
 .bs-tooltip-left .arrow::before {
     border-left-color: $background-inerit;
     transition: $transition;
-
     body.dark & {
         border-left-color: $background-inerit-dark;
     }
@@ -417,13 +422,14 @@ button.close-modal {
 .bs-tooltip-right .arrow::before {
     border-right-color: $background-inerit;
     transition: $transition;
-
     body.dark & {
         border-right-color: $background-inerit-dark;
     }
 }
 
+
 /* Ghost style */
+
 .ghost-primary:active,
 .ghost-primary:focus,
 .ghost-primary:hover {
@@ -431,12 +437,10 @@ button.close-modal {
     background-color: rgba(var(--color-primary-blue-rgb)) !important;
     outline: 0;
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange) !important;
         background-color: rgba(var(--color-primary-orange-rgb)) !important;
     }
-
     body.green & {
         color: var(--color-primary-green) !important;
         background-color: rgba(var(--color-primary-green-rgb)) !important;
@@ -449,12 +453,10 @@ button.close-modal {
     color: var(--color-secondary-blue) !important;
     background-color: rgba(var(--color-secondary-blue-rgb)) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-secondary-orange) !important;
         background-color: rgba(var(--color-secondary-orange-rgb)) !important;
     }
-
     body.green & {
         color: var(--color-secondary-green) !important;
         background-color: rgba(var(--color-secondary-green-rgb)) !important;
@@ -467,12 +469,10 @@ button.close-modal {
     color: var(--color-tertiary-blue) !important;
     background-color: rgba(var(--color-tertiary-blue-rgb)) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-tertiary-orange) !important;
         background-color: rgba(var(--color-tertiary-orange-rgb)) !important;
     }
-
     body.green & {
         color: var(--color-tertiary-green) !important;
         background-color: rgba(var(--color-tertiary-green-rgb)) !important;
@@ -507,6 +507,7 @@ button.close-modal {
     color: var(--color-dark) !important;
 }
 
+
 /* Buttons */
 
 .btn {
@@ -518,9 +519,7 @@ button.close-modal {
     user-select: none;
     background-color: transparent;
     line-height: 1.5;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
-
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     body.dark & {
         color: $font-color-dark;
     }
@@ -532,13 +531,11 @@ button.close-modal {
     border-color: var(--color-primary-blue) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange) !important;
         border-color: var(--color-primary-orange) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green) !important;
         border-color: var(--color-primary-green) !important;
@@ -548,18 +545,15 @@ button.close-modal {
 
 .btn-primary.disabled,
 .btn-primary:disabled {
-
     background-color: var(--color-primary-blue-tint) !important;
     border-color: var(--color-primary-blue-tint) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange-tint) !important;
         border-color: var(--color-primary-orange-tint) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green-tint) !important;
         border-color: var(--color-primary-green-tint) !important;
@@ -573,13 +567,11 @@ button.close-modal {
     border-color: var(--color-primary-blue-tint) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange-tint) !important;
         border-color: var(--color-primary-orange-tint) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green-tint) !important;
         border-color: var(--color-primary-green-tint) !important;
@@ -592,13 +584,11 @@ button.close-modal {
     border-color: var(--color-primary-blue) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange) !important;
         border-color: var(--color-primary-orange) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green) !important;
         border-color: var(--color-primary-green) !important;
@@ -611,13 +601,11 @@ button.close-modal {
     color: var(--color-primary-blue) !important;
     background-color: transparent !important;
     transition: $transition;
-
     body.orange & {
         border-color: var(--color-primary-orange) !important;
         color: var(--color-primary-orange) !important;
         background-color: transparent !important;
     }
-
     body.green & {
         border-color: var(--color-primary-green) !important;
         color: var(--color-primary-green) !important;
@@ -630,13 +618,11 @@ button.close-modal {
     border-color: var(--color-primary-blue-tint) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange-tint) !important;
         border-color: var(--color-primary-orange-tint) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green-tint) !important;
         border-color: var(--color-primary-green-tint) !important;
@@ -652,13 +638,11 @@ button.close-modal {
     border-color: var(--color-primary-blue) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange) !important;
         border-color: var(--color-primary-orange) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green) !important;
         border-color: var(--color-primary-green) !important;
@@ -672,13 +656,11 @@ button.close-modal {
     border-color: var(--color-secondary-blue) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange) !important;
         border-color: var(--color-secondary-orange) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green) !important;
         border-color: var(-color-secondary-green) !important;
@@ -692,13 +674,11 @@ button.close-modal {
     border-color: var(--color-secondary-blue-tint) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange-tint) !important;
         border-color: var(--color-secondary-orange-tint) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green-tint) !important;
         border-color: var(-color-secondary-green-tint) !important;
@@ -712,13 +692,11 @@ button.close-modal {
     border-color: var(--color-secondary-blue-tint) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange-tint) !important;
         border-color: var(--color-secondary-orange-tint) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green-tint) !important;
         border-color: var(-color-secondary-green-tint) !important;
@@ -731,13 +709,11 @@ button.close-modal {
     border-color: var(--color-secondary-blue) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange) !important;
         border-color: var(--color-secondary-orange) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green) !important;
         border-color: var(-color-secondary-green) !important;
@@ -750,13 +726,11 @@ button.close-modal {
     color: var(--color-secondary-blue) !important;
     background-color: transparent !important;
     transition: $transition;
-
     body.orange & {
         border-color: var(--color-secondary-orange) !important;
         color: var(--color-secondary-orange) !important;
         background-color: transparent !important;
     }
-
     body.green & {
         border-color: var(-color-secondary-green) !important;
         color: var(-color-secondary-green) !important;
@@ -769,13 +743,11 @@ button.close-modal {
     border-color: var(--color-secondary-blue) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange) !important;
         border-color: var(--color-secondary-orange) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green) !important;
         border-color: var(-color-secondary-green) !important;
@@ -791,13 +763,11 @@ button.close-modal {
     border-color: var(--color-secondary-blue-tint) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange-tint) !important;
         border-color: var(--color-secondary-orange-tint) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green-tint) !important;
         border-color: var(-color-secondary-green-tint) !important;
@@ -811,13 +781,11 @@ button.close-modal {
     border-color: var(--color-tertiary-blue) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange) !important;
         border-color: var(--color-tertiary-orange) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green) !important;
         border-color: var(--color-tertiary-green) !important;
@@ -831,13 +799,11 @@ button.close-modal {
     border-color: var(--color-tertiary-blue-tint) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange-tint) !important;
         border-color: var(--color-tertiary-orange-tint) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green-tint) !important;
         border-color: var(--color-tertiary-green-tint) !important;
@@ -851,13 +817,11 @@ button.close-modal {
     border-color: var(--color-tertiary-blue-tint) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange-tint) !important;
         border-color: var(--color-tertiary-orange-tint) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green-tint) !important;
         border-color: var(--color-tertiary-green-tint) !important;
@@ -870,13 +834,11 @@ button.close-modal {
     border-color: var(--color-tertiary-blue) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange) !important;
         border-color: var(--color-tertiary-orange) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green) !important;
         border-color: var(--color-tertiary-green) !important;
@@ -889,13 +851,11 @@ button.close-modal {
     color: var(--color-tertiary-blue) !important;
     background-color: transparent !important;
     transition: $transition;
-
     body.orange & {
         border-color: var(--color-tertiary-orange) !important;
         color: var(--color-tertiary-orange) !important;
         background-color: transparent !important;
     }
-
     body.green & {
         border-color: var(--color-tertiary-green) !important;
         color: var(--color-tertiary-green) !important;
@@ -908,13 +868,11 @@ button.close-modal {
     border-color: var(--color-tertiary-blue) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange) !important;
         border-color: var(--color-tertiary-orange) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green) !important;
         border-color: var(--color-tertiary-green) !important;
@@ -930,13 +888,11 @@ button.close-modal {
     border-color: var(--color-tertiary-blue-tint) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange-tint) !important;
         border-color: var(--color-tertiary-orange-tint) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green-tint) !important;
         border-color: var(--color-tertiary-green-tint) !important;
@@ -1234,7 +1190,6 @@ button.close-modal {
     background-color: $background-color !important;
     border-color: $background-color !important;
     color: $font-color !important;
-
     body.dark & {
         background-color: $background-color-dark !important;
         border-color: $background-color-dark !important;
@@ -1247,7 +1202,6 @@ button.close-modal {
     background-color: $background-color !important;
     border-color: $background-color !important;
     color: $font-color-hover !important;
-
     body.dark & {
         background-color: $background-color-dark !important;
         border-color: $background-color-dark !important;
@@ -1259,7 +1213,6 @@ button.close-modal {
     background-color: $background-color !important;
     border-color: $background-color !important;
     color: $font-color-hover !important;
-
     body.dark & {
         background-color: $background-color-dark !important;
         border-color: $background-color-dark !important;
@@ -1267,15 +1220,15 @@ button.close-modal {
     }
 }
 
+
 /* Text colors */
+
 .text-primary {
     color: var(--color-primary-blue) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         color: var(--color-primary-green) !important;
     }
@@ -1284,11 +1237,9 @@ button.close-modal {
 .text-secondary {
     color: var(--color-secondary-blue) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-secondary-orange) !important;
     }
-
     body.green & {
         color: var(-color-secondary-green) !important;
     }
@@ -1297,11 +1248,9 @@ button.close-modal {
 .text-tertiary {
     color: var(--color-tertiary-blue) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-tertiary-orange) !important;
     }
-
     body.green & {
         color: var(--color-tertiary-green) !important;
     }
@@ -1340,7 +1289,9 @@ html {
     margin-right: 0;
 }
 
+
 /* Scrollbar */
+
 ::-webkit-scrollbar {
     width: 0.4em;
     background-color: #fff;
@@ -1375,33 +1326,28 @@ html {
 //     border-radius: .3em;
 //     background-color: #e76969;
 // }
-
-
 // .ps--active-x>.ps__rail-x,
 // .ps--active-y>.ps__rail-y {
 //     background-color: transparent;
 //     display: block;
 // }
-
 // perfect-scrollbar>.ps.ps--active-y>.ps__rail-y {
 //     background-color: #fff !important;
 //     width: 0.625rem;
-
 //     body.dark & {
 //         background-color: #000 !important;
 //     }
 // }
-
 // .ps--scrolling-y .ps__rail-y {
 //     opacity: 0;
 // }
-
 // .ps--scrolling-y .ps__thumb-y {
 //     background-color: #949494 !important;
 //     width: 0.4rem;
 // }
 
 /* SVG */
+
 svg {
     overflow: hidden;
     vertical-align: top;
@@ -1410,31 +1356,29 @@ svg {
 .svgColor {
     fill: rgb(var(--color-primary-blue-rgb-svg));
     transition: $transition;
-
     body.orange & {
         fill: rgb(var(--color-primary-orange-rgb-svg));
     }
-
     body.green & {
         fill: rgb(var(--color-primary-green-rgb-svg));
     }
 }
 
+
 /* background gradient curved */
+
 .curved {
     background: linear-gradient(90deg, var(--color-primary-blue), var(--color-secondary-blue)) !important;
     color: var(--color-light) !important;
     text-align: center;
     margin: 0em !important;
     transition: $transition;
-
     body.orange & {
         background: linear-gradient(90deg, var(--color-primary-orange), var(--color-secondary-orange)) !important;
         color: var(--color-light) !important;
         text-align: center;
         margin: 0em !important;
     }
-
     body.green & {
         background: linear-gradient(90deg, var(--color-primary-green), var(-color-secondary-green)) !important;
         color: var(--color-light) !important;
@@ -1447,7 +1391,6 @@ svg {
     color: $font-color;
     border: none !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -1456,12 +1399,13 @@ svg {
 // .row {
 //     padding-bottom: 1.875em;
 // }
-
 .sub-container {
     padding: 1.5625em 0 0 0;
 }
 
+
 /* Card */
+
 .card {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1478,7 +1422,6 @@ svg {
     border-radius: 0.4em;
     box-shadow: 0 0 20px 0 rgba(76, 87, 125, 0.02);
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
     }
@@ -1497,7 +1440,6 @@ svg {
     background-color: $background-inerit;
     border-bottom: 0.125rem solid $background-color;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border-bottom: 0.125rem solid $background-color-dark;
@@ -1507,7 +1449,6 @@ svg {
 .card-title {
     color: $font-color-hover;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
     }
@@ -1525,7 +1466,6 @@ svg {
     background-color: $background-inerit;
     border-top: 0.0625rem solid $border-color;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border-top: 0.0625rem solid $border-color-dark;
@@ -1537,7 +1477,6 @@ svg {
     font-size: 0.875em;
     color: $font-color-hover;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
     }
@@ -1560,19 +1499,19 @@ svg {
         width: 4em !important;
         height: 4em !important;
     }
-
     .w-progress {
         width: 100%;
         min-width: 100%;
     }
 }
 
+
 /* Button link */
+
 .btn-link {
     color: $font-color;
     margin: .3em;
     text-decoration: underline;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -1582,30 +1521,29 @@ svg {
     color: var(--color-primary-blue);
     opacity: 1 !important;
     text-decoration: underline;
-
     body.dark & {
         color: var(--color-primary-blue);
     }
-
     body.orange & {
         color: var(--color-primary-orange);
     }
-
     body.green & {
         color: var(--color-primary-green);
     }
 }
 
+
 /* Accordion */
+
 .accordion>.card>.card-header {
     border-radius: 0;
     margin-bottom: -1px;
     background-color: $background-color;
-
     body.dark & {
         background-color: $background-color-dark;
     }
 }
+
 
 /* Datepicker */
 
@@ -1613,7 +1551,6 @@ ngb-datepicker.dropdown-menu {
     padding: 0;
     border: 1px solid $border-color;
     box-shadow: 0px 20px 1.875em 0.5rem rgb(113 113 113 / 17%);
-
     body.dark & {
         border: 1px solid $border-color-dark;
         box-shadow: 0px 20px 1.875em 0.5rem rgb(183 183 183 / 17%);
@@ -1633,7 +1570,6 @@ ngb-datepicker.dropdown-menu {
     text-align: center;
     width: 2rem;
     color: $font-color;
-
     body.dark & {
         color: #828282;
     }
@@ -1644,7 +1580,6 @@ ngb-datepicker.dropdown-menu {
     border-bottom: 0;
     border-radius: .25rem .25rem 0 0;
     padding-top: .25rem;
-
     body.dark & {
         background-color: $background-color-dark !important;
     }
@@ -1654,7 +1589,6 @@ ngb-datepicker.dropdown-menu {
     background-color: $background-color !important;
     border-bottom: 0px solid rgba(0, 0, 0, .125) !important;
     border-radius: 0;
-
     body.dark & {
         background-color: $background-color-dark !important;
     }
@@ -1669,7 +1603,6 @@ ngb-datepicker.dropdown-menu {
 
 .ngb-dp-weekday {
     color: $font-color-hover !important;
-
     body.dark & {
         color: $font-color-hover-dark !important;
         ;
@@ -1706,12 +1639,10 @@ ngb-datepicker.dropdown-menu {
     background-color: var(--color-primary-blue);
     color: var(--color-primary-blue-contrast);
     border-radius: .3em;
-
     body.orange & {
         background-color: var(--color-primary-orange);
         color: var(--color-primary-orange-contrast);
     }
-
     body.green & {
         background-color: var(--color-primary-green);
         color: var(--color-primary-green-contrast);
@@ -1722,16 +1653,13 @@ ngb-datepicker.dropdown-menu {
     background-color: rgba(var(--color-primary-blue-rgb-svg), 30%);
     color: var(--color-dark);
     border-radius: 0em;
-
     body.dark & {
         color: var(--color-light) !important;
     }
-
     body.orange & {
         background-color: rgba(var(--color-primary-orange-rgb-svg), 30%);
         color: var(--color-dark);
     }
-
     body.green & {
         background-color: rgba(var(--color-primary-green-rgb-svg), 30%);
         color: var(--color-dark);
@@ -1744,13 +1672,14 @@ ngb-datepicker.dropdown-menu {
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-
     body.dark & {
         background-color: $background-color-dark !important;
     }
 }
 
+
 /* Modal */
+
 .modal {
     position: fixed;
     top: 0;
@@ -1771,7 +1700,6 @@ ngb-datepicker.dropdown-menu {
     border-bottom: 0.0625rem solid $border-color;
     border-top-left-radius: calc(.3rem - 1px);
     border-top-right-radius: calc(.3rem - 1px);
-
     body.dark & {
         border-bottom: 0.0625rem solid $border-color-dark;
     }
@@ -1794,12 +1722,10 @@ ngb-datepicker.dropdown-menu {
     border: 0.0625rem solid $border-color;
     border-radius: .3rem;
     outline: 0;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border: 0.0625rem solid $border-color-dark;
     }
-
 }
 
 .modal-footer {
@@ -1811,7 +1737,6 @@ ngb-datepicker.dropdown-menu {
     border-top: 0.0625rem solid $border-color;
     border-bottom-right-radius: calc(.3rem - 1px);
     border-bottom-left-radius: calc(.3rem - 1px);
-
     body.dark & {
         border-top: 0.0625rem solid $border-color-dark;
     }
@@ -1825,13 +1750,14 @@ ngb-datepicker.dropdown-menu {
     width: 100vw;
     height: 100vh;
     background-color: rgb(0 0 0 / 35%);
-
     body.dark & {
         background-color: rgb(0 0 0 / 35%);
     }
 }
 
+
 /* Form Control */
+
 .form-control {
     display: block;
     width: 100%;
@@ -1846,7 +1772,6 @@ ngb-datepicker.dropdown-menu {
     background-clip: padding-box;
     border-radius: 0.3rem;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -1859,7 +1784,6 @@ ngb-datepicker.dropdown-menu {
     background-color: $background-color;
     opacity: .4;
     transition: $transition;
-
     body.dark & {
         background-color: $background-color-dark;
         opacity: .4;
@@ -1889,7 +1813,6 @@ ngb-datepicker.dropdown-menu {
     box-shadow: none;
     outline: 0;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -1906,7 +1829,6 @@ ngb-datepicker.dropdown-menu {
     box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-blue-rgb));
     outline: 0;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -1914,12 +1836,10 @@ ngb-datepicker.dropdown-menu {
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-blue-rgb));
         outline: 0;
     }
-
     body.orange & {
         border-color: var(--color-primary-orange) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-orange-rgb));
     }
-
     body.green & {
         border-color: var(--color-primary-green) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-green-rgb));
@@ -1930,7 +1850,6 @@ ngb-datepicker.dropdown-menu {
     color: $placeholder;
     font-weight: normal !important;
     transition: $transition;
-
     body.dark & {
         color: $placeholder-dark;
         font-weight: lighter !important;
@@ -1959,7 +1878,6 @@ ngb-datepicker.dropdown-menu {
     background-color: $background-inerit;
     border: 0.0625rem solid $border-color;
     border-radius: 0.25rem;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -2037,7 +1955,6 @@ ngb-datepicker.dropdown-menu {
     background-repeat: no-repeat;
     background-position: left calc(.375em + .1875rem) center;
     background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-
     body.dark & {
         border-color: var(--color-danger) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-danger-rgb));
@@ -2048,7 +1965,6 @@ ngb-datepicker.dropdown-menu {
 .was-validated .form-control:invalid:focus {
     border-color: var(--color-danger) !important;
     box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-danger-rgb));
-
     body.dark & {
         border-color: var(--color-danger) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-danger-rgb));
@@ -2064,10 +1980,9 @@ ngb-datepicker.dropdown-menu {
     background-repeat: no-repeat;
     background-position: left calc(.375em + .1875rem) center;
     background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-
     body.dark & {
         border-color: var(--color-success) !important;
-    box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-success-rgb));
+        box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-success-rgb));
     }
 }
 
@@ -2075,14 +1990,15 @@ ngb-datepicker.dropdown-menu {
 .was-validated .form-control:valid:focus {
     border-color: var(--color-success) !important;
     box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-success-rgb));
-
     body.dark & {
         border-color: var(--color-success) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-success-rgb));
     }
 }
 
+
 /* Spinner */
+
 .spinner-border {
     display: inline-block;
     width: 2rem;
@@ -2101,7 +2017,9 @@ ngb-datepicker.dropdown-menu {
     border-width: .2em;
 }
 
+
 /* Ng Select */
+
 .ng-select.ng-select-opened>.ng-select-container {
     background: $background-inerit;
     border-color: $input-border-focus;
@@ -2111,18 +2029,15 @@ ngb-datepicker.dropdown-menu {
     border-color: var(--color-primary-blue) !important;
     box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-blue-rgb)) !important;
     transition: $transition;
-
     body.orange & {
         border-color: var(--color-primary-orange) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-orange-rgb)) !important;
     }
-
     body.green & {
         border-color: var(--color-primary-green) !important;
         box-shadow: 0 0 0.9em 0.0625rem rgba(var(--color-primary-green-rgb)) !important;
     }
 }
-
 
 .ng-select.ng-select-opened>.ng-select-container:hover {
     box-shadow: none;
@@ -2150,20 +2065,19 @@ ngb-datepicker.dropdown-menu {
 
 .ng-select.ng-select-focused:not(.ng-select-opened)>.ng-select-container {
     border-color: var(--color-primary-blue) !important;
-
     body.orange & {
         border-color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         border-color: var(--color-primary-green) !important;
     }
 }
 
-.ng-select.ng-select-disabled > .ng-select-container {
+.ng-select.ng-select-disabled>.ng-select-container {
     background-color: #fcfcfd;
     border-color: #fff;
 }
+
 .ng-select .ng-has-value .ng-placeholder {
     display: none;
 }
@@ -2175,7 +2089,6 @@ ngb-datepicker.dropdown-menu {
     border: 0.0625rem solid #d6d6d6;
     align-items: center;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -2348,7 +2261,6 @@ ngb-datepicker.dropdown-menu {
 .ng-select.is-invalid .ng-select-container {
     border-color: #dc3545 !important;
     // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px #fde6e8;
-
 }
 
 .ng-dropdown-panel {
@@ -2356,7 +2268,6 @@ ngb-datepicker.dropdown-menu {
     border: 0.0625rem solid $border-color;
     box-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.06);
     left: 0;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border: 0.0625rem solid $border-color-dark;
@@ -2425,7 +2336,6 @@ ngb-datepicker.dropdown-menu {
     color: $font-color;
     background-color: $background-inerit;
     padding: 0.5rem 0.625rem;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -2437,18 +2347,15 @@ ngb-datepicker.dropdown-menu {
     color: var(--color-primary-blue-contrast) !important;
     background-color: var(--color-primary-blue) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange-contrast) !important;
         background-color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         color: var(--color-primary-green-contrast) !important;
         background-color: var(--color-primary-green) !important;
     }
 }
-
 
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label,
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked .ng-option-label {
@@ -2459,12 +2366,10 @@ ngb-datepicker.dropdown-menu {
     color: var(--color-primary-blue) !important;
     background-color: rgba(var(--color-primary-blue-rgb)) !important;
     transition: .5s ease all;
-
     body.orange & {
         color: var(--color-primary-orange) !important;
         background-color: rgba(var(--color-primary-orange-rgb)) !important;
     }
-
     body.green & {
         color: var(--color-primary-green) !important;
         background-color: rgba(var(--color-primary-green-rgb)) !important;
@@ -2500,7 +2405,9 @@ ngb-datepicker.dropdown-menu {
     text-align: right;
 }
 
+
 /* Toast */
+
 ngb-toast .toast-header .close {
     margin-bottom: 0 !important;
     margin-left: auto;
@@ -2517,7 +2424,6 @@ ngb-toast .toast-header .close {
     opacity: 0;
     border-radius: .25rem;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border: 0.0625rem solid $border-color-dark;
@@ -2537,7 +2443,6 @@ ngb-toast .toast-header .close {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -2547,8 +2452,8 @@ ngb-toast .toast-header .close {
 
 
 /* checkbox */
-@supports (-webkit-appearance: none) or (-moz-appearance: none) {
 
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
     input[type="checkbox"],
     input[type="radio"] {
         --active: var(--color-primary-blue);
@@ -2571,24 +2476,20 @@ ngb-toast .toast-header .close {
         border: 0.0625rem solid var(--bc, var(--border));
         background: var(--b, var(--background));
         transition: $transition;
-
         body.dark & {
             --border: #6f6f6f;
             --border-hover: #ffffff;
         }
-
         body.orange & {
             --active: var(--color-primary-orange);
             --border-hover: var(--color-primary-orange);
             --background: $background-inerit;
         }
-
         body.green & {
             --active: var(--color-primary-green);
             --border-hover: var(--color-primary-green);
             --background: $background-inerit;
         }
-
         &:after {
             content: "";
             display: block;
@@ -2597,7 +2498,6 @@ ngb-toast .toast-header .close {
             position: absolute;
             transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
         }
-
         &:checked {
             --b: var(--active);
             --bc: var(--active);
@@ -2605,22 +2505,18 @@ ngb-toast .toast-header .close {
             --d-t: 0.6s;
             --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
         }
-
         &:disabled {
             --b: var(--disabled);
             cursor: not-allowed;
             opacity: 0.9;
-
             &:checked {
                 --b: var(--disabled-inner);
                 --bc: var(--border);
             }
-
             &+label {
                 cursor: not-allowed;
             }
         }
-
         &:hover {
             &:not(:checked) {
                 &:not(:disabled) {
@@ -2628,24 +2524,19 @@ ngb-toast .toast-header .close {
                 }
             }
         }
-
         &:focus {
             box-shadow: 0 0 0 var(--focus);
         }
-
         &:not(.switch) {
             width: 1.3125rem;
             height: 1.3125rem;
-
             &:after {
                 opacity: var(--o, 0);
             }
-
             &:checked {
                 --o: 1;
             }
         }
-
         &+label {
             font-size: 0.875rem;
             line-height: 1.3125rem;
@@ -2655,12 +2546,10 @@ ngb-toast .toast-header .close {
             margin-left: 0.25rem;
         }
     }
-
     input[type="checkbox"] {
         &:not(.switch) {
             border-radius: 0.3125rem;
             margin-top: 0rem;
-
             &:after {
                 width: 0.3125rem;
                 height: 0.5625rem;
@@ -2671,16 +2560,13 @@ ngb-toast .toast-header .close {
                 top: 0.25rem;
                 transform: rotate(var(--r, 20deg));
             }
-
             &:checked {
                 --r: 43deg;
             }
         }
-
         &.switch {
             width: 2.375rem;
             border-radius: 0.6875rem;
-
             &:after {
                 left: 0.125rem;
                 top: 0.125rem;
@@ -2690,12 +2576,10 @@ ngb-toast .toast-header .close {
                 background: var(--ab, var(--border));
                 transform: translateX(var(--x, 0));
             }
-
             &:checked {
                 --ab: var(--active-inner);
                 --x: 1.0625rem;
             }
-
             &:disabled {
                 &:not(:checked) {
                     &:after {
@@ -2705,10 +2589,8 @@ ngb-toast .toast-header .close {
             }
         }
     }
-
     input[type="radio"] {
         border-radius: 50%;
-
         &:after {
             width: 1.1875rem;
             height: 1.1875rem;
@@ -2717,7 +2599,6 @@ ngb-toast .toast-header .close {
             opacity: 0;
             transform: scale(var(--s, 0.7));
         }
-
         &:checked {
             --s: 0.5;
         }
@@ -2730,6 +2611,7 @@ ngb-toast .toast-header .close {
     padding-left: 0rem;
 }
 
+
 /* Label */
 
 label {
@@ -2738,7 +2620,9 @@ label {
     font-size: 0.9em;
 }
 
+
 /* List group */
+
 .list-group-item {
     position: relative;
     display: block;
@@ -2747,7 +2631,6 @@ label {
     border-bottom: 0.0625rem solid $background-color;
     font-size: 0.875em;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border-bottom: 0.0625rem solid $background-color-dark;
@@ -2760,14 +2643,15 @@ label {
     color: $font-color-hover;
     text-decoration: none;
     background-color: $background-color !important;
-
     body.dark & {
         color: $font-color-hover-dark;
         background-color: $background-color-dark !important;
     }
 }
 
+
 /* Progress Bar */
+
 .progress {
     display: flex;
     height: 1.3em;
@@ -2777,21 +2661,13 @@ label {
     background-color: #ededed;
     border-radius: 2em;
     transition: $transition;
-
     body.dark & {
         background-color: #3b3b3b;
     }
 }
 
 .progress-bar-striped {
-    background-image: linear-gradient(45deg,
-            rgba(255, 255, 255, 0.15) 25%,
-            transparent 25%,
-            transparent 50%,
-            rgba(255, 255, 255, 0.15) 50%,
-            rgba(255, 255, 255, 0.15) 75%,
-            transparent 75%,
-            transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-size: 1em 1em;
 }
 
@@ -2807,7 +2683,9 @@ label {
     height: 2.2em !important;
 }
 
+
 /* Table */
+
 .table {
     width: 100%;
     margin-bottom: 1em;
@@ -2815,7 +2693,6 @@ label {
     font-weight: $font-weight;
     font-size: 0.9em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -2827,7 +2704,6 @@ label {
     color: $font-color;
     font-weight: $font-weight;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         border-bottom: 0.0625em solid $background-color-dark;
@@ -2841,7 +2717,6 @@ label {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     transition: $transition;
-
     body.dark & {
         border-top: 0.0625em solid $background-color-dark;
     }
@@ -2860,13 +2735,14 @@ label {
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgb(123 123 123 / 5%);
     transition: $transition;
-
     body.dark & {
         background-color: rgb(191 191 191 / 12%);
     }
 }
 
+
 /* Ng Prime Table */
+
 .p-datatable .p-datatable-header {
     background: $background-inerit !important;
     color: $font-color !important;
@@ -2875,7 +2751,6 @@ label {
     padding: 0rem;
     font-weight: 500;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark !important;
         color: $font-color-dark !important;
@@ -2893,7 +2768,6 @@ label {
     background: transparent !important;
     font-size: .9rem;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark !important;
         border: 0.0625rem solid #151515 !important;
@@ -2910,7 +2784,6 @@ label {
     color: $font-color !important;
     font-size: .9rem;
     transition: $transition;
-
     body.dark & {
         border: 0.0625rem solid #151515;
         border-width: 0.0125rem 0 0 0;
@@ -2923,7 +2796,6 @@ label {
     .p-datatable.p-datatable-responsive-demo .p-datatable-tbody>tr>td:last-child {
         border-bottom: 0.0625rem solid $border-color !important;
         transition: $transition;
-
         body.dark & {
             border-bottom: 0.0625rem solid $border-color-dark !important;
         }
@@ -2938,7 +2810,6 @@ label {
     padding: 0.75rem;
     border-radius: 0.25rem;
     transition: $transition;
-
     body.dark & {
         border: 1px solid $border-color-dark;
         color: $font-color-dark !important;
@@ -2950,7 +2821,6 @@ label {
     border-width: 0.0625rem 0 0 0;
     border-radius: 0;
     transition: $transition;
-
     body.dark & {
         border: 0.0625rem solid #151515;
         border-width: 0.0625rem 0 0 0;
@@ -2964,7 +2834,6 @@ label {
     transition: box-shadow 0.15s;
     outline-color: transparent;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
         color: $font-color-dark;
@@ -2988,7 +2857,6 @@ label {
     border-top-left-radius: .3em;
     border-bottom-left-radius: .3em;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border: 1px solid $border-color-dark;
@@ -3006,7 +2874,6 @@ label {
     transition: box-shadow 0.15s;
     border-radius: 0;
     transition: $transition;
-
     body.dark & {
         background-color: transparent;
         border: 1px solid $border-color-dark;
@@ -3019,7 +2886,6 @@ label {
     border-color: $border-color;
     color: $font-color-hover;
     transition: $transition;
-
     body.dark & {
         background: $background-color-dark;
         border: 1px solid $border-color-dark;
@@ -3031,12 +2897,10 @@ label {
     color: var(--color-primary-blue-contrast) !important;
     background: var(--color-primary-blue);
     transition: $transition;
-
     body.orange & {
         background: var(--color-primary-orange);
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background: var(--color-primary-green);
         color: var(--color-primary-green-contrast) !important;
@@ -3048,13 +2912,11 @@ label {
     border-color: var(--color-primary-blue) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background: var(--color-primary-orange) !important;
         border-color: var(--color-primary-orange) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background: var(--color-primary-green) !important;
         border-color: var(--color-primary-green) !important;
@@ -3081,7 +2943,6 @@ label {
     transition: box-shadow 0.15s;
     border-radius: 0;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         border: 0.0625rem solid $border-color-dark;
@@ -3102,7 +2963,6 @@ label {
     border-color: $border-color;
     color: $font-color-hover;
     transition: $transition;
-
     body.dark & {
         background: $background-color-dark;
         background-color: $background-color-dark !important;
@@ -3118,7 +2978,6 @@ label {
     border-radius: 0.3em;
     box-shadow: $box-shadow;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
         color: $font-color-dark;
@@ -3137,7 +2996,6 @@ label {
     transition: box-shadow 0.15s;
     border-radius: 0;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -3147,7 +3005,6 @@ label {
     color: $font-color-hover;
     background: $background-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
         background: $background-color-dark;
@@ -3161,7 +3018,6 @@ label {
     border-color: $border-color;
     background-color: transparent;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
         border-color: $border-color-dark;
@@ -3172,7 +3028,6 @@ label {
 .p-dropdown:not(.p-disabled):focus {
     border-color: $input-border-focus;
     transition: $transition;
-
     body.dark & {
         border-color: $input-border-dark-focus;
     }
@@ -3182,7 +3037,6 @@ label {
     box-shadow: none;
     border-color: $input-border-focus;
     transition: $transition;
-
     body.dark & {
         border-color: $input-border-dark-focus;
     }
@@ -3193,7 +3047,6 @@ label {
     border: 0 none;
     color: $font-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -3206,7 +3059,6 @@ label {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -3215,7 +3067,6 @@ label {
 .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
     color: $font-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         transition: $transition;
@@ -3225,7 +3076,6 @@ label {
 .p-datatable .p-sortable-column.p-highlight:hover .p-sortable-column-icon {
     color: $font-color-hover;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
         transition: $transition;
@@ -3238,8 +3088,8 @@ label {
 }
 
 
-
 /* Width */
+
 .w-50px {
     width: 50px !important;
     min-width: 50px !important;
@@ -3292,7 +3142,6 @@ label {
     color: $font-color;
     background-color: $background-inerit;
     border: 0.0625rem solid $border-color;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -3306,7 +3155,6 @@ label {
     text-decoration: none;
     background-color: $background-color;
     border-color: $border-color;
-
     body.dark & {
         color: $font-color-hover-dark;
         background-color: $background-color-dark;
@@ -3326,13 +3174,11 @@ label {
     background-color: var(--color-primary-blue);
     border-color: var(--color-primary-blue);
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange-contrast);
         background-color: var(--color-primary-orange);
         border-color: var(--color-primary-orange);
     }
-
     body.green & {
         color: var(--color-primary-green-contrast);
         background-color: var(--color-primary-green);
@@ -3346,7 +3192,6 @@ label {
     cursor: auto;
     background-color: $background-color;
     border-color: $border-color;
-
     body.dark & {
         color: #5f5f5f;
         background-color: $background-color-dark;
@@ -3371,7 +3216,6 @@ label {
     -moz-appearance: none;
     appearance: none;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background: $background-inerit-dark url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right .75rem center/8px 10px no-repeat;
@@ -3385,13 +3229,11 @@ label {
     outline: 0;
     box-shadow: none;
     cursor: pointer;
-
     body.orange & {
         border-color: var(--color-primary-orange) !important;
         outline: 0;
         box-shadow: none;
     }
-
     body.green & {
         border-color: var(--color-primary-green) !important;
         outline: 0;
@@ -3399,7 +3241,9 @@ label {
     }
 }
 
+
 /* Status */
+
 .status {
     display: inline-block;
     width: 0.5em;
@@ -3408,17 +3252,17 @@ label {
     border-radius: 50%;
     margin-right: 0.4375em;
     transition: $transition;
-
     body.dark & {
         background-color: $input-border-focus;
     }
 }
 
+
 /* star */
+
 .star {
     font-size: 1.5rem;
     color: #e8e8e8;
-
     body.dark & {
         color: #797979
     }
@@ -3426,7 +3270,6 @@ label {
 
 .filled {
     color: var(--color-warning);
-
     body.dark & {
         color: var(--color-warning);
     }
@@ -3434,7 +3277,6 @@ label {
 
 .bad {
     color: #deb0b0;
-
     body.dark & {
         color: #976666;
     }
@@ -3442,7 +3284,6 @@ label {
 
 .filled.bad {
     color: var(--color-danger);
-
     body.dark & {
         color: var(--color-danger);
     }
@@ -3450,6 +3291,7 @@ label {
 
 
 /* User Chip*/
+
 .user {
     position: relative;
     display: inline-flex;
@@ -3504,7 +3346,9 @@ label {
     border-radius: 50%;
 }
 
+
 /* img class */
+
 .img-xxl {
     height: 7em !important;
     width: 7em !important;
@@ -3540,7 +3384,9 @@ label {
     width: 1em !important;
 }
 
+
 /* Aling content */
+
 .aling-center-vertically {
     position: absolute;
     top: 0;
@@ -3585,7 +3431,9 @@ label {
     width: auto;
 }
 
+
 /* Badge */
+
 .badge {
     display: inline-block;
     padding-right: .6em;
@@ -3597,8 +3445,7 @@ label {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 2em;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .badge-primary {
@@ -3606,13 +3453,11 @@ label {
     border-color: var(--color-primary-blue) !important;
     color: var(--color-primary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-primary-orange) !important;
         border-color: var(--color-primary-orange) !important;
         color: var(--color-primary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green) !important;
         border-color: var(--color-primary-green) !important;
@@ -3625,13 +3470,11 @@ label {
     border-color: var(--color-secondary-blue) !important;
     color: var(--color-secondary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-secondary-orange) !important;
         border-color: var(--color-secondary-orange) !important;
         color: var(--color-secondary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(-color-secondary-green) !important;
         border-color: var(-color-secondary-green) !important;
@@ -3644,13 +3487,11 @@ label {
     border-color: var(--color-tertiary-blue) !important;
     color: var(--color-tertiary-blue-contrast) !important;
     transition: $transition;
-
     body.orange & {
         background-color: var(--color-tertiary-orange) !important;
         border-color: var(--color-tertiary-orange) !important;
         color: var(--color-tertiary-orange-contrast) !important;
     }
-
     body.green & {
         background-color: var(--color-tertiary-green) !important;
         border-color: var(--color-tertiary-green) !important;
@@ -3687,7 +3528,6 @@ p {
     line-height: 1.7em;
     color: $font-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -3697,7 +3537,6 @@ pre {
     display: block;
     font-size: 87.5%;
     color: $font-color;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -3711,7 +3550,9 @@ a:focus {
     transition: all 0.3s;
 }
 
+
 /* Navbar */
+
 .navbar-nav {
     display: flex;
     flex-direction: column;
@@ -3725,7 +3566,6 @@ a:focus {
 .navbar-dark .navbar-nav .nav-link:hover {
     color: $font-color-hover !important;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
     }
@@ -3738,7 +3578,6 @@ a:focus {
     position: inherit;
     background-color: $background-inerit;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
     }
@@ -3748,14 +3587,15 @@ a:focus {
     -webkit-box-shadow: $box-shadow-nav;
     box-shadow: $box-shadow-nav;
     transition: $transition;
-
     body.dark & {
         -webkit-box-shadow: $box-shadow-nav-dark;
         box-shadow: $box-shadow-nav-dark;
     }
 }
 
+
 /* Navbar Sizes */
+
 .navbar-sm {
     padding: 0.25em .5em !important;
 }
@@ -3786,7 +3626,6 @@ a:focus {
     justify-content: center;
     align-items: center;
     color: $font-color;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -3806,7 +3645,9 @@ a:focus {
     z-index: 730 !important;
 }
 
+
 /* sub navbar */
+
 .action-bar {
     // border-top: 0.0625rem solid $border-color;
     height: 2.8125rem;
@@ -3825,7 +3666,6 @@ a:focus {
     align-items: center;
     border-radius: 0.3em;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
     }
@@ -3851,14 +3691,15 @@ a:focus {
     transition: $transition;
 }
 
+
 /* Nav */
+
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: $font-color-hover;
     background-color: $background-inerit;
     border-color: $border-color $border-color $background-inerit;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
         background-color: $background-inerit-dark;
@@ -3870,7 +3711,6 @@ a:focus {
     color: $font-color;
     border-bottom: 0.0625rem solid $border-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         border-bottom: 0.0625rem solid $border-color-dark;
@@ -3888,7 +3728,6 @@ a:focus {
     color: $font-color-hover;
     border-color: $border-color $border-color $background-inerit;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
         border-color: $border-color-dark $border-color-dark $background-inerit-dark;
@@ -3899,7 +3738,6 @@ a:focus {
     color: $font-color-hover;
     // border-color: $border-color $border-color $border-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
         // border-color: $border-color-dark $border-color-dark $border-color-dark;
@@ -3911,32 +3749,33 @@ a:focus {
     color: var(--color-primary-blue-contrast);
     background-color: var(--color-primary-blue);
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange-contrast);
         background-color: var(--color-primary-orange);
     }
-
     body.green & {
         color: var(--color-primary-green-contrast);
         background-color: var(--color-primary-green);
     }
 }
 
+
 /* Line */
+
 .line {
     width: 100%;
     height: 0.0625em;
     border-bottom: 0.0625em dashed $background-color;
     margin: 2.5em 0;
     transition: $transition;
-
     body.dark & {
         background-color: $background-color-dark;
     }
 }
 
+
 /* Button Menu */
+
 .btn-menu {
     position: relative;
     justify-content: center;
@@ -3949,7 +3788,9 @@ a:focus {
     border-radius: 2em;
 }
 
+
 /* List Menu */
+
 .list-menu-item {
     position: relative;
     display: block;
@@ -3957,7 +3798,6 @@ a:focus {
     background-color: $background-inerit;
     border: none;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
     }
@@ -3968,11 +3808,9 @@ a:focus {
 .list-menu-title:active {
     color: var(--color-primary-blue);
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange);
     }
-
     body.green & {
         color: var(--color-primary-green);
     }
@@ -3983,24 +3821,26 @@ a:focus {
 .list-menu-item:active {
     color: var(--color-primary-blue);
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange);
     }
-
     body.green & {
         color: var(--color-primary-green);
     }
 }
 
+
 /* wrapper */
+
 .wrapper {
     display: flex;
     width: 100%;
     align-items: stretch;
 }
 
+
 /* Navbar collapse */
+
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 1;
@@ -4010,7 +3850,9 @@ a:focus {
     z-index: 700 !important;
 }
 
+
 /* dropdown-toggle */
+
 .dropdown-toggle-sidebar::after {
     display: block;
     position: absolute;
@@ -4055,12 +3897,10 @@ a:focus {
 //     color: $font-color;
 //     position: relative;
 //     transition: $transition;
-
 //     body.dark & {
 //         color: $font-color-dark;
 //     }
 // }
-
 // .dropdown,
 // .dropleft,
 // .dropright,
@@ -4081,13 +3921,10 @@ a:focus {
 //     font-weight: $font-weight;
 //     color: $font-color-hover;
 //     transition: $transition;
-
 //     body.dark & {
 //         color: $font-color-hover-dark !important;
 //     }
 // }
-
-
 .dropdown-toggle-icon {
     margin: 0.1rem 0rem 0rem 0.3125rem;
     font-size: 0.875rem;
@@ -4132,7 +3969,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: $background-inerit;
     position: absolute !important;
     transition: $transition;
-
     body.dark & {
         box-shadow: $box-shadow-dark;
         background-color: $background-inerit-dark;
@@ -4168,7 +4004,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: $background-inerit;
     position: absolute !important;
     animation: dropdown-menu .3s ease forwards;
-
     body.dark & {
         color: $font-color-dark !important;
         background-color: $background-inerit-dark;
@@ -4180,7 +4015,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     display: block;
     visibility: visible !important;
     opacity: 1 !important;
-
     pointer-events: auto;
     // -webkit-animation: show-dropdown .3s ease forwards;
     // animation: show-dropdown .3s ease forwards;
@@ -4199,7 +4033,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: transparent;
     border: 0;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark !important;
     }
@@ -4213,7 +4046,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     color: $font-color-hover;
     white-space: nowrap;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark;
     }
@@ -4226,7 +4058,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: $background-color;
     border-radius: 0.3125em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
         background-color: $background-color-dark;
@@ -4240,7 +4071,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: $background-color;
     border-radius: 0.1875em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
         background-color: $background-color-dark;
@@ -4252,7 +4082,9 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     padding: 0.625rem;
 }
 
+
 /* Dropdown user*/
+
 .navbar .dm-user {
     padding: 0em !important;
     width: 18.75em;
@@ -4279,7 +4111,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     cursor: pointer;
     border-radius: 0.3125rem;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
     }
@@ -4296,15 +4127,12 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     border-top-right-radius: 0.625em;
     border-top-left-radius: 0.625em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-inerit-dark;
     }
-
     body.orange & {
         background-color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         background-color: var(--color-primary-green) !important;
     }
@@ -4318,14 +4146,15 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: $background-color;
     border-radius: 0.3125em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
         background-color: $background-color-dark;
     }
 }
 
+
 /* Dropdown menu icon*/
+
 .navbar .dm-icon {
     padding: 0em !important;
     width: 21.875em;
@@ -4351,7 +4180,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     font-size: 1em;
     cursor: pointer;
     transition: $transition;
-
     body.dark & {
         background-color: $background-inerit-dark;
     }
@@ -4369,7 +4197,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     cursor: pointer;
     border-radius: .3em;
     transition: $transition;
-
     body.dark & {
         background-color: $background-color-dark;
     }
@@ -4386,7 +4213,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     border-top-right-radius: 0.625em;
     border-top-left-radius: 0.625em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background-color: $background-inerit-dark;
@@ -4401,7 +4227,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     background-color: $background-color !important;
     border-radius: 0.3125em;
     transition: $transition;
-
     body.dark & {
         color: $font-color-hover-dark !important;
         background-color: $background-color-dark !important;
@@ -4414,11 +4239,12 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     box-shadow: 0 0 0 0 !important;
 }
 
+
 /* Borders */
+
 .border {
     border: 0.0625rem solid $border-color !important;
     transition: $transition;
-
     body.dark & {
         border: 0.0625rem solid $border-color-dark !important;
     }
@@ -4427,7 +4253,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .border-bottom {
     border-bottom: 0.0625rem solid $border-color !important;
     transition: $transition;
-
     body.dark & {
         border-bottom: 0.0625rem solid $border-color-dark !important;
     }
@@ -4436,7 +4261,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .border-top {
     border-top: 0.0625rem solid $border-color !important;
     transition: $transition;
-
     body.dark & {
         border-top: 0.0625rem solid $border-color-dark !important;
     }
@@ -4445,7 +4269,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .border-left {
     border-left: 0.0625rem solid $border-color !important;
     transition: $transition;
-
     body.dark & {
         border-top: 0.0625rem solid $border-color-dark !important;
     }
@@ -4454,7 +4277,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .border-right {
     border-right: 0.0625rem solid $border-color !important;
     transition: $transition;
-
     body.dark & {
         border-right: 0.0625rem solid $border-color-dark !important;
     }
@@ -4496,7 +4318,9 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     font-size: 1.5em !important;
 }
 
+
 /* icon size*/
+
 .icon-xxs {
     font-size: 0.5em !important;
 }
@@ -4572,7 +4396,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     width: 3.125em;
     background-color: $background-color;
     transition: $transition;
-
     body.dark & {
         color: $font-color-inerit-dark;
         background-color: $background-color-dark;
@@ -4611,11 +4434,13 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 
 
 /* shadow effect */
+
+
 /* Shadow */
+
 .shadow {
     box-shadow: $box-shadow !important;
     transition: $transition;
-
     body.dark & {
         box-shadow: $box-shadow-dark !important;
     }
@@ -4624,11 +4449,9 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .shadow-color-primary {
     box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-primary-blue-rgb));
     transition: $transition;
-
     body.orange & {
         box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-primary-orange-rgb));
     }
-
     body.green & {
         box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-primary-green-rgb));
     }
@@ -4637,11 +4460,9 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .shadow-color-secondary {
     box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-secondary-blue-rgb));
     transition: $transition;
-
     body.orange & {
         box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-secondary-orange-rgb));
     }
-
     body.green & {
         box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-secondary-green-rgb));
     }
@@ -4650,16 +4471,13 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .shadow-color-tertiary {
     box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-tertiary-blue-rgb));
     transition: $transition;
-
     body.orange & {
         box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-tertiary-orange-rgb));
     }
-
     body.green & {
         box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-tertiary-green-rgb));
     }
 }
-
 
 .shadow-blue {
     transition: $transition;
@@ -4691,7 +4509,9 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     box-shadow: 0 0 1.875em 0.5rem rgba(var(--color-danger-rgb));
 }
 
+
 /* Popover */
+
 .popover {
     position: absolute;
     top: 0;
@@ -4720,7 +4540,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     border: 0.0625rem solid $background-inerit;
     border-radius: .3rem;
     box-shadow: $box-shadow;
-
     body.dark & {
         background-color: $background-inerit-dark;
         border: 0.0625rem solid $background-inerit-dark;
@@ -4736,7 +4555,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     border-bottom: 0.0625rem solid $border-color;
     border-top-left-radius: calc(.3rem - 1px);
     border-top-right-radius: calc(.3rem - 1px);
-
     body.dark & {
         background-color: $background-inerit-dark;
         border-bottom: 0.0625rem solid $border-color-dark;
@@ -4746,7 +4564,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
 .popover-body {
     padding: .5rem .75rem;
     color: $font-color;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -4757,7 +4574,6 @@ a[aria-expanded="false"] .fi-rr-angle-small-down {
     bottom: 0.0625rem;
     border-width: .5rem .5rem 0;
     border-top-color: $background-inerit;
-
     body.dark & {
         border-top-color: $background-inerit-dark;
     }
@@ -4768,7 +4584,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     bottom: 0.0625rem;
     border-width: .5rem .5rem 0;
     border-top-color: $background-inerit;
-
     body.dark & {
         border-top-color: $background-inerit-dark;
     }
@@ -4779,7 +4594,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     left: 0;
     border-width: .5rem .5rem .5rem 0;
     border-right-color: $background-inerit;
-
     body.dark & {
         border-right-color: $background-inerit-dark;
     }
@@ -4790,7 +4604,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     left: 0;
     border-width: .5rem .5rem .5rem 0;
     border-right-color: $background-inerit;
-
     body.dark & {
         border-right-color: $background-inerit-dark;
     }
@@ -4813,7 +4626,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     top: 0;
     border-width: 0 .5rem .5rem .5rem;
     border-bottom-color: $background-inerit;
-
     body.dark & {
         border-bottom-color: $background-inerit-dark;
     }
@@ -4824,7 +4636,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     right: 0.0625rem;
     border-width: .5rem 0 .5rem .5rem;
     border-left-color: $background-inerit;
-
     body.dark & {
         border-left-color: $background-inerit-dark;
     }
@@ -4836,7 +4647,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     right: 0.0625rem;
     border-width: .5rem 0 .5rem .5rem;
     border-left-color: $background-inerit;
-
     body.dark & {
         border-left-color: $background-inerit-dark;
     }
@@ -4850,7 +4660,9 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     border-style: solid;
 }
 
+
 /* menu icon nav */
+
 .nav-menu {
     width: 1.5625rem;
     height: 1.25rem;
@@ -4870,11 +4682,9 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     border-radius: 0.3em;
     background: linear-gradient(45deg, var(--color-secondary-blue), var(--color-secondary-blue));
     transition: 0.4s all cubic-bezier(.78, .01, .25, 1);
-
     body.orange & {
         background: linear-gradient(45deg, var(--color-secondary-orange), var(--color-secondary-orange));
     }
-
     body.green & {
         background: linear-gradient(45deg, var(--color-secondary-green), var(--color-secondary-green));
     }
@@ -4885,22 +4695,18 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     right: 40%;
 }
 
-
 .nav-menu span:first-child {
     top: 0.1875rem;
     width: 1rem;
     background: linear-gradient(45deg, var(--color-primary-blue), var(--color-primary-blue));
     transition: 0.4s all cubic-bezier(.78, .01, .25, 1);
-
     body.orange & {
         background: linear-gradient(45deg, var(--color-primary-orange), var(--color-primary-orange));
     }
-
     body.green & {
         background: linear-gradient(45deg, var(--color-primary-green), var(--color-primary-green));
     }
 }
-
 
 .nav-menu.active span:first-child {
     top: 40%;
@@ -4910,11 +4716,9 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     right: 0;
     background: linear-gradient(45deg, var(--color-primary-blue), var(--color-primary-blue));
     transition: .4 all cubic-bezier(.78, .01, .25, 1);
-
     body.orange & {
         background: linear-gradient(45deg, var(--color-primary-orange), var(--color-primary-orange));
     }
-
     body.green & {
         background: linear-gradient(45deg, var(--color-primary-green), var(--color-primary-green));
     }
@@ -4924,11 +4728,9 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     top: 1rem;
     width: 0.8125rem;
     background: linear-gradient(45deg, var(--color-primary-blue), var(--color-primary-blue));
-
     body.orange & {
         background: linear-gradient(45deg, var(--color-primary-orange), var(--color-primary-orange));
     }
-
     body.green & {
         background: linear-gradient(45deg, var(--color-primary-green), var(--color-primary-green));
     }
@@ -4942,15 +4744,14 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     right: 0;
     background: linear-gradient(45deg, var(--color-secondary-blue), var(--color-secondary-blue));
     transition: .4 all cubic-bezier(.78, .01, .25, 1);
-
     body.orange & {
         background: linear-gradient(45deg, var(--color-secondary-orange), var(--color-secondary-orange));
     }
-
     body.green & {
         background: linear-gradient(45deg, var(--color-secondary-green), var(--color-secondary-green));
     }
 }
+
 
 /* Sweet Alert 2 */
 
@@ -5287,7 +5088,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     border-radius: .3em !important;
     background: $background-inerit !important;
     box-shadow: 0 0 1.875em 0.5rem rgb(255 255 255 / 10%);
-
     body.dark & {
         background: $background-inerit-dark !important;
         box-shadow: 0 0 1.875em 0.5rem rgb(255 255 255 / 10%);
@@ -5402,7 +5202,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
 .swal2-styled:focus {
     outline: 0;
     box-shadow: 0 0 0 0.1875rem rgb(255 255 255 / 50%) !important;
-
     body.dark & {
         box-shadow: 0 0 0 0.1875rem rgb(84 84 84 / 50%) !important;
     }
@@ -5491,7 +5290,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     line-height: normal;
     text-align: center;
     word-wrap: break-word;
-
     body.dark & {
         color: $font-color-dark !important;
     }
@@ -5915,7 +5713,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     .swal2-range input {
         width: 100% !important
     }
-
     .swal2-range output {
         display: none
     }
@@ -5926,7 +5723,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     .swal2-range input {
         width: 100% !important
     }
-
     .swal2-range output {
         display: none
     }
@@ -5936,15 +5732,12 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: translateY(-.625em) rotateZ(2deg)
     }
-
     33% {
         transform: translateY(0) rotateZ(-2deg)
     }
-
     66% {
         transform: translateY(.3125em) rotateZ(2deg)
     }
-
     100% {
         transform: translateY(0) rotateZ(0)
     }
@@ -5954,15 +5747,12 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: translateY(-.625em) rotateZ(2deg)
     }
-
     33% {
         transform: translateY(0) rotateZ(-2deg)
     }
-
     66% {
         transform: translateY(.3125em) rotateZ(2deg)
     }
-
     100% {
         transform: translateY(0) rotateZ(0)
     }
@@ -5988,25 +5778,21 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         left: .0625em;
         width: 0
     }
-
     54% {
         top: .125em;
         left: .125em;
         width: 0
     }
-
     70% {
         top: .625em;
         left: -.25em;
         width: 1.625em
     }
-
     84% {
         top: 1.0625em;
         left: .75em;
         width: .5em
     }
-
     100% {
         top: 1.125em;
         left: .1875em;
@@ -6020,25 +5806,21 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         left: .0625em;
         width: 0
     }
-
     54% {
         top: .125em;
         left: .125em;
         width: 0
     }
-
     70% {
         top: .625em;
         left: -.25em;
         width: 1.625em
     }
-
     84% {
         top: 1.0625em;
         left: .75em;
         width: .5em
     }
-
     100% {
         top: 1.125em;
         left: .1875em;
@@ -6052,19 +5834,16 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         right: 1.375em;
         width: 0
     }
-
     65% {
         top: 1.25em;
         right: .9375em;
         width: 0
     }
-
     84% {
         top: .9375em;
         right: 0;
         width: 1.125em
     }
-
     100% {
         top: .9375em;
         right: .1875em;
@@ -6078,19 +5857,16 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         right: 1.375em;
         width: 0
     }
-
     65% {
         top: 1.25em;
         right: .9375em;
         width: 0
     }
-
     84% {
         top: .9375em;
         right: 0;
         width: 1.125em
     }
-
     100% {
         top: .9375em;
         right: .1875em;
@@ -6102,15 +5878,12 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: scale(.7)
     }
-
     45% {
         transform: scale(1.05)
     }
-
     80% {
         transform: scale(.95)
     }
-
     100% {
         transform: scale(1)
     }
@@ -6120,15 +5893,12 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: scale(.7)
     }
-
     45% {
         transform: scale(1.05)
     }
-
     80% {
         transform: scale(.95)
     }
-
     100% {
         transform: scale(1)
     }
@@ -6139,7 +5909,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         transform: scale(1);
         opacity: 1
     }
-
     100% {
         transform: scale(.5);
         opacity: 0
@@ -6151,7 +5920,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         transform: scale(1);
         opacity: 1
     }
-
     100% {
         transform: scale(.5);
         opacity: 0
@@ -6164,25 +5932,21 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         left: .0625em;
         width: 0
     }
-
     54% {
         top: 1.0625em;
         left: .125em;
         width: 0
     }
-
     70% {
         top: 2.1875em;
         left: -.375em;
         width: 3.125em
     }
-
     84% {
         top: 3em;
         left: 1.3125em;
         width: 1.0625em
     }
-
     100% {
         top: 2.8125em;
         left: .8125em;
@@ -6196,25 +5960,21 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         left: .0625em;
         width: 0
     }
-
     54% {
         top: 1.0625em;
         left: .125em;
         width: 0
     }
-
     70% {
         top: 2.1875em;
         left: -.375em;
         width: 3.125em
     }
-
     84% {
         top: 3em;
         left: 1.3125em;
         width: 1.0625em
     }
-
     100% {
         top: 2.8125em;
         left: .8125em;
@@ -6228,19 +5988,16 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         right: 2.875em;
         width: 0
     }
-
     65% {
         top: 3.375em;
         right: 2.875em;
         width: 0
     }
-
     84% {
         top: 2.1875em;
         right: 0;
         width: 3.4375em
     }
-
     100% {
         top: 2.375em;
         right: .5em;
@@ -6254,19 +6011,16 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         right: 2.875em;
         width: 0
     }
-
     65% {
         top: 3.375em;
         right: 2.875em;
         width: 0
     }
-
     84% {
         top: 2.1875em;
         right: 0;
         width: 3.4375em
     }
-
     100% {
         top: 2.375em;
         right: .5em;
@@ -6278,15 +6032,12 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: rotate(-45deg)
     }
-
     5% {
         transform: rotate(-45deg)
     }
-
     12% {
         transform: rotate(-405deg)
     }
-
     100% {
         transform: rotate(-405deg)
     }
@@ -6296,15 +6047,12 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: rotate(-45deg)
     }
-
     5% {
         transform: rotate(-45deg)
     }
-
     12% {
         transform: rotate(-405deg)
     }
-
     100% {
         transform: rotate(-405deg)
     }
@@ -6316,18 +6064,15 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         transform: scale(.4);
         opacity: 0
     }
-
     50% {
         margin-top: 1.625em;
         transform: scale(.4);
         opacity: 0
     }
-
     80% {
         margin-top: -.375em;
         transform: scale(1.15)
     }
-
     100% {
         margin-top: 0;
         transform: scale(1);
@@ -6341,18 +6086,15 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         transform: scale(.4);
         opacity: 0
     }
-
     50% {
         margin-top: 1.625em;
         transform: scale(.4);
         opacity: 0
     }
-
     80% {
         margin-top: -.375em;
         transform: scale(1.15)
     }
-
     100% {
         margin-top: 0;
         transform: scale(1);
@@ -6365,7 +6107,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         transform: rotateX(100deg);
         opacity: 0
     }
-
     100% {
         transform: rotateX(0);
         opacity: 1
@@ -6377,7 +6118,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
         transform: rotateX(100deg);
         opacity: 0
     }
-
     100% {
         transform: rotateX(0);
         opacity: 1
@@ -6388,7 +6128,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: rotate(0)
     }
-
     100% {
         transform: rotate(360deg)
     }
@@ -6398,7 +6137,6 @@ bs-popover-auto[x-placement^=top]>.arrow::after,
     0% {
         transform: rotate(0)
     }
-
     100% {
         transform: rotate(360deg)
     }
@@ -6485,11 +6223,9 @@ body.swal2-no-backdrop .swal2-container.swal2-bottom-right {
     body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
         overflow-y: scroll !important
     }
-
     body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true] {
         display: none
     }
-
     body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container {
         position: static !important
     }
@@ -6610,7 +6346,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     overflow-y: auto;
     overflow-x: auto;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
     }
@@ -6646,7 +6381,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     background: $background-inerit;
     transition: 0.3s ease all;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
     }
@@ -6657,7 +6391,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     border-bottom: 0.0625em solid $background-inerit;
     transition: 0.3s ease all;
     transition: $transition;
-
     body.dark & {
         border-bottom: 0.0625em solid $background-inerit-dark;
     }
@@ -6668,7 +6401,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     padding: 0.625em;
     transition: 0.3s ease all;
     transition: $transition;
-
     body.dark & {
         color: $font-color-inerit-dark;
     }
@@ -6684,15 +6416,12 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     background: $background-inerit;
     transition: 0.3s ease all;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
     }
-
     body.orange & {
         color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         color: var(--color-primary-green) !important;
     }
@@ -6703,15 +6432,12 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     background: $background-inerit;
     transition: 0.3s ease all;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
     }
-
     body.orange & {
         color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         color: var(--color-primary-green) !important;
     }
@@ -6722,13 +6448,11 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     background-color: var(--color-primary-blue) !important;
     border-left: none;
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange-contrast) !important;
         background-color: var(--color-primary-orange) !important;
         border-left: none;
     }
-
     body.green & {
         color: var(--color-primary-green-tint) !important;
         background-color: var(--color-primary-green) !important;
@@ -6749,12 +6473,12 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     background-color: $background-color;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
-
     body.dark & {
         background-color: $background-color-dark;
     }
 }
-.filter-content{
+
+.filter-content {
     height: 90vh;
 }
 
@@ -6771,7 +6495,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     height: 100%;
     width: 100%;
     transition: $transition;
-
     body.dark & {
         background-color: rgb(0 0 0 / 68%);
     }
@@ -6800,7 +6523,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     border: none !important;
     box-shadow: none;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background: $background-inerit-dark;
@@ -6816,7 +6538,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     color: $font-color;
     background: $background-inerit;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background: $background-inerit-dark;
@@ -6835,7 +6556,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     margin-right: 0;
     overflow-y: auto;
     transition: $transition;
-
     body.dark & {
         color: $font-color-dark;
         background: $background-inerit-dark;
@@ -6857,7 +6577,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     top: 0;
     z-index: 730 !important;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
     }
@@ -6881,15 +6600,12 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     color: var(--color-primary-blue) !important;
     background: $background-inerit;
     transition: $transition;
-
     body.dark & {
         background: $background-inerit-dark;
     }
-
     body.orange & {
         color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         color: var(--color-primary-green) !important;
     }
@@ -6899,12 +6615,10 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     color: var(--color-primary-blue-contrast) !important;
     background-color: var(--color-primary-blue) !important;
     transition: $transition;
-
     body.orange & {
         color: var(--color-primary-orange-contrast) !important;
         background-color: var(--color-primary-orange) !important;
     }
-
     body.green & {
         color: var(--color-primary-green-contrast) !important;
         background-color: var(--color-primary-green) !important;
@@ -6916,7 +6630,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     padding: 0.9375em 1.5625em;
     display: block;
     border-radius: 0.3em;
-
     body.dark & {
         color: $font-color-dark;
     }
@@ -6928,24 +6641,19 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
         display: none !important;
         flex-basis: auto;
     }
-
     .menu-small {
         display: none !important;
     }
-
     .menu-large {
         display: block !important;
     }
-
     .user-lg {
         // display: block;
         display: flex;
     }
-
     .user-sm {
         display: none;
     }
-
 }
 
 // Media query resolución menor a 990px
@@ -6953,23 +6661,18 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     .navbar {
         padding: 0.9375em 0.5em;
     }
-
     .menu-small {
         display: block !important;
     }
-
     .menu-large {
         display: none !important;
     }
-
     .user-lg {
         display: none;
     }
-
     .user-sm {
         display: block;
     }
-
     /* Dropdown user*/
     .navbar .dm-user {
         margin-top: 3.125em;
@@ -6981,22 +6684,18 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     html {
         font-size: 15px;
     }
-
     body {
         font-size: 15px;
     }
-
     .navbar .dm-icon {
         padding: 0em !important;
         width: 18.875em !important;
         right: auto !important;
         left: -9.4em !important;
     }
-
     .description-action-bar {
         display: none !important;
     }
-
     .filter-content {
         // height: 50vh;
         height: calc(95vh - 10vh) !important;
@@ -7009,11 +6708,9 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     html {
         font-size: 15px;
     }
-
     body {
         font-size: 15px;
     }
-
     .filter-content {
         height: calc(95vh - 10vh) !important;
         overflow: auto!important;
@@ -7025,11 +6722,9 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     html {
         font-size: 15px;
     }
-
     body {
         font-size: 15px;
     }
-
     .filter-content {
         height: calc(95vh - 10vh) !important;
         overflow: auto!important;
@@ -7041,7 +6736,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     html {
         font-size: 15px;
     }
-
     body {
         font-size: 15px;
     }
@@ -7056,11 +6750,9 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     html {
         font-size: 15px;
     }
-
     body {
         font-size: 15px;
     }
-
     .filter-content {
         height: calc(98vh - 10vh) !important;
         overflow: auto!important;
@@ -7072,7 +6764,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
     html {
         font-size: 15px;
     }
-
     body {
         font-size: 15px;
     }
@@ -7084,6 +6775,7 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
 
 
 /* Dropdown Animate */
+
 @media (min-width:992px) {
     .dropdown-animate>.dropdown-menu {
         opacity: 0;
@@ -7091,19 +6783,16 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
         display: block;
         pointer-events: none
     }
-
     .dropdown-animate:not([data-toggle=hover]) .dropdown-menu.show {
         pointer-events: auto;
         // -webkit-animation: show-dropdown .3s ease forwards;
         // animation: show-dropdown .3s ease forwards
     }
-
     .dropdown-animate:not([data-toggle=hover]) .dropdown-menu.hide {
         display: block;
         -webkit-animation: hide-dropdown .3s ease backwards;
         animation: hide-dropdown .3s ease backwards
     }
-
     .dropdown-animate[data-toggle=hover]>.dropdown-menu {
         display: block;
         margin: 0;
@@ -7140,7 +6829,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
         -webkit-transition: all .3s ease;
         transition: all .3s ease
     }
-
     to {
         -webkit-transform: translateX(0) translateY(-3px) scale(1);
         transform: translateX(0) translateY(-3px) scale(1);
@@ -7156,7 +6844,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
         -webkit-transition: all .3s ease;
         transition: all .3s ease
     }
-
     to {
         -webkit-transform: translateX(0) translateY(-3px) scale(1);
         transform: translateX(0) translateY(-3px) scale(1);
@@ -7172,7 +6859,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
         -webkit-transition: all .3s ease;
         transition: all .3s ease
     }
-
     to {
         opacity: 0;
         -webkit-transform: translateX(-16px) translateY(-3px) scale(.97);
@@ -7188,7 +6874,6 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
         -webkit-transition: all .3s ease;
         transition: all .3s ease
     }
-
     to {
         opacity: 0;
         -webkit-transform: translateX(-16px) translateY(-3px) scale(.97);

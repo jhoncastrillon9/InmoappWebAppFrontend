@@ -10,11 +10,11 @@
 
         <!-- Actions -->
         <div class="d-flex align-items-center">
-            <button class="btn btn-icon ghost-warning mr-1" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
-                Filtrar<i class="fi-rr-filter"></i>
+            <button class="btn btn-icon-reb ghost-warning mr-3" type="button" placement="bottom" ngbTooltip="Filtrar" aria-label="Filtrar" (click)="openFilter(true)">
+                Filtrar &nbsp;<i class="fi-rr-filter"></i>
             </button>
-            <button class="btn btn-icon ghost-success mr-1" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
-               Nuevo <i class="fi-rr-plus"></i>
+            <button class="btn btn-icon-reb ghost-success mr-3" type="button" placement="bottom" ngbTooltip="Nuevo" aria-label="Nuevo" [routerLink]="['add']">
+                Nuevo &nbsp;<i class="fi-rr-plus"></i>
             </button>
         </div>
         <!-- Actions -->
@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <!-- Neighborhood Table -->
-                <p-table #dt class="table" [value]="neighborhoods" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="{first} de {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['neighborhoodId','neighborhoodName','zoneId']"
+                <p-table #dt class="table" [value]="neighborhoods" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} - {last} de {totalRecords}" sortMode="multiple" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['neighborhoodId','neighborhoodName','zoneId']"
                     styleClass="p-datatable-responsive-demo">
 
                     <!-- Title table -->

@@ -109,8 +109,8 @@ export class BankAccountFormComponent implements OnInit {
       this.validation = true;
     
       Swal.fire(
-        'Error',
-        'Please, fill in all the required fields correctly',
+        '¡Ups!',
+        'Por favor complete los campos requeridos',
         'error'
       );
       return;
@@ -124,18 +124,18 @@ export class BankAccountFormComponent implements OnInit {
       this.bankAccountService.update(bankAccount).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('Error', res.data[0].message, 'error');
+          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
           return;
         }
 
-        Swal.fire('Edit', 'Record edited', 'success').then(() => {
+        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
           this.router.navigate(['/Banks/bankAccount']);
         });
       },
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('Error', 'Unexpected error', 'error');
+        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
       },
       () => {
         // Complete
@@ -146,18 +146,18 @@ export class BankAccountFormComponent implements OnInit {
       this.bankAccountService.create(bankAccount).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('Error', res.data[0].message, 'error');
+          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
           return;
         }
 
-        Swal.fire('Create', 'Record created', 'success').then(() => {
+        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
           this.router.navigate(['/Banks/bankAccount']);
         });
       },
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('Error', 'Unexpected error', 'error');
+        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
       },
       () => {
         // Complete
@@ -171,30 +171,30 @@ export class BankAccountFormComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>Do you want to enable this record?</h4>  <br>
-        <strong>Record # ${bankAccount.bankAccountId}</strong>`,
+        html: `<h4>¿Quieres activar este registro?</h4>  <br>
+        <strong>Registro # ${bankAccount.bankAccountId}</strong>`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.bankAccountService.enable(bankAccount.bankAccountId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('Error', res.data[0].message, 'error');
+              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
               return;
             }
 
-            Swal.fire('Edit', 'Record enabled', 'success').then(() => {
+            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
               this.initForm();
             });
           },
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('Error', 'Unexpected error', 'error');
+            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
           },
           () => {
             // Complete
@@ -205,30 +205,30 @@ export class BankAccountFormComponent implements OnInit {
     if (status) {
       Swal.fire({
         // title: '',
-        html: `<h4>Do you want to disable this record?</h4>
-        <br> <strong>Record # ${bankAccount.bankAccountId}</strong>`,
+        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
+        <br> <strong>Registro # ${bankAccount.bankAccountId}</strong>`,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.bankAccountService.disable(bankAccount.bankAccountId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('Error', res.data[0].message, 'error');
+              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
               return;
             }
 
-            Swal.fire('Edit', 'Record disabled', 'success').then(() => {
+            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
               this.initForm();
             });
           },
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('Error', 'Unexpected error', 'error');
+            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
           },
           () => {
             // Complete

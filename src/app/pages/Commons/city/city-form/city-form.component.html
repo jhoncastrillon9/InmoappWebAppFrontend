@@ -42,11 +42,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="cityName">CityName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="cityName"
-                                                [ngClass]="{ 'is-invalid': validation && f.cityName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="cityName" [ngClass]="{ 'is-invalid': validation && f.cityName.errors }">
                                             <div *ngIf="validation && f.cityName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.cityName.errors.required">CityName is required</div>
-                                                <div *ngIf="f.cityName.errors.maxlength">Maximum field length is 100</div>
+                                                <div *ngIf="f.cityName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 100</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,8 +53,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="StateId">StateId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="stateId"
-                                                [ngClass]="{ 'is-invalid': validation && f.stateId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="stateId" [ngClass]="{ 'is-invalid': validation && f.stateId.errors }">
                                                 <ng-option *ngFor="let item of stateList" [value]="item.stateId">{{item.stateName}}
                                                 </ng-option>
                                             </ng-select>
@@ -70,10 +68,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Commons/city']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Commons/city']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

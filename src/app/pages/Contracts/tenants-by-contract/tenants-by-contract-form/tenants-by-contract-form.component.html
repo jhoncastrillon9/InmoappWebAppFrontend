@@ -42,8 +42,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="TenantId">TenantId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="tenantId"
-                                                [ngClass]="{ 'is-invalid': validation && f.tenantId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="tenantId" [ngClass]="{ 'is-invalid': validation && f.tenantId.errors }">
                                                 <ng-option *ngFor="let item of tenantList" [value]="item.tenantId">{{item.tenantName}}
                                                 </ng-option>
                                             </ng-select>
@@ -56,10 +55,9 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="profile">Profile</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="profile"
-                                                [ngClass]="{ 'is-invalid': validation && f.profile.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="profile" [ngClass]="{ 'is-invalid': validation && f.profile.errors }">
                                             <div *ngIf="validation && f.profile.errors" class="invalid-feedback">
-                                                <div *ngIf="f.profile.errors.maxlength">Maximum field length is 300</div>
+                                                <div *ngIf="f.profile.errors.maxlength">La cantidad de caracteres no puede ser mayor a 300</div>
                                             </div>
                                         </div>
                                     </div>
@@ -69,10 +67,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Contracts/tenantsByContract']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Contracts/tenantsByContract']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

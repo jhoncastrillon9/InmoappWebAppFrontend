@@ -42,11 +42,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="propertyStatusName">PropertyStatusName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="propertyStatusName"
-                                                [ngClass]="{ 'is-invalid': validation && f.propertyStatusName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="propertyStatusName" [ngClass]="{ 'is-invalid': validation && f.propertyStatusName.errors }">
                                             <div *ngIf="validation && f.propertyStatusName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.propertyStatusName.errors.required">PropertyStatusName is required</div>
-                                                <div *ngIf="f.propertyStatusName.errors.maxlength">Maximum field length is 200</div>
+                                                <div *ngIf="f.propertyStatusName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
                                             </div>
                                         </div>
                                     </div>
@@ -56,10 +55,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Properties/propertyStatus']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Properties/propertyStatus']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

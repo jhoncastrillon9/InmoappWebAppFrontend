@@ -171,14 +171,14 @@ export class UserFormComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: 'active record',
-        html: `<h4>Do you want to enable this record?</h4>  <br>
+        html: `<h4>¿Quieres activar este registro?</h4>  <br>
           <strong>${user.firstName} ${user.lastName}</strong>`,
         // icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.userService.enable(user.userId).subscribe((res: any) => {
@@ -197,14 +197,14 @@ export class UserFormComponent implements OnInit {
     if (status) {
       Swal.fire({
         // title: 'Disable record',
-        html: `<h4>Do you want to disable this record?</h4>
+        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
           <br> <strong>${this.user.firstName} ${this.user.lastName}</strong>`,
         // icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'No',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Si',
       }).then((result) => {
         if (result.value) {
           this.userService.disable(user.userId).subscribe((res: any) => {

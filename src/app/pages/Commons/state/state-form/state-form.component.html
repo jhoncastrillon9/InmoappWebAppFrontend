@@ -42,11 +42,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="stateName">StateName</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="stateName"
-                                                [ngClass]="{ 'is-invalid': validation && f.stateName.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="stateName" [ngClass]="{ 'is-invalid': validation && f.stateName.errors }">
                                             <div *ngIf="validation && f.stateName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.stateName.errors.required">StateName is required</div>
-                                                <div *ngIf="f.stateName.errors.maxlength">Maximum field length is 100</div>
+                                                <div *ngIf="f.stateName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 100</div>
                                             </div>
                                         </div>
                                     </div>
@@ -56,10 +55,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Commons/state']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Commons/state']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

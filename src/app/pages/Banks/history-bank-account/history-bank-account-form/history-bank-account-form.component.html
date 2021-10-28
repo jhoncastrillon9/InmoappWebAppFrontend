@@ -42,8 +42,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="PaymentTypeId">PaymentTypeId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="paymentTypeId"
-                                                [ngClass]="{ 'is-invalid': validation && f.paymentTypeId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="paymentTypeId" [ngClass]="{ 'is-invalid': validation && f.paymentTypeId.errors }">
                                                 <ng-option *ngFor="let item of paymentTypeList" [value]="item.paymentTypeId">{{item.paymentTypeName}}
                                                 </ng-option>
                                             </ng-select>
@@ -56,8 +55,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="value">Value</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="value"
-                                                [ngClass]="{ 'is-invalid': validation && f.value.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="value" [ngClass]="{ 'is-invalid': validation && f.value.errors }">
                                             <div *ngIf="validation && f.value.errors" class="invalid-feedback">
                                                 <div *ngIf="f.value.errors.required">Value is required</div>
                                                 <div *ngIf="f.value.errors.pattern">Only numbers</div>
@@ -68,8 +66,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="BankAccountId">BankAccountId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="bankAccountId"
-                                                [ngClass]="{ 'is-invalid': validation && f.bankAccountId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="bankAccountId" [ngClass]="{ 'is-invalid': validation && f.bankAccountId.errors }">
                                                 <ng-option *ngFor="let item of bankAccountList" [value]="item.bankAccountId">{{item.bankAccountName}}
                                                 </ng-option>
                                             </ng-select>
@@ -102,11 +99,10 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="obervation">Obervation</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="obervation"
-                                                [ngClass]="{ 'is-invalid': validation && f.obervation.errors }">
+                                            <input type="text" class="form-control form-control-color" formControlName="obervation" [ngClass]="{ 'is-invalid': validation && f.obervation.errors }">
                                             <div *ngIf="validation && f.obervation.errors" class="invalid-feedback">
                                                 <div *ngIf="f.obervation.errors.required">Obervation is required</div>
-                                                <div *ngIf="f.obervation.errors.maxlength">Maximum field length is 500</div>
+                                                <div *ngIf="f.obervation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 500</div>
                                             </div>
                                         </div>
                                     </div>
@@ -114,8 +110,7 @@
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
                                             <label for="CompayId">CompayId</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId"
-                                                [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
+                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
                                                 <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
@@ -130,10 +125,8 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3"
-                                            [routerLink]="['/Banks/historyBankAccount']">Cancel</button>
-                                        <button type="button" class="btn btn-primary" type="submit"
-                                            >Save</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Banks/historyBankAccount']">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>
