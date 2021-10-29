@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">Images Form</h5>
+                <h6 class="my-1 mr-3">Inmuebles / Imagenes</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">Images</h5>
+                                    <h5 class="card-title m-1">Agregar Imagen</h5>
                                 </div>
 
                             </div>
@@ -54,7 +54,7 @@
                                             <label for="path">Path</label>
                                             <input type="text" class="form-control form-control-color" formControlName="path" [ngClass]="{ 'is-invalid': validation && f.path.errors }">
                                             <div *ngIf="validation && f.path.errors" class="invalid-feedback">
-                                                <div *ngIf="f.path.errors.required">Path is required</div>
+                                                <div *ngIf="f.path.errors.required">El campo Ruta del archivo es obligatorio</div>
                                                 <div *ngIf="f.path.errors.maxlength">La cantidad de caracteres no puede ser mayor a 150</div>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.propertyId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.propertyId.errors.required">PropertyId is required</div>
+                                                <div *ngIf="f.propertyId.errors.required">El campo Inmueble es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>

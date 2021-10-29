@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">Tenant Form</h5>
+                <h6 class="my-1 mr-3">Personas / Arrendatarios</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">Tenant</h5>
+                                    <h5 class="card-title m-1">Agregar Arrendatario</h5>
                                 </div>
 
                             </div>
@@ -44,7 +44,7 @@
                                             <label for="tenantName">TenantName</label>
                                             <input type="text" class="form-control form-control-color" formControlName="tenantName" [ngClass]="{ 'is-invalid': validation && f.tenantName.errors }">
                                             <div *ngIf="validation && f.tenantName.errors" class="invalid-feedback">
-                                                <div *ngIf="f.tenantName.errors.required">TenantName is required</div>
+                                                <div *ngIf="f.tenantName.errors.required">El campo Nombre del arrendador es obligatorio</div>
                                                 <div *ngIf="f.tenantName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                             <label for="mobile">Mobile</label>
                                             <input type="text" class="form-control form-control-color" formControlName="mobile" [ngClass]="{ 'is-invalid': validation && f.mobile.errors }">
                                             <div *ngIf="validation && f.mobile.errors" class="invalid-feedback">
-                                                <div *ngIf="f.mobile.errors.required">Mobile is required</div>
+                                                <div *ngIf="f.mobile.errors.required">El campo Celular es obligatorio</div>
                                                 <div *ngIf="f.mobile.errors.maxlength">La cantidad de caracteres no puede ser mayor a 30</div>
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                                <div *ngIf="f.compayId.errors.required">El campo Inmobiliaria es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>

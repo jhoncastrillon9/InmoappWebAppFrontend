@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">AccountsToPayContract Form</h5>
+                <h6 class="my-1 mr-3">Finanzas / Cuentas por pagar</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">AccountsToPayContract</h5>
+                                    <h5 class="card-title m-1">Agregar cuenta por pagar</h5>
                                 </div>
 
                             </div>
@@ -44,10 +44,10 @@
                                             <label for="quotaNumber">QuotaNumber</label>
                                             <input type="text" class="form-control form-control-color" formControlName="quotaNumber" [ngClass]="{ 'is-invalid': validation && f.quotaNumber.errors }">
                                             <div *ngIf="validation && f.quotaNumber.errors" class="invalid-feedback">
-                                                <div *ngIf="f.quotaNumber.errors.required">QuotaNumber is required</div>
-                                                <div *ngIf="f.quotaNumber.errors.pattern">Only integer numbers</div>
-                                                <div *ngIf="f.quotaNumber.errors.min">Minimum value is -2147483648</div>
-                                                <div *ngIf="f.quotaNumber.errors.max">Maximum value is 2147483647</div>
+                                                <div *ngIf="f.quotaNumber.errors.required">El campo N de cuota es obligatorio</div>
+                                                <div *ngIf="f.quotaNumber.errors.pattern">Solo puedes ingresar números enteros</div>
+                                                <div *ngIf="f.quotaNumber.errors.min">El valor mínimo permitido es -2147483648</div>
+                                                <div *ngIf="f.quotaNumber.errors.max">El valor máximo permitido es 2147483647</div>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                             <label for="value">Value</label>
                                             <input type="text" class="form-control form-control-color" formControlName="value" [ngClass]="{ 'is-invalid': validation && f.value.errors }">
                                             <div *ngIf="validation && f.value.errors" class="invalid-feedback">
-                                                <div *ngIf="f.value.errors.required">Value is required</div>
+                                                <div *ngIf="f.value.errors.required">El campo Valor es obligatorio</div>alue
                                                 <div *ngIf="f.value.errors.pattern">Only numbers</div>
                                             </div>
                                         </div>
@@ -74,7 +74,7 @@
                                                     </button>
                                                 </div>
                                                 <div *ngIf="validation && f.expirationDate.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.expirationDate.errors.required">ExpirationDate is required</div>
+                                                    <div *ngIf="f.expirationDate.errors.required">El campo fecha de vencimiento es obligatorio</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.contractId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.contractId.errors.required">ContractId is required</div>
+                                                <div *ngIf="f.contractId.errors.required">El campo Id del contrato es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +111,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                                <div *ngIf="f.compayId.errors.required">El campo inmobiliaria es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>

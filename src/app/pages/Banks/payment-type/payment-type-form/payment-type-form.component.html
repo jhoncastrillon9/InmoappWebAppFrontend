@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">PaymentType Form</h5>
+                <h6 class="my-1 mr-3">Finanzas / Tipo de pagos</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">PaymentType</h5>
+                                    <h5 class="card-title m-1">Agregar tipo de pago</h5>
                                 </div>
 
                             </div>
@@ -44,7 +44,7 @@
                                             <label for="paymentTypeName">PaymentTypeName</label>
                                             <input type="text" class="form-control form-control-color" formControlName="paymentTypeName" [ngClass]="{ 'is-invalid': validation && f.paymentTypeName.errors }">
                                             <div *ngIf="validation && f.paymentTypeName.errors" class="invalid-feedback">
-                                                <div *ngIf="f.paymentTypeName.errors.required">PaymentTypeName is required</div>
+                                                <div *ngIf="f.paymentTypeName.errors.required">El campo Tipo de pago es obligatorio</div>
                                                 <div *ngIf="f.paymentTypeName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                                <div *ngIf="f.compayId.errors.required">El campo Inmobiliaria es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>

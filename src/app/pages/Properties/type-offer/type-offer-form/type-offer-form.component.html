@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">TypeOffer Form</h5>
+                <h6 class="my-1 mr-3">Inmuebles / Tipos de oferta</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">TypeOffer</h5>
+                                    <h5 class="card-title m-1">Agregar tipo de oferta</h5>
                                 </div>
 
                             </div>
@@ -44,7 +44,7 @@
                                             <label for="typeOfferName">TypeOfferName</label>
                                             <input type="text" class="form-control form-control-color" formControlName="typeOfferName" [ngClass]="{ 'is-invalid': validation && f.typeOfferName.errors }">
                                             <div *ngIf="validation && f.typeOfferName.errors" class="invalid-feedback">
-                                                <div *ngIf="f.typeOfferName.errors.required">TypeOfferName is required</div>
+                                                <div *ngIf="f.typeOfferName.errors.required">El campo Nombre del tipo de oferta es obligatorio</div>
                                                 <div *ngIf="f.typeOfferName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
                                             </div>
                                         </div>

@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">HistoryBankAccount Form</h5>
+                <h6 class="my-1 mr-3">Finanzas / Transacciones</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">HistoryBankAccount</h5>
+                                    <h5 class="card-title m-1">Agregar transacción</h5>
                                 </div>
 
                             </div>
@@ -47,7 +47,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.paymentTypeId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.paymentTypeId.errors.required">PaymentTypeId is required</div>
+                                                <div *ngIf="f.paymentTypeId.errors.required">El campo Tipo de pago es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@
                                             <label for="value">Value</label>
                                             <input type="text" class="form-control form-control-color" formControlName="value" [ngClass]="{ 'is-invalid': validation && f.value.errors }">
                                             <div *ngIf="validation && f.value.errors" class="invalid-feedback">
-                                                <div *ngIf="f.value.errors.required">Value is required</div>
+                                                <div *ngIf="f.value.errors.required">El campo Valor es obligatorio</div>
                                                 <div *ngIf="f.value.errors.pattern">Only numbers</div>
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.bankAccountId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.bankAccountId.errors.required">BankAccountId is required</div>
+                                                <div *ngIf="f.bankAccountId.errors.required">El campo Cuenta de banco es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +101,7 @@
                                             <label for="obervation">Obervation</label>
                                             <input type="text" class="form-control form-control-color" formControlName="obervation" [ngClass]="{ 'is-invalid': validation && f.obervation.errors }">
                                             <div *ngIf="validation && f.obervation.errors" class="invalid-feedback">
-                                                <div *ngIf="f.obervation.errors.required">Obervation is required</div>
+                                                <div *ngIf="f.obervation.errors.required">El campo Observación es obligatorio</div>
                                                 <div *ngIf="f.obervation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 500</div>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                                <div *ngIf="f.compayId.errors.required">El campo Inmobiliaria es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>

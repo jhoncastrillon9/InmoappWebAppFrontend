@@ -84,7 +84,7 @@
       <i class="dropdown-toggle-icon fi-rr-angle-up"></i>
     </a>
         <div class="dropdown-menu dropdown-menu-arrow p-lg-3" aria-labelledby="dropdownwidgets">
-            <a *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="dropdown-item" href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']">Bancos</a>
+            <a *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="dropdown-item" href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']">Cuentas de Banco</a>
             <a *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="dropdown-item" href="javascript:void(0);" [routerLink]="['/Banks/accountsToReceivableContract']">Cuentas por cobrar</a>
             <a *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="dropdown-item" href="javascript:void(0);" [routerLink]="['/Banks/accountsToPayContract']">Cuentas por pagar</a>
             <a *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="dropdown-item" href="javascript:void(0);" [routerLink]="['/Banks/historyBankAccount']">Transacciones</a>
@@ -311,7 +311,7 @@
         <div class="collapse navbar-collapse" id="menuWidgets">
             <ul *ngIf="containsRole('SuperAdmin,CompanyAdmin,FinanceUser')" class="list-group">
                 <li class="list-menu-item">
-                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']">Bancos</a>
+                    <a class="nav-link" href="javascript:void(0);" [routerLink]="['/Banks/bankAccount']">Cuentas de banco</a>
                 </li>
                 <li class="list-menu-item">
                     <a class="nav-link" href="javascript:void(0);" [routerLink]="['/Banks/accountsToReceivableContract']">Cuentas por Cobrar</a>

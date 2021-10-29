@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">City Form</h5>
+                <h6 class="my-1 mr-3">Inmuebles / Ciudades</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">City</h5>
+                                    <h5 class="card-title m-1">Agregar ciudad</h5>
                                 </div>
 
                             </div>
@@ -44,7 +44,7 @@
                                             <label for="cityName">CityName</label>
                                             <input type="text" class="form-control form-control-color" formControlName="cityName" [ngClass]="{ 'is-invalid': validation && f.cityName.errors }">
                                             <div *ngIf="validation && f.cityName.errors" class="invalid-feedback">
-                                                <div *ngIf="f.cityName.errors.required">CityName is required</div>
+                                                <div *ngIf="f.cityName.errors.required">El campo Nombre de la ciudad es obligatorio</div>
                                                 <div *ngIf="f.cityName.errors.maxlength">La cantidad de caracteres no puede ser mayor a 100</div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.stateId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.stateId.errors.required">StateId is required</div>
+                                                <div *ngIf="f.stateId.errors.required">El campo Departamento es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>

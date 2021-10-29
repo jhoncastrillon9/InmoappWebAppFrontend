@@ -4,7 +4,7 @@
         <!-- Title -->
         <div class="d-flex align-items-center flex-wrap mr-1">
             <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h5 class="my-1 mr-3">Contract Form</h5>
+                <h6 class="my-1 mr-3">Contratos</h6>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">Contract</h5>
+                                    <h5 class="card-title m-1">Agregar contrato</h5>
                                 </div>
 
                             </div>
@@ -50,7 +50,7 @@
                                                     </button>
                                                 </div>
                                                 <div *ngIf="validation && f.contractDate.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.contractDate.errors.required">ContractDate is required</div>
+                                                    <div *ngIf="f.contractDate.errors.required">El campo Fecha es obligatorio</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                                     </button>
                                                 </div>
                                                 <div *ngIf="validation && f.innitialDate.errors" class="invalid-feedback">
-                                                    <div *ngIf="f.innitialDate.errors.required">InnitialDate is required</div>
+                                                    <div *ngIf="f.innitialDate.errors.required">El campo Fecha inicial del contrato es obligatorio</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -78,10 +78,10 @@
                                             <label for="quantityMonths">QuantityMonths</label>
                                             <input type="text" class="form-control form-control-color" formControlName="quantityMonths" [ngClass]="{ 'is-invalid': validation && f.quantityMonths.errors }">
                                             <div *ngIf="validation && f.quantityMonths.errors" class="invalid-feedback">
-                                                <div *ngIf="f.quantityMonths.errors.required">QuantityMonths is required</div>
-                                                <div *ngIf="f.quantityMonths.errors.pattern">Only integer numbers</div>
-                                                <div *ngIf="f.quantityMonths.errors.min">Minimum value is -2147483648</div>
-                                                <div *ngIf="f.quantityMonths.errors.max">Maximum value is 2147483647</div>
+                                                <div *ngIf="f.quantityMonths.errors.required">El campo Cantidad de Meses es obligatorio</div>
+                                                <div *ngIf="f.quantityMonths.errors.pattern">Solo puedes ingresar números enteros</div>
+                                                <div *ngIf="f.quantityMonths.errors.min">El valor mínimo permitido es -2147483648</div>
+                                                <div *ngIf="f.quantityMonths.errors.max">El valor máximo permitido es 2147483647</div>
                                             </div>
                                         </div>
                                     </div>
@@ -91,8 +91,8 @@
                                             <label for="rentalFeeForOwner">RentalFeeForOwner</label>
                                             <input type="text" class="form-control form-control-color" formControlName="rentalFeeForOwner" [ngClass]="{ 'is-invalid': validation && f.rentalFeeForOwner.errors }">
                                             <div *ngIf="validation && f.rentalFeeForOwner.errors" class="invalid-feedback">
-                                                <div *ngIf="f.rentalFeeForOwner.errors.required">RentalFeeForOwner is required</div>
-                                                <div *ngIf="f.rentalFeeForOwner.errors.pattern">Only numbers</div>
+                                                <div *ngIf="f.rentalFeeForOwner.errors.required">El campo Precio del Propietario es obligatorio</div>
+                                                <div *ngIf="f.rentalFeeForOwner.errors.pattern">Solamente se permite el ingreso de numeros</div>
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@
                                             <label for="rentalFeeForTennat">RentalFeeForTennat</label>
                                             <input type="text" class="form-control form-control-color" formControlName="rentalFeeForTennat" [ngClass]="{ 'is-invalid': validation && f.rentalFeeForTennat.errors }">
                                             <div *ngIf="validation && f.rentalFeeForTennat.errors" class="invalid-feedback">
-                                                <div *ngIf="f.rentalFeeForTennat.errors.required">RentalFeeForTennat is required</div>
+                                                <div *ngIf="f.rentalFeeForTennat.errors.required">El campo Valor del arriendo es obligatorio</div>
                                                 <div *ngIf="f.rentalFeeForTennat.errors.pattern">Only numbers</div>
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.propertyId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.propertyId.errors.required">PropertyId is required</div>
+                                                <div *ngIf="f.propertyId.errors.required">El campo Inmueble es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.tenantId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.tenantId.errors.required">TenantId is required</div>
+                                                <div *ngIf="f.tenantId.errors.required">El campo Arrendador es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">CompayId is required</div>
+                                                <div *ngIf="f.compayId.errors.required">El campo Inmobiliaria es obligatorio</div>
                                             </div>
                                         </div>
                                     </div>
