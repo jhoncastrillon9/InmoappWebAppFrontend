@@ -49,6 +49,8 @@ export class PaymentTypeFormComponent implements OnInit {
     this.createForm();
     this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
       this.companyList = res.data;
+
+      console.table(this.companyList);
     });
 
 
@@ -108,7 +110,7 @@ export class PaymentTypeFormComponent implements OnInit {
     
       Swal.fire(
         '¡Ups!',
-        'Por favor complete los campos requeridos',
+        'Por favor completa los campos requeridos',
         'error'
       );
       return;

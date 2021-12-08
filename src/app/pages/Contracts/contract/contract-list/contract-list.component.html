@@ -42,7 +42,7 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="contractId">ContractId</label>
+                            <label for="contractId">Contrato</label>
                             <input type="text" class="form-control form-control-color" formControlName="contractId" aria-describedby="contractId">
                         </div>
                     </div>
@@ -86,9 +86,9 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="compayId">CompayId</label>
+                            <label for="compayId">Inmobiliaria</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -189,7 +189,7 @@
                             <th class="th10" pSortableColumn="tenantId">TenantId
                                 <p-sortIcon field="tenantId"></p-sortIcon>
                             </th>
-                            <th class="th11" pSortableColumn="compayId">CompayId
+                            <th class="th11" pSortableColumn="compayId">Inmobiliaria
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
                             <th class="th12">Opciones</th>
@@ -201,7 +201,7 @@
                     <ng-template pTemplate="body" let-contract>
                         <tr>
                             <td>
-                                <label class="p-column-title">ContractId</label>
+                                <label class="p-column-title">Contrato</label>
                                 <label class="p-right">{{contract.contractId}}</label>
                             </td>
 
@@ -251,7 +251,7 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">CompayId</label>
+                                <label class="p-column-title">Inmobiliaria</label>
                                 <label class="p-right">{{contract.compayId}}</label>
                             </td>
 

@@ -42,14 +42,14 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsToReceivableContractId">AccountsToReceivableContractId</label>
+                            <label for="accountsToReceivableContractId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="accountsToReceivableContractId" aria-describedby="accountsToReceivableContractId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsStatusId">AccountsStatusId</label>
+                            <label for="accountsStatusId">Estado</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsStatusId">
                                 <ng-option *ngFor="let item of accountsStatusList" [value]="item.accountsStatusId">{{item.accountsStatusName}}
                                 </ng-option>
@@ -59,7 +59,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="contractId">ContractId</label>
+                            <label for="contractId">Contrato</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="contractId">
                                 <ng-option *ngFor="let item of contractList" [value]="item.contractId">{{item.contractName}}
                                 </ng-option>
@@ -69,9 +69,9 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="compayId">CompayId</label>
+                            <label for="compayId">Inmobiliaria</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -142,25 +142,25 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="accountsToReceivableContractId">AccountsToReceivableContractId
+                            <th class="th1" pSortableColumn="accountsToReceivableContractId">Id
                                 <p-sortIcon field="accountsToReceivableContractId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="quotaNumber">QuotaNumber
+                            <th class="th2" pSortableColumn="quotaNumber">Número de cuota
                                 <p-sortIcon field="quotaNumber"></p-sortIcon>
                             </th>
-                            <th class="th3" pSortableColumn="value">Value
+                            <th class="th3" pSortableColumn="value">Valor
                                 <p-sortIcon field="value"></p-sortIcon>
                             </th>
-                            <th class="th4" pSortableColumn="expirationDate">ExpirationDate
+                            <th class="th4" pSortableColumn="expirationDate">Fecha de vencimiento
                                 <p-sortIcon field="expirationDate"></p-sortIcon>
                             </th>
-                            <th class="th5" pSortableColumn="accountsStatusId">AccountsStatusId
+                            <th class="th5" pSortableColumn="accountsStatusId">Estado
                                 <p-sortIcon field="accountsStatusId"></p-sortIcon>
                             </th>
-                            <th class="th6" pSortableColumn="contractId">ContractId
+                            <th class="th6" pSortableColumn="contractId">Contrato
                                 <p-sortIcon field="contractId"></p-sortIcon>
                             </th>
-                            <th class="th7" pSortableColumn="compayId">CompayId
+                            <th class="th7" pSortableColumn="compayId">Inmobiliaria
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
                             <th class="th8">Opciones</th>
@@ -187,22 +187,22 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">ExpirationDate</label>
+                                <label class="p-column-title">Fecha de Vencimiento</label>
                                 <label class="p-right">{{accountsToReceivableContract.expirationDate | customDate}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">AccountsStatusId</label>
+                                <label class="p-column-title">Estado</label>
                                 <label class="p-right">{{accountsToReceivableContract.accountsStatusId}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">ContractId</label>
+                                <label class="p-column-title">Contrato</label>
                                 <label class="p-right">{{accountsToReceivableContract.contractId}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">CompayId</label>
+                                <label class="p-column-title">Inmobiliaria</label>
                                 <label class="p-right">{{accountsToReceivableContract.compayId}}</label>
                             </td>
 

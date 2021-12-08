@@ -31,7 +31,8 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">Agregar cuenta por pagar</h5>
+                                    <h5 *ngIf="editAction!==true" class="card-title m-1">Agregar cuenta por pagar</h5>
+                                    <h5 *ngIf="editAction===true" class="card-title m-1">Editar cuenta por pagar</h5>
                                 </div>
 
                             </div>
@@ -41,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="quotaNumber">QuotaNumber</label>
+                                            <label for="quotaNumber">Cuota Número</label>
                                             <input type="text" class="form-control form-control-color" formControlName="quotaNumber" [ngClass]="{ 'is-invalid': validation && f.quotaNumber.errors }">
                                             <div *ngIf="validation && f.quotaNumber.errors" class="invalid-feedback">
                                                 <div *ngIf="f.quotaNumber.errors.required">El campo N de cuota es obligatorio</div>
@@ -54,18 +55,18 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="value">Value</label>
+                                            <label for="value">Valor</label>
                                             <input type="text" class="form-control form-control-color" formControlName="value" [ngClass]="{ 'is-invalid': validation && f.value.errors }">
                                             <div *ngIf="validation && f.value.errors" class="invalid-feedback">
                                                 <div *ngIf="f.value.errors.required">El campo Valor es obligatorio</div>alue
-                                                <div *ngIf="f.value.errors.pattern">Only numbers</div>
+                                                <div *ngIf="f.value.errors.pattern">Solamente se pueden ingresar números</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="publishDate">ExpirationDate</label>
+                                            <label for="publishDate">Fecha de Vencimiento</label>
                                             <div class="input-group d-flex mb-4">
                                                 <input class="form-control form-control-color" placeholder="dd/mm/yyyy" ngbDatepicker #dpExpirationDate="ngbDatepicker" formControlName="expirationDate" [ngClass]="{ 'is-invalid': validation && f.expirationDate.errors }">
                                                 <div class="input-group-append">
@@ -82,7 +83,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="AccountsStatusId">AccountsStatusId</label>
+                                            <label for="AccountsStatusId">Estado</label>
                                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsStatusId">
                                                 <ng-option *ngFor="let item of accountsStatusList" [value]="item.accountsStatusId">{{item.accountsStatusName}}
                                                 </ng-option>
@@ -92,7 +93,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="ContractId">ContractId</label>
+                                            <label for="ContractId">Contrato</label>
                                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="contractId" [ngClass]="{ 'is-invalid': validation && f.contractId.errors }">
                                                 <ng-option *ngFor="let item of contractList" [value]="item.contractId">{{item.contractName}}
                                                 </ng-option>
@@ -105,9 +106,9 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="CompayId">CompayId</label>
+                                            <label for="CompayId">Inmobiliaria</label>
                                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
-                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
@@ -122,7 +123,7 @@
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
                                         <button type="button" class="btn btn-default mr-3" [routerLink]="['/Banks/accountsToPayContract']">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" type="submit">Save</button>
+                                        <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
                             </form>

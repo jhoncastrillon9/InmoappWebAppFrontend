@@ -168,9 +168,9 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="compayId">CompayId</label>
+                            <label for="compayId">Inmobiliaria</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -310,7 +310,7 @@
                             <th class="th23" pSortableColumn="typeOfferId">TypeOfferId
                                 <p-sortIcon field="typeOfferId"></p-sortIcon>
                             </th>
-                            <th class="th24" pSortableColumn="compayId">CompayId
+                            <th class="th24" pSortableColumn="compayId">Inmobiliaria
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
                             <th class="th25">Opciones</th>
@@ -437,7 +437,7 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">CompayId</label>
+                                <label class="p-column-title">Inmobiliaria</label>
                                 <label class="p-right">{{property.compayId}}</label>
                             </td>
 

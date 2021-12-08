@@ -31,7 +31,8 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">Agregar transacción</h5>
+                                    <h5 *ngIf="editAction!==true" class="card-title m-1">Agregar transacción</h5>
+                                    <h5 *ngIf="editAction===true" class="card-title m-1">Editar transacción</h5>
                                 </div>
 
                             </div>
@@ -41,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="PaymentTypeId">PaymentTypeId</label>
+                                            <label for="PaymentTypeId">Tipo de pago</label>
                                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="paymentTypeId" [ngClass]="{ 'is-invalid': validation && f.paymentTypeId.errors }">
                                                 <ng-option *ngFor="let item of paymentTypeList" [value]="item.paymentTypeId">{{item.paymentTypeName}}
                                                 </ng-option>
@@ -54,11 +55,11 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="value">Value</label>
+                                            <label for="value">Valor</label>
                                             <input type="text" class="form-control form-control-color" formControlName="value" [ngClass]="{ 'is-invalid': validation && f.value.errors }">
                                             <div *ngIf="validation && f.value.errors" class="invalid-feedback">
                                                 <div *ngIf="f.value.errors.required">El campo Valor es obligatorio</div>
-                                                <div *ngIf="f.value.errors.pattern">Only numbers</div>
+                                                <div *ngIf="f.value.errors.pattern">Solamente se pueden ingresar números</div>
                                             </div>
                                         </div>
                                     </div>
@@ -109,9 +110,9 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="CompayId">CompayId</label>
+                                            <label for="CompayId">Inmobiliaria</label>
                                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
-                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">

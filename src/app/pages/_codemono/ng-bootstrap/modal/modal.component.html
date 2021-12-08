@@ -13,13 +13,11 @@
             <span class="text-sm mr-2 d-none d-sm-block" for="description">For more information check the official
                 Ng Bootstrap page</span>
 
-            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left"
-                ngbTooltip="For more information check the official Ng Bootstrap page">
+            <button type="button" class="btn btn-icon ghost-primary d-block d-sm-none" triggers="click" placement="left" ngbTooltip="For more information check the official Ng Bootstrap page">
                 <i class="fi-rr-comment"></i>
             </button>
 
-            <a href="https://ng-bootstrap.github.io/#/components/modal/examples" class="btn btn-icon ghost-warning"
-                type="button" placement="bottom" ngbTooltip="See Doc">
+            <a href="https://ng-bootstrap.github.io/#/components/modal/examples" class="btn btn-icon ghost-warning" type="button" placement="bottom" ngbTooltip="See Doc">
                 <i class="fi-rr-document"></i>
             </a>
         </div>
@@ -37,10 +35,7 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col">
                             <h6 class="d-inline-block mb-0">Modal with default options</h6>
-                            <p class="m-0">A reference to the currently opened (active) modal.
-
-                                Instances of this class can be injected into your component passed as modal content. So
-                                you can .close() or .dismiss() the modal window from your component.</p>
+                            <p class="m-0">A reference to the currently opened (active) modal. Instances of this class can be injected into your component passed as modal content. So you can .close() or .dismiss() the modal window from your component.</p>
                         </div>
                     </div>
                 </div>
@@ -49,8 +44,7 @@
                     <ng-template #content let-modal>
                         <div class="modal-header">
                             <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-                            <button type="button" class="close-modal" aria-label="Close"
-                                (click)="modal.dismiss('Cross click')">
+                            <button type="button" class="close-modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -59,11 +53,9 @@
                                 <div class="form-group">
                                     <label for="dateOfBirth">Date of birth</label>
                                     <div class="input-group d-flex">
-                                        <input id="dateOfBirth" class="form-control form-control-color"
-                                            placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                                        <input id="dateOfBirth" class="form-control form-control-color" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary calendar" (click)="dp.toggle()"
-                                                type="button">
+                                            <button class="btn btn-primary calendar" (click)="dp.toggle()" type="button">
                                                 <i class="fi-rr-calendar"></i>
                                             </button>
                                         </div>
@@ -72,8 +64,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary"
-                                (click)="modal.close('Save click')">Save</button>
+                            <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Guardar</button>
                         </div>
                     </ng-template>
 
@@ -104,8 +95,7 @@
                     <ng-template #content let-modal>
                         <div class="modal-header">
                             <h4 class="modal-title">Modal title</h4>
-                            <button type="button" class="close-modal" aria-label="Close"
-                                (click)="modal.dismiss('Cross click')">
+                            <button type="button" class="close-modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -113,8 +103,7 @@
                             <p>One fine body&hellip;</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light"
-                                (click)="modal.close('Close click')">Close</button>
+                            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
                         </div>
                     </ng-template>
 
@@ -149,58 +138,32 @@
                     <ng-template #longContent let-modal>
                         <div class="modal-header">
                             <h4 class="modal-title">Modal title</h4>
-                            <button type="button" class="close-modal" aria-label="Close"
-                                (click)="modal.dismiss('Cross click')">
+                            <button type="button" class="close-modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                                auctor fringilla.</p>
-                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                                auctor fringilla.</p>
-                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                                auctor fringilla.</p>
-                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                                auctor fringilla.</p>
-                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                                auctor fringilla.</p>
-                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                                lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                                scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                                auctor fringilla.</p>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light"
-                                (click)="modal.close('Close click')">Close</button>
+                            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
                         </div>
                     </ng-template>
 
@@ -218,9 +181,7 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col">
                             <h6 class="d-inline-block mb-0">Components as content</h6>
-                            <p class="m-0">You can pass an existing component as content of the modal window. In this
-                                case remember to add
-                                content component as an <code>entryComponents</code> section of your
+                            <p class="m-0">You can pass an existing component as content of the modal window. In this case remember to add content component as an <code>entryComponents</code> section of your
                                 <code>NgModule</code>.
                             </p>
                         </div>

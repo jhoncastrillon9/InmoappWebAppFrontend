@@ -31,7 +31,8 @@
                         <div class="card-header align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h5 class="card-title m-1">Agregar cuenta de banco</h5>
+                                    <h5 *ngIf="editAction!==true" class="card-title m-1">Agregar cuenta de banco</h5>
+                                    <h5 *ngIf="editAction===true" class="card-title m-1">Editar cuenta de banco</h5>
                                 </div>
 
                             </div>
@@ -41,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="bankAccountName">BankAccountName</label>
+                                            <label for="bankAccountName">Nombre de la cuenta de banco</label>
                                             <input type="text" class="form-control form-control-color" formControlName="bankAccountName" [ngClass]="{ 'is-invalid': validation && f.bankAccountName.errors }">
                                             <div *ngIf="validation && f.bankAccountName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.bankAccountName.errors.required">El campo Nombre de la cuenta es obligatorio</div>
@@ -56,16 +57,16 @@
                                             <input type="text" class="form-control form-control-color" formControlName="total" [ngClass]="{ 'is-invalid': validation && f.total.errors }">
                                             <div *ngIf="validation && f.total.errors" class="invalid-feedback">
                                                 <div *ngIf="f.total.errors.required">El campo Total es obligatorio</div>
-                                                <div *ngIf="f.total.errors.pattern">Only numbers</div>
+                                                <div *ngIf="f.total.errors.pattern">Solamente se pueden ingresar números</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="CompayId">CompayId</label>
+                                            <label for="CompayId">Inmobiliaria</label>
                                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
-                                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                                 </ng-option>
                                             </ng-select>
                                             <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">

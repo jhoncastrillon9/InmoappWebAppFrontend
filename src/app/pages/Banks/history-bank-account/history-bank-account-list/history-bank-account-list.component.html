@@ -42,14 +42,14 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="historyBankAccountId">HistoryBankAccountId</label>
+                            <label for="historyBankAccountId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="historyBankAccountId" aria-describedby="historyBankAccountId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="paymentTypeId">PaymentTypeId</label>
+                            <label for="paymentTypeId">Tipo de pago</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="paymentTypeId">
                                 <ng-option *ngFor="let item of paymentTypeList" [value]="item.paymentTypeId">{{item.paymentTypeName}}
                                 </ng-option>
@@ -59,7 +59,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="bankAccountId">BankAccountId</label>
+                            <label for="bankAccountId">Banco</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="bankAccountId">
                                 <ng-option *ngFor="let item of bankAccountList" [value]="item.bankAccountId">{{item.bankAccountName}}
                                 </ng-option>
@@ -69,7 +69,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsToPayContractsId">AccountsToPayContractsId</label>
+                            <label for="accountsToPayContractsId">Cuenta por pagar</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsToPayContractsId">
                                 <ng-option *ngFor="let item of accountsToPayContractList" [value]="item.accountsToPayContractId">{{item.accountsToPayContractName}}
                                 </ng-option>
@@ -79,7 +79,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsToReceivableContractsId">AccountsToReceivableContractsId</label>
+                            <label for="accountsToReceivableContractsId">cuneta por cobrar</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsToReceivableContractsId">
                                 <ng-option *ngFor="let item of accountsToReceivableContractList" [value]="item.accountsToReceivableContractId">{{item.accountsToReceivableContractName}}
                                 </ng-option>
@@ -96,9 +96,9 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="compayId">CompayId</label>
+                            <label for="compayId">Inmobiliaria</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -169,28 +169,28 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="historyBankAccountId">HistoryBankAccountId
+                            <th class="th1" pSortableColumn="historyBankAccountId">Id
                                 <p-sortIcon field="historyBankAccountId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="paymentTypeId">PaymentTypeId
+                            <th class="th2" pSortableColumn="paymentTypeId">Tipo de pago
                                 <p-sortIcon field="paymentTypeId"></p-sortIcon>
                             </th>
-                            <th class="th3" pSortableColumn="value">Value
+                            <th class="th3" pSortableColumn="value">Valor
                                 <p-sortIcon field="value"></p-sortIcon>
                             </th>
-                            <th class="th4" pSortableColumn="bankAccountId">BankAccountId
+                            <th class="th4" pSortableColumn="bankAccountId">Cuenta de banco
                                 <p-sortIcon field="bankAccountId"></p-sortIcon>
                             </th>
-                            <th class="th5" pSortableColumn="accountsToPayContractsId">AccountsToPayContractsId
+                            <th class="th5" pSortableColumn="accountsToPayContractsId">Cuenta por pagar
                                 <p-sortIcon field="accountsToPayContractsId"></p-sortIcon>
                             </th>
-                            <th class="th6" pSortableColumn="accountsToReceivableContractsId">AccountsToReceivableContractsId
+                            <th class="th6" pSortableColumn="accountsToReceivableContractsId">Cuenta por cobrar
                                 <p-sortIcon field="accountsToReceivableContractsId"></p-sortIcon>
                             </th>
-                            <th class="th7" pSortableColumn="obervation">Obervation
+                            <th class="th7" pSortableColumn="obervation">Obervación
                                 <p-sortIcon field="obervation"></p-sortIcon>
                             </th>
-                            <th class="th8" pSortableColumn="compayId">CompayId
+                            <th class="th8" pSortableColumn="compayId">Inmobiliaria
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
                             <th class="th9">Opciones</th>
@@ -237,7 +237,7 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">CompayId</label>
+                                <label class="p-column-title">Inmobiliaria</label>
                                 <label class="p-right">{{historyBankAccount.compayId}}</label>
                             </td>
 

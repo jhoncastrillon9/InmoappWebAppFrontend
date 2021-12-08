@@ -42,23 +42,23 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="paymentTypeId">PaymentTypeId</label>
+                            <label for="paymentTypeId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="paymentTypeId" aria-describedby="paymentTypeId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="paymentTypeName">PaymentTypeName</label>
+                            <label for="paymentTypeName">Nombre del tipo de pago</label>
                             <input type="text" class="form-control form-control-color" formControlName="paymentTypeName" aria-describedby="paymentTypeName">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="compayId">CompayId</label>
+                            <label for="compayId">Inmobiliaria</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -129,13 +129,13 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="paymentTypeId">PaymentTypeId
+                            <th class="th1" pSortableColumn="paymentTypeId">Id
                                 <p-sortIcon field="paymentTypeId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="paymentTypeName">PaymentTypeName
+                            <th class="th2" pSortableColumn="paymentTypeName">Tipo de pago
                                 <p-sortIcon field="paymentTypeName"></p-sortIcon>
                             </th>
-                            <th class="th3" pSortableColumn="compayId">CompayId
+                            <th class="th3" pSortableColumn="compayId">Inmobiliaria
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
                             <th class="th4">Opciones</th>
@@ -147,17 +147,17 @@
                     <ng-template pTemplate="body" let-paymentType>
                         <tr>
                             <td>
-                                <label class="p-column-title">PaymentTypeId</label>
+                                <label class="p-column-title">Id</label>
                                 <label class="p-right">{{paymentType.paymentTypeId}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">PaymentTypeName</label>
+                                <label class="p-column-title">Nombre del tipo de pago</label>
                                 <label class="p-right">{{paymentType.paymentTypeName}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">CompayId</label>
+                                <label class="p-column-title">Inmobiliaria</label>
                                 <label class="p-right">{{paymentType.compayId}}</label>
                             </td>
 

@@ -120,7 +120,7 @@ export class OwnerFormComponent implements OnInit {
     
       Swal.fire(
         '¡Ups!',
-        'Por favor complete los campos requeridos',
+        'Por favor completa los campos requeridos',
         'error'
       );
       return;

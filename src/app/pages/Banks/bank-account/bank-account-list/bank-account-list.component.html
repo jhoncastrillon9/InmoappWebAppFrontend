@@ -42,23 +42,23 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="bankAccountId">BankAccountId</label>
+                            <label for="bankAccountId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="bankAccountId" aria-describedby="bankAccountId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="bankAccountName">BankAccountName</label>
+                            <label for="bankAccountName">Nombre de la cuenta</label>
                             <input type="text" class="form-control form-control-color" formControlName="bankAccountName" aria-describedby="bankAccountName">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="compayId">CompayId</label>
+                            <label for="compayId">Inmobiliaria</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.companyId">{{item.companyName}}
+                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
                                 </ng-option>
                             </ng-select>
                         </div>
@@ -129,16 +129,16 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="bankAccountId">BankAccountId
+                            <th class="th1" pSortableColumn="bankAccountId">Id
                                 <p-sortIcon field="bankAccountId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="bankAccountName">BankAccountName
+                            <th class="th2" pSortableColumn="bankAccountName">Cuenta de banco
                                 <p-sortIcon field="bankAccountName"></p-sortIcon>
                             </th>
-                            <th class="th3" pSortableColumn="total">Total
+                            <th class="th3" pSortableColumn="total">Saldo
                                 <p-sortIcon field="total"></p-sortIcon>
                             </th>
-                            <th class="th4" pSortableColumn="compayId">CompayId
+                            <th class="th4" pSortableColumn="compayId">Inmobiliaria
                                 <p-sortIcon field="compayId"></p-sortIcon>
                             </th>
                             <th class="th5">Opciones</th>
@@ -165,7 +165,7 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">CompayId</label>
+                                <label class="p-column-title">Inmobiliaria</label>
                                 <label class="p-right">{{bankAccount.compayId}}</label>
                             </td>
 
