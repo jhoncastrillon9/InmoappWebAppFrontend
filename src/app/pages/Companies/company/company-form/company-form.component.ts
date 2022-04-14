@@ -129,7 +129,7 @@ export class CompanyFormComponent implements OnInit {
         }
 
         Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Companies/company']);
+          this.router.navigate(['/start']);
         });
       },
       (err) => {
@@ -151,7 +151,7 @@ export class CompanyFormComponent implements OnInit {
         }
 
         Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Companies/company']);
+          this.router.navigate(['/start']);
         });
       },
       (err) => {

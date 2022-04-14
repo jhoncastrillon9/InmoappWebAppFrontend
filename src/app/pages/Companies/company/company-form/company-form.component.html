@@ -8,11 +8,6 @@
             </div>
         </div>
 
-        <!-- Actions -->
-        <!--<div class="d-flex align-items-center">
-            <span class="text-sm" for="description" *ngIf="editAction===true">Edit Company</span>
-            <span class="text-sm" for="description" *ngIf="editAction!==true">Create Company</span>
-        </div>-->
     </div>
 </div>
 <!-- Container -->
@@ -41,7 +36,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="companyName">CompanyName</label>
+                                            <label for="companyName">Nombre</label>
                                             <input type="text" class="form-control form-control-color" formControlName="companyName" [ngClass]="{ 'is-invalid': validation && f.companyName.errors }">
                                             <div *ngIf="validation && f.companyName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.companyName.errors.required">El campo Inmobiliaria es obligatorio</div>
@@ -52,7 +47,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="document">Document</label>
+                                            <label for="document">Nit</label>
                                             <input type="text" class="form-control form-control-color" formControlName="document" [ngClass]="{ 'is-invalid': validation && f.document.errors }">
                                             <div *ngIf="validation && f.document.errors" class="invalid-feedback">
                                                 <div *ngIf="f.document.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
@@ -62,7 +57,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="telephone">Telephone</label>
+                                            <label for="telephone">Teléfono</label>
                                             <input type="text" class="form-control form-control-color" formControlName="telephone" [ngClass]="{ 'is-invalid': validation && f.telephone.errors }">
                                             <div *ngIf="validation && f.telephone.errors" class="invalid-feedback">
                                                 <div *ngIf="f.telephone.errors.maxlength">La cantidad de caracteres no puede ser mayor a 30</div>
@@ -72,7 +67,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="mobile">Mobile</label>
+                                            <label for="mobile">Celular</label>
                                             <input type="text" class="form-control form-control-color" formControlName="mobile" [ngClass]="{ 'is-invalid': validation && f.mobile.errors }">
                                             <div *ngIf="validation && f.mobile.errors" class="invalid-feedback">
                                                 <div *ngIf="f.mobile.errors.maxlength">La cantidad de caracteres no puede ser mayor a 30</div>
@@ -92,7 +87,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="address">Address</label>
+                                            <label for="address">Dirección</label>
                                             <input type="text" class="form-control form-control-color" formControlName="address" [ngClass]="{ 'is-invalid': validation && f.address.errors }">
                                             <div *ngIf="validation && f.address.errors" class="invalid-feedback">
                                                 <div *ngIf="f.address.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
@@ -102,7 +97,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="observation">Observation</label>
+                                            <label for="observation">Observación</label>
                                             <input type="text" class="form-control form-control-color" formControlName="observation" [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
                                             <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
                                                 <div *ngIf="f.observation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 500</div>
@@ -115,12 +110,11 @@
 
                                 <div class="row">
                                     <div class="col-12 d-flex justify-content-end mt-3">
-                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/Companies/company']">Cancelar</button>
+                                        <button type="button" class="btn btn-default mr-3" [routerLink]="['/start']">Cancelar</button>
                                         <button type="button" class="btn btn-primary" type="submit">Guardar</button>
                                     </div>
                                 </div>
-                            </form>
-                            <!-- <a href="javascript:void(0);" class="btn btn-primary">Go somewhere</a> -->
+                            </form>                            
                         </div>
                     </div>
                 </div>

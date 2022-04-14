@@ -21,7 +21,7 @@ import { BaseComponent } from './base/base.component';
   declarations: [
     AppComponent,
     LayoutInitialComponent,
-    BaseComponent,
+    BaseComponent,    
   ],
   imports: [
     CommonModule,

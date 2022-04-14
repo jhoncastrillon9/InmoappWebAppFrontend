@@ -72,9 +72,7 @@ export class BankAccountFormComponent implements OnInit {
   createForm(): void {
     this.frmBankAccount = this.formBuilder.group({
       bankAccountName: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
-      total: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]{1,4})?$')]),
-      compayId: new FormControl(null, [Validators.required]),
-
+      total: new FormControl(0, [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]{1,4})?$')])     
     });
   }
 
@@ -85,11 +83,7 @@ export class BankAccountFormComponent implements OnInit {
       this.bankAccount = res.data[0];
 
       this.frmBankAccount.get('bankAccountName').setValue(this.bankAccount.bankAccountName);
-      this.frmBankAccount.get('total').setValue(this.bankAccount.total);
-      this.frmBankAccount.get('compayId').setValue(this.bankAccount.compayId);
-
-
-
+      this.frmBankAccount.get('total').setValue(this.bankAccount.total); 
       // Enable disable form
       
       if (this.bankAccountActive) {

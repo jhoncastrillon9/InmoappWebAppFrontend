@@ -11,14 +11,12 @@ import { CustomAdapter, DatePickerService } from 'src/app/services/_codemono/dat
 
 import { CompanyRoutes } from './company.routes';
 import { CompanyComponent } from './company.component';
-import { CompanyListComponent } from './company-list/company-list.component';
 import { CompanyFormComponent } from './company-form/company-form.component';
 
 
 @NgModule({
   declarations: [
-    CompanyComponent,
-    CompanyListComponent,
+    CompanyComponent,    
     CompanyFormComponent
   ],
   imports: [

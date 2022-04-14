@@ -43,8 +43,7 @@ export class BankAccountService {
     const url = environment.URL_SER_NODE + `Banks/bankAccount`;
     const res = this.http.post(url, {
       bankAccountName: bankAccount.bankAccountName,
-      total: bankAccount.total,
-      compayId: bankAccount.compayId
+      total: bankAccount.total
      });
     return res;
   }
@@ -54,8 +53,7 @@ export class BankAccountService {
     const res = this.http.put(url, {
       bankAccountId: bankAccount.bankAccountId,
       bankAccountName: bankAccount.bankAccountName,
-      total: bankAccount.total,
-      compayId: bankAccount.compayId
+      total: bankAccount.total
     });
     return res;
   }

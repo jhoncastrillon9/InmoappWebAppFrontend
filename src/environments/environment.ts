@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL_SER_NODE: 'http://localhost:5002/',
+  URL_SER_NODE: 'http://localhost:5003/',
   APP_ID: '65201792-36bc-4dd1-973a-9304521ff655'
 };
 
