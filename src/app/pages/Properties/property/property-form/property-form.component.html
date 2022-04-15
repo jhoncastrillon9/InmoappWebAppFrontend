@@ -82,7 +82,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="address">Address</label>
+                                            <label for="address">Dirección</label>
                                             <input type="text" class="form-control form-control-color" formControlName="address" [ngClass]="{ 'is-invalid': validation && f.address.errors }">
                                             <div *ngIf="validation && f.address.errors" class="invalid-feedback">
                                                 <div *ngIf="f.address.errors.required">El campo Dirección es obligatorio</div>
@@ -197,7 +197,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="observation">Observation</label>
+                                            <label for="observation">Observaciones</label>
                                             <input type="text" class="form-control form-control-color" formControlName="observation" [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
                                             <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
                                                 <div *ngIf="f.observation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 500</div>

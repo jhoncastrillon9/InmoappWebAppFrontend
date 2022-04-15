@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { IvaModel } from 'src/app/models/Properties/iva.model';
 
 import { IvaService } from 'src/app/services/Properties/iva.service';
+import { messages } from 'src/app/static/messages';
 
 @Component({
   selector: 'app-iva-form',
@@ -112,7 +113,7 @@ export class IvaFormComponent implements OnInit {
       this.ivaService.update(iva).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -123,7 +124,7 @@ export class IvaFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -134,7 +135,7 @@ export class IvaFormComponent implements OnInit {
       this.ivaService.create(iva).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -145,7 +146,7 @@ export class IvaFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -171,7 +172,7 @@ export class IvaFormComponent implements OnInit {
           this.ivaService.enable(iva.ivaId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -182,7 +183,7 @@ export class IvaFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -205,7 +206,7 @@ export class IvaFormComponent implements OnInit {
           this.ivaService.disable(iva.ivaId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -216,7 +217,7 @@ export class IvaFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

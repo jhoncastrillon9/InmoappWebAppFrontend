@@ -8,6 +8,7 @@ import { CityService } from 'src/app/services/Commons/city.service';
 import { StateModel } from 'src/app/models/Commons/state.model';
 
 import { StateService } from 'src/app/services/Commons/state.service';
+import { messages } from 'src/app/static/messages';
 
 
 @Component({
@@ -81,7 +82,7 @@ export class CityListComponent implements OnInit {
       },
       (err) => { 
         //console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         this.showLoading = false;
@@ -112,7 +113,7 @@ export class CityListComponent implements OnInit {
           this.cityService.enable(city.cityId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -123,7 +124,7 @@ export class CityListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -146,7 +147,7 @@ export class CityListComponent implements OnInit {
           this.cityService.disable(city.cityId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -157,7 +158,7 @@ export class CityListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -172,7 +173,7 @@ export class CityListComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> este registro?</h4>  <br>
+        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> esto?</h4>  <br>
         <strong>No podras recuperar el registro # ${city.cityId}</strong>`,
         // icon: 'question',
         showCancelButton: true,
@@ -185,7 +186,7 @@ export class CityListComponent implements OnInit {
           this.cityService.delete(city.cityId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -196,7 +197,7 @@ export class CityListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

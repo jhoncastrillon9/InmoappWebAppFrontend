@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { StateModel } from 'src/app/models/Commons/state.model';
 
 import { StateService } from 'src/app/services/Commons/state.service';
+import { messages } from 'src/app/static/messages';
 
 @Component({
   selector: 'app-state-form',
@@ -112,7 +113,7 @@ export class StateFormComponent implements OnInit {
       this.stateService.update(state).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -123,7 +124,7 @@ export class StateFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -134,7 +135,7 @@ export class StateFormComponent implements OnInit {
       this.stateService.create(state).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -145,7 +146,7 @@ export class StateFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -171,7 +172,7 @@ export class StateFormComponent implements OnInit {
           this.stateService.enable(state.stateId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -182,7 +183,7 @@ export class StateFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -205,7 +206,7 @@ export class StateFormComponent implements OnInit {
           this.stateService.disable(state.stateId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -216,7 +217,7 @@ export class StateFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

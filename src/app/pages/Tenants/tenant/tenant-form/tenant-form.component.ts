@@ -4,10 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 import { TenantModel } from 'src/app/models/Tenants/tenant.model';
-import { CompanyModel } from 'src/app/models/Companies/company.model';
-
 import { TenantService } from 'src/app/services/Tenants/tenant.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
+import { messages } from 'src/app/static/messages';
 
 @Component({
   selector: 'app-tenant-form',
@@ -29,8 +28,6 @@ export class TenantFormComponent implements OnInit {
   tenant = new TenantModel();
   tenantId = 0;
   tenantActive = true;
-  companyList: any[] = [];
-
   // Filter
   tenantFilter = new TenantModel();
 
@@ -47,10 +44,6 @@ export class TenantFormComponent implements OnInit {
     private tenantService: TenantService
   ) {
     this.createForm();
-    this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-    });
-
 
   }
 
@@ -78,7 +71,6 @@ export class TenantFormComponent implements OnInit {
       email: new FormControl(null, [Validators.maxLength(80)]),
       address: new FormControl(null, [Validators.maxLength(200)]),
       observation: new FormControl(null, [Validators.maxLength(500)]),
-      compayId: new FormControl(null, [Validators.required]),
 
     });
   }
@@ -96,8 +88,6 @@ export class TenantFormComponent implements OnInit {
       this.frmTenant.get('email').setValue(this.tenant.email);
       this.frmTenant.get('address').setValue(this.tenant.address);
       this.frmTenant.get('observation').setValue(this.tenant.observation);
-      this.frmTenant.get('compayId').setValue(this.tenant.compayId);
-
 
 
       // Enable disable form
@@ -134,7 +124,7 @@ export class TenantFormComponent implements OnInit {
       this.tenantService.update(tenant).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -145,7 +135,7 @@ export class TenantFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -156,7 +146,7 @@ export class TenantFormComponent implements OnInit {
       this.tenantService.create(tenant).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -167,7 +157,7 @@ export class TenantFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -193,7 +183,7 @@ export class TenantFormComponent implements OnInit {
           this.tenantService.enable(tenant.tenantId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -204,7 +194,7 @@ export class TenantFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -227,7 +217,7 @@ export class TenantFormComponent implements OnInit {
           this.tenantService.disable(tenant.tenantId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -238,7 +228,7 @@ export class TenantFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

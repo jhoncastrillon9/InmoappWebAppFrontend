@@ -8,6 +8,7 @@ import { CompanyModel } from 'src/app/models/Companies/company.model';
 
 import { OwnerService } from 'src/app/services/Owners/owner.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
+import { messages } from 'src/app/static/messages';
 
 @Component({
   selector: 'app-owner-form',
@@ -77,8 +78,7 @@ export class OwnerFormComponent implements OnInit {
       mobile: new FormControl(null, [Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.maxLength(80)]),
       address: new FormControl(null, [Validators.maxLength(200)]),
-      observation: new FormControl(null, [Validators.maxLength(500)]),
-      compayId: new FormControl(null, [Validators.required]),
+      observation: new FormControl(null, [Validators.maxLength(500)])     
 
     });
   }
@@ -95,8 +95,7 @@ export class OwnerFormComponent implements OnInit {
       this.frmOwner.get('mobile').setValue(this.owner.mobile);
       this.frmOwner.get('email').setValue(this.owner.email);
       this.frmOwner.get('address').setValue(this.owner.address);
-      this.frmOwner.get('observation').setValue(this.owner.observation);
-      this.frmOwner.get('compayId').setValue(this.owner.compayId);
+      this.frmOwner.get('observation').setValue(this.owner.observation);      
 
 
 
@@ -134,7 +133,7 @@ export class OwnerFormComponent implements OnInit {
       this.ownerService.update(owner).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -145,7 +144,7 @@ export class OwnerFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -156,7 +155,7 @@ export class OwnerFormComponent implements OnInit {
       this.ownerService.create(owner).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -167,7 +166,7 @@ export class OwnerFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -193,7 +192,7 @@ export class OwnerFormComponent implements OnInit {
           this.ownerService.enable(owner.ownerId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -204,7 +203,7 @@ export class OwnerFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -227,7 +226,7 @@ export class OwnerFormComponent implements OnInit {
           this.ownerService.disable(owner.ownerId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -238,7 +237,7 @@ export class OwnerFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

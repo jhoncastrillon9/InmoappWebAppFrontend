@@ -8,11 +8,6 @@
             </div>
         </div>
 
-        <!-- Actions -->
-        <!--<div class="d-flex align-items-center">
-            <span class="text-sm" for="description" *ngIf="editAction===true">Edit AccountsToReceivableContract</span>
-            <span class="text-sm" for="description" *ngIf="editAction!==true">Create AccountsToReceivableContract</span>
-        </div>-->
     </div>
 </div>
 <!-- Container -->
@@ -104,18 +99,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-sm-4 col-12">
-                                        <div class="form-group">
-                                            <label for="CompayId">Inmobiliaria</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
-                                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
-                                                </ng-option>
-                                            </ng-select>
-                                            <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">El campo Inmobiliaria es obligatorio</div>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
                                 </div>

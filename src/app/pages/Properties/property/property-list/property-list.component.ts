@@ -22,6 +22,7 @@ import { OwnerService } from 'src/app/services/Owners/owner.service';
 import { PropertyCategoryService } from 'src/app/services/Properties/property-category.service';
 import { TypeOfferService } from 'src/app/services/Properties/type-offer.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
+import { messages } from 'src/app/static/messages';
 
 
 @Component({
@@ -143,7 +144,7 @@ export class PropertyListComponent implements OnInit {
       },
       (err) => { 
         //console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         this.showLoading = false;
@@ -174,7 +175,7 @@ export class PropertyListComponent implements OnInit {
           this.propertyService.enable(property.propertyId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -185,7 +186,7 @@ export class PropertyListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -208,7 +209,7 @@ export class PropertyListComponent implements OnInit {
           this.propertyService.disable(property.propertyId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -219,7 +220,7 @@ export class PropertyListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -234,7 +235,7 @@ export class PropertyListComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> este registro?</h4>  <br>
+        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> esto?</h4>  <br>
         <strong>No podras recuperar el registro # ${property.propertyId}</strong>`,
         // icon: 'question',
         showCancelButton: true,
@@ -247,7 +248,7 @@ export class PropertyListComponent implements OnInit {
           this.propertyService.delete(property.propertyId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -258,7 +259,7 @@ export class PropertyListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

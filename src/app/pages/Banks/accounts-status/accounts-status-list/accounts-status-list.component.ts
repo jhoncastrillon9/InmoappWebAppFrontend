@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 
 import { AccountsStatusModel } from 'src/app/models/Banks/accounts-status.model';
 import { AccountsStatusService } from 'src/app/services/Banks/accounts-status.service';
+import { messages } from 'src/app/static/messages';
 
 
 
@@ -73,7 +74,7 @@ export class AccountsStatusListComponent implements OnInit {
       },
       (err) => { 
         //console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         this.showLoading = false;
@@ -104,7 +105,7 @@ export class AccountsStatusListComponent implements OnInit {
           this.accountsStatusService.enable(accountsStatus.accountsStatusId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -115,7 +116,7 @@ export class AccountsStatusListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -138,7 +139,7 @@ export class AccountsStatusListComponent implements OnInit {
           this.accountsStatusService.disable(accountsStatus.accountsStatusId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -149,7 +150,7 @@ export class AccountsStatusListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -164,7 +165,7 @@ export class AccountsStatusListComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> este registro?</h4>  <br>
+        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> esto?</h4>  <br>
         <strong>No podras recuperar el registro # ${accountsStatus.accountsStatusId}</strong>`,
         // icon: 'question',
         showCancelButton: true,
@@ -177,7 +178,7 @@ export class AccountsStatusListComponent implements OnInit {
           this.accountsStatusService.delete(accountsStatus.accountsStatusId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -188,7 +189,7 @@ export class AccountsStatusListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

@@ -8,6 +8,7 @@ import { ImagesService } from 'src/app/services/Properties/images.service';
 import { PropertyModel } from 'src/app/models/Properties/property.model';
 
 import { PropertyService } from 'src/app/services/Properties/property.service';
+import { messages } from 'src/app/static/messages';
 
 
 @Component({
@@ -83,7 +84,7 @@ export class ImagesListComponent implements OnInit {
       },
       (err) => { 
         //console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         this.showLoading = false;
@@ -114,7 +115,7 @@ export class ImagesListComponent implements OnInit {
           this.imagesService.enable(images.imageId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -125,7 +126,7 @@ export class ImagesListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -148,7 +149,7 @@ export class ImagesListComponent implements OnInit {
           this.imagesService.disable(images.imageId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -159,7 +160,7 @@ export class ImagesListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -174,7 +175,7 @@ export class ImagesListComponent implements OnInit {
     if (!status) {
       Swal.fire({
         // title: '',
-        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> este registro?</h4>  <br>
+        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> esto?</h4>  <br>
         <strong>No podras recuperar el registro # ${images.imageId}</strong>`,
         // icon: 'question',
         showCancelButton: true,
@@ -187,7 +188,7 @@ export class ImagesListComponent implements OnInit {
           this.imagesService.delete(images.imageId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -198,7 +199,7 @@ export class ImagesListComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

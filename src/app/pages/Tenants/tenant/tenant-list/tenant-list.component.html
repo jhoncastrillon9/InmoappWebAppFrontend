@@ -42,35 +42,35 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="tenantId">TenantId</label>
+                            <label for="tenantId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="tenantId" aria-describedby="tenantId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="tenantName">TenantName</label>
+                            <label for="tenantName">Nombre</label>
                             <input type="text" class="form-control form-control-color" formControlName="tenantName" aria-describedby="tenantName">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="document">Document</label>
+                            <label for="document">Documento</label>
                             <input type="text" class="form-control form-control-color" formControlName="document" aria-describedby="document">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="telephone">Telephone</label>
+                            <label for="telephone">Teléfono</label>
                             <input type="text" class="form-control form-control-color" formControlName="telephone" aria-describedby="telephone">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="mobile">Mobile</label>
+                            <label for="mobile">Celular</label>
                             <input type="text" class="form-control form-control-color" formControlName="mobile" aria-describedby="mobile">
                         </div>
                     </div>
@@ -84,27 +84,19 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="address">Address</label>
+                            <label for="address">Dirección</label>
                             <input type="text" class="form-control form-control-color" formControlName="address" aria-describedby="address">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="observation">Observation</label>
+                            <label for="observation">Observaciones</label>
                             <input type="text" class="form-control form-control-color" formControlName="observation" aria-describedby="observation">
                         </div>
                     </div>
 
-                    <div class="col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label for="compayId">Inmobiliaria</label>
-                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
-                                </ng-option>
-                            </ng-select>
-                        </div>
-                    </div>
+
 
 
                 </div>
@@ -171,33 +163,30 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="tenantId">TenantId
+                            <th class="th1" pSortableColumn="tenantId">Id
                                 <p-sortIcon field="tenantId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="tenantName">TenantName
+                            <th class="th2" pSortableColumn="tenantName">Nombre
                                 <p-sortIcon field="tenantName"></p-sortIcon>
                             </th>
-                            <th class="th3" pSortableColumn="document">Document
+                            <th class="th3" pSortableColumn="document">Documento
                                 <p-sortIcon field="document"></p-sortIcon>
                             </th>
-                            <th class="th4" pSortableColumn="telephone">Telephone
+                            <th class="th4" pSortableColumn="telephone">Teléfono
                                 <p-sortIcon field="telephone"></p-sortIcon>
                             </th>
-                            <th class="th5" pSortableColumn="mobile">Mobile
+                            <th class="th5" pSortableColumn="mobile">Celular
                                 <p-sortIcon field="mobile"></p-sortIcon>
                             </th>
                             <th class="th6" pSortableColumn="email">Email
                                 <p-sortIcon field="email"></p-sortIcon>
                             </th>
-                            <th class="th7" pSortableColumn="address">Address
+                            <th class="th7" pSortableColumn="address">Dirección
                                 <p-sortIcon field="address"></p-sortIcon>
                             </th>
-                            <th class="th8" pSortableColumn="observation">Observation
+                            <th class="th8" pSortableColumn="observation">Observaciones
                                 <p-sortIcon field="observation"></p-sortIcon>
-                            </th>
-                            <th class="th9" pSortableColumn="compayId">Inmobiliaria
-                                <p-sortIcon field="compayId"></p-sortIcon>
-                            </th>
+                            </th>                         
                             <th class="th10">Opciones</th>
 
                         </tr>
@@ -207,27 +196,27 @@
                     <ng-template pTemplate="body" let-tenant>
                         <tr>
                             <td>
-                                <label class="p-column-title">TenantId</label>
+                                <label class="p-column-title">Id</label>
                                 <label class="p-right">{{tenant.tenantId}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">TenantName</label>
+                                <label class="p-column-title">Nombre</label>
                                 <label class="p-right">{{tenant.tenantName}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">Document</label>
+                                <label class="p-column-title">Documento</label>
                                 <label class="p-right">{{tenant.document}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">Telephone</label>
+                                <label class="p-column-title">Teléfono</label>
                                 <label class="p-right">{{tenant.telephone}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">Mobile</label>
+                                <label class="p-column-title">Celular</label>
                                 <label class="p-right">{{tenant.mobile}}</label>
                             </td>
 
@@ -237,19 +226,14 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">Address</label>
+                                <label class="p-column-title">Dirección</label>
                                 <label class="p-right">{{tenant.address}}</label>
                             </td>
 
                             <td>
-                                <label class="p-column-title">Observation</label>
+                                <label class="p-column-title">Observaciones</label>
                                 <label class="p-right">{{tenant.observation}}</label>
-                            </td>
-
-                            <td>
-                                <label class="p-column-title">Inmobiliaria</label>
-                                <label class="p-right">{{tenant.compayId}}</label>
-                            </td>
+                            </td>                      
 
                             <td>
                                 <label class="p-column-title">Opciones</label>

@@ -16,12 +16,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SidebarModule} from 'primeng/sidebar';
 import { SidebarContentModule } from './components/sidebar/sidebar.module';
 import { BaseComponent } from './base/base.component';
+import { BaseCommonsComponent } from './base-commons/base-commons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutInitialComponent,
-    BaseComponent,    
+    BaseComponent,
+    BaseCommonsComponent,    
   ],
   imports: [
     CommonModule,

@@ -8,11 +8,7 @@
             </div>
         </div>
 
-        <!-- Actions -->
-        <!--<div class="d-flex align-items-center">
-            <span class="text-sm" for="description" *ngIf="editAction===true">Edit Tenant</span>
-            <span class="text-sm" for="description" *ngIf="editAction!==true">Create Tenant</span>
-        </div>-->
+
     </div>
 </div>
 <!-- Container -->
@@ -41,7 +37,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="tenantName">TenantName</label>
+                                            <label for="tenantName">Nombre del Arrendador</label>
                                             <input type="text" class="form-control form-control-color" formControlName="tenantName" [ngClass]="{ 'is-invalid': validation && f.tenantName.errors }">
                                             <div *ngIf="validation && f.tenantName.errors" class="invalid-feedback">
                                                 <div *ngIf="f.tenantName.errors.required">El campo Nombre del arrendador es obligatorio</div>
@@ -52,7 +48,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="document">Document</label>
+                                            <label for="document">Documento</label>
                                             <input type="text" class="form-control form-control-color" formControlName="document" [ngClass]="{ 'is-invalid': validation && f.document.errors }">
                                             <div *ngIf="validation && f.document.errors" class="invalid-feedback">
                                                 <div *ngIf="f.document.errors.maxlength">La cantidad de caracteres no puede ser mayor a 50</div>
@@ -62,7 +58,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="telephone">Telephone</label>
+                                            <label for="telephone">Teléfono</label>
                                             <input type="text" class="form-control form-control-color" formControlName="telephone" [ngClass]="{ 'is-invalid': validation && f.telephone.errors }">
                                             <div *ngIf="validation && f.telephone.errors" class="invalid-feedback">
                                                 <div *ngIf="f.telephone.errors.maxlength">La cantidad de caracteres no puede ser mayor a 30</div>
@@ -72,7 +68,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="mobile">Mobile</label>
+                                            <label for="mobile">Celular</label>
                                             <input type="text" class="form-control form-control-color" formControlName="mobile" [ngClass]="{ 'is-invalid': validation && f.mobile.errors }">
                                             <div *ngIf="validation && f.mobile.errors" class="invalid-feedback">
                                                 <div *ngIf="f.mobile.errors.required">El campo Celular es obligatorio</div>
@@ -93,7 +89,7 @@
 
                                     <div class="col-md-4 col-sm-4 col-12">
                                         <div class="form-group">
-                                            <label for="address">Address</label>
+                                            <label for="address">Dirección</label>
                                             <input type="text" class="form-control form-control-color" formControlName="address" [ngClass]="{ 'is-invalid': validation && f.address.errors }">
                                             <div *ngIf="validation && f.address.errors" class="invalid-feedback">
                                                 <div *ngIf="f.address.errors.maxlength">La cantidad de caracteres no puede ser mayor a 200</div>
@@ -101,29 +97,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 col-sm-4 col-12">
+                                    <div class="col-md-12 col-sm-12 col-12">
                                         <div class="form-group">
-                                            <label for="observation">Observation</label>
-                                            <input type="text" class="form-control form-control-color" formControlName="observation" [ngClass]="{ 'is-invalid': validation && f.observation.errors }">
+                                            <label for="observation">Observaciones</label>                                            
+                                            <textarea  cols="30" rows="3" type="text" class="form-control form-control-color" formControlName="observation" [ngClass]="{ 'is-invalid': validation && f.observation.errors }"></textarea>
                                             <div *ngIf="validation && f.observation.errors" class="invalid-feedback">
                                                 <div *ngIf="f.observation.errors.maxlength">La cantidad de caracteres no puede ser mayor a 500</div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-4 col-sm-4 col-12">
-                                        <div class="form-group">
-                                            <label for="CompayId">Inmobiliaria</label>
-                                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId" [ngClass]="{ 'is-invalid': validation && f.compayId.errors }">
-                                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
-                                                </ng-option>
-                                            </ng-select>
-                                            <div *ngIf="validation && f.compayId.errors" class="invalid-feedback">
-                                                <div *ngIf="f.compayId.errors.required">El campo Inmobiliaria es obligatorio</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
 
                                 </div>
 

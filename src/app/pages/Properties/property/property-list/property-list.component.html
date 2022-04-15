@@ -80,7 +80,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="address">Address</label>
+                            <label for="address">Dirección</label>
                             <input type="text" class="form-control form-control-color" formControlName="address" aria-describedby="address">
                         </div>
                     </div>
@@ -101,7 +101,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="observation">Observation</label>
+                            <label for="observation">Observaciones</label>
                             <input type="text" class="form-control form-control-color" formControlName="observation" aria-describedby="observation">
                         </div>
                     </div>
@@ -166,15 +166,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label for="compayId">Inmobiliaria</label>
-                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
-                                </ng-option>
-                            </ng-select>
-                        </div>
-                    </div>
+
 
 
                 </div>

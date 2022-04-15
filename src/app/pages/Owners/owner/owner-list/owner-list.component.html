@@ -42,35 +42,35 @@
                 <div class="row pb-4">
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="ownerId">OwnerId</label>
+                            <label for="ownerId">Id</label>
                             <input type="text" class="form-control form-control-color" formControlName="ownerId" aria-describedby="ownerId">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="ownerName">OwnerName</label>
+                            <label for="ownerName">Nombre</label>
                             <input type="text" class="form-control form-control-color" formControlName="ownerName" aria-describedby="ownerName">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="document">Document</label>
+                            <label for="document">Documento</label>
                             <input type="text" class="form-control form-control-color" formControlName="document" aria-describedby="document">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="telephone">Telephone</label>
+                            <label for="telephone">Teléfono</label>
                             <input type="text" class="form-control form-control-color" formControlName="telephone" aria-describedby="telephone">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="mobile">Mobile</label>
+                            <label for="mobile">Celular</label>
                             <input type="text" class="form-control form-control-color" formControlName="mobile" aria-describedby="mobile">
                         </div>
                     </div>
@@ -84,27 +84,17 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="address">Address</label>
+                            <label for="address">Dirección</label>
                             <input type="text" class="form-control form-control-color" formControlName="address" aria-describedby="address">
                         </div>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="observation">Observation</label>
-                            <input type="text" class="form-control form-control-color" formControlName="observation" aria-describedby="observation">
+                            <label for="observation">Observación</label>                            
+                            <input type="text" class="form-control form-control-color" >
                         </div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label for="compayId">Inmobiliaria</label>
-                            <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="compayId">
-                                <ng-option *ngFor="let item of companyList" [value]="item.compayId">{{item.companyName}}
-                                </ng-option>
-                            </ng-select>
-                        </div>
-                    </div>
+                    </div>  
 
 
                 </div>
@@ -171,33 +161,31 @@
                     <!-- Header table -->
                     <ng-template pTemplate="header">
                         <tr>
-                            <th class="th1" pSortableColumn="ownerId">OwnerId
+                            <th class="th1" pSortableColumn="ownerId">Id
                                 <p-sortIcon field="ownerId"></p-sortIcon>
                             </th>
-                            <th class="th2" pSortableColumn="ownerName">OwnerName
+                            <th class="th2" pSortableColumn="ownerName">Nombre
                                 <p-sortIcon field="ownerName"></p-sortIcon>
                             </th>
-                            <th class="th3" pSortableColumn="document">Document
+                            <th class="th3" pSortableColumn="document">Documento
                                 <p-sortIcon field="document"></p-sortIcon>
                             </th>
-                            <th class="th4" pSortableColumn="telephone">Telephone
+                            <th class="th4" pSortableColumn="telephone">Teléfono
                                 <p-sortIcon field="telephone"></p-sortIcon>
                             </th>
-                            <th class="th5" pSortableColumn="mobile">Mobile
+                            <th class="th5" pSortableColumn="mobile">Celular
                                 <p-sortIcon field="mobile"></p-sortIcon>
                             </th>
                             <th class="th6" pSortableColumn="email">Email
                                 <p-sortIcon field="email"></p-sortIcon>
                             </th>
-                            <th class="th7" pSortableColumn="address">Address
+                            <th class="th7" pSortableColumn="address">Dirección
                                 <p-sortIcon field="address"></p-sortIcon>
                             </th>
-                            <th class="th8" pSortableColumn="observation">Observation
+                            <th class="th8" pSortableColumn="observation">Observación
                                 <p-sortIcon field="observation"></p-sortIcon>
                             </th>
-                            <th class="th9" pSortableColumn="compayId">Inmobiliaria
-                                <p-sortIcon field="compayId"></p-sortIcon>
-                            </th>
+                 
                             <th class="th10">Opciones</th>
 
                         </tr>
@@ -244,12 +232,7 @@
                             <td>
                                 <label class="p-column-title">Observation</label>
                                 <label class="p-right">{{owner.observation}}</label>
-                            </td>
-
-                            <td>
-                                <label class="p-column-title">Inmobiliaria</label>
-                                <label class="p-right">{{owner.compayId}}</label>
-                            </td>
+                            </td>             
 
                             <td>
                                 <label class="p-column-title">Opciones</label>

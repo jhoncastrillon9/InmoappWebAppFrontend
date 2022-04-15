@@ -8,6 +8,7 @@ import { TenantModel } from 'src/app/models/Tenants/tenant.model';
 
 import { TenantsByContractService } from 'src/app/services/Contracts/tenants-by-contract.service';
 import { TenantService } from 'src/app/services/Tenants/tenant.service';
+import { messages } from 'src/app/static/messages';
 
 @Component({
   selector: 'app-tenants-by-contract-form',
@@ -122,7 +123,7 @@ export class TenantsByContractFormComponent implements OnInit {
       this.tenantsByContractService.update(tenantsByContract).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -133,7 +134,7 @@ export class TenantsByContractFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -144,7 +145,7 @@ export class TenantsByContractFormComponent implements OnInit {
       this.tenantsByContractService.create(tenantsByContract).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -155,7 +156,7 @@ export class TenantsByContractFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -181,7 +182,7 @@ export class TenantsByContractFormComponent implements OnInit {
           this.tenantsByContractService.enable(tenantsByContract.tenantsByContractId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -192,7 +193,7 @@ export class TenantsByContractFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -215,7 +216,7 @@ export class TenantsByContractFormComponent implements OnInit {
           this.tenantsByContractService.disable(tenantsByContract.tenantsByContractId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -226,7 +227,7 @@ export class TenantsByContractFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete

@@ -12,6 +12,7 @@ import { AccountsToReceivableContractService } from 'src/app/services/Banks/acco
 import { AccountsStatusService } from 'src/app/services/Banks/accounts-status.service';
 import { ContractService } from 'src/app/services/Contracts/contract.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
+import { messages } from 'src/app/static/messages';
 
 @Component({
   selector: 'app-accounts-to-receivable-contract-form',
@@ -107,10 +108,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       this.frmAccountsToReceivableContract.get('value').setValue(this.accountsToReceivableContract.value);
       this.frmAccountsToReceivableContract.get('expirationDate').setValue(this.accountsToReceivableContract.expirationDate);
       this.frmAccountsToReceivableContract.get('accountsStatusId').setValue(this.accountsToReceivableContract.accountsStatusId);
-      this.frmAccountsToReceivableContract.get('contractId').setValue(this.accountsToReceivableContract.contractId);
-      this.frmAccountsToReceivableContract.get('compayId').setValue(this.accountsToReceivableContract.compayId);
-
-
+      this.frmAccountsToReceivableContract.get('contractId').setValue(this.accountsToReceivableContract.contractId);    
 
       // Enable disable form
       
@@ -146,7 +144,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       this.accountsToReceivableContractService.update(accountsToReceivableContract).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -157,7 +155,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -168,7 +166,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       this.accountsToReceivableContractService.create(accountsToReceivableContract).subscribe((res: any) => {
         // console.log(res);
         if (res.data[0].errorId !== 0) {
-          Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
           return;
         }
 
@@ -179,7 +177,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       (err) => {
         // Error
         // console.log(err);
-        Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
       },
       () => {
         // Complete
@@ -205,7 +203,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
           this.accountsToReceivableContractService.enable(accountsToReceivableContract.accountsToReceivableContractId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -216,7 +214,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
@@ -239,7 +237,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
           this.accountsToReceivableContractService.disable(accountsToReceivableContract.accountsToReceivableContractId).subscribe((res: any) => {
             // console.log(res);
             if (res.data[0].errorId !== 0) {
-              Swal.fire('¡Ups! Algo salió mal', res.data[0].message, 'error');
+              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
               return;
             }
 
@@ -250,7 +248,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
           (err) => {
             // Error
             // console.log(err);
-            Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
           },
           () => {
             // Complete
