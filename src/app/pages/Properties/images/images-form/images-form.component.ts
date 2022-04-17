@@ -9,6 +9,7 @@ import { PropertyModel } from 'src/app/models/Properties/property.model';
 import { ImagesService } from 'src/app/services/Properties/images.service';
 import { PropertyService } from 'src/app/services/Properties/property.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-images-form',
@@ -16,7 +17,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./images-form.component.scss'],
 })
 
-export class ImagesFormComponent implements OnInit {
+export class ImagesFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -25,7 +26,7 @@ export class ImagesFormComponent implements OnInit {
 
   // validation form
   validation = false;
-  
+
   // Images Model
   images = new ImagesModel();
   imageId = 0;
@@ -41,12 +42,13 @@ export class ImagesFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private propertyService: PropertyService,
 
     private imagesService: ImagesService
   ) {
+    super(router);
     this.createForm();
     this.propertyService.getList(new PropertyModel()).subscribe((res: any) => {
       this.propertyList = res.data;
@@ -94,7 +96,7 @@ export class ImagesFormComponent implements OnInit {
 
 
       // Enable disable form
-      
+
       if (this.imagesActive) {
         this.frmImages.enable();
       }
@@ -110,138 +112,42 @@ export class ImagesFormComponent implements OnInit {
     if (!this.frmImages.valid) {
       // Set true validation
       this.validation = true;
-    
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let images: ImagesModel =  new ImagesModel();
+    let images: ImagesModel = new ImagesModel();
     images = this.frmImages.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       images.imageId = this.imageId;
       this.imagesService.update(images).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Properties/images']);
+        this.validateRequestEdit(res, '/Properties/images');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.imagesService.create(images).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Properties/images']);
+        this.validateRequestCreated(res, '/Properties/images');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
   }
 
 
-  changeStatus(status: boolean, images: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${images.imageId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.imagesService.enable(images.imageId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${images.imageId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.imagesService.disable(images.imageId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
- 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmImages.controls; }

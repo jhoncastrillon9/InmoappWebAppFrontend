@@ -13,6 +13,7 @@ import { AccountsStatusService } from 'src/app/services/Banks/accounts-status.se
 import { ContractService } from 'src/app/services/Contracts/contract.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-accounts-to-pay-contract-form',
@@ -20,7 +21,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./accounts-to-pay-contract-form.component.scss'],
 })
 
-export class AccountsToPayContractFormComponent implements OnInit {
+export class AccountsToPayContractFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -29,7 +30,7 @@ export class AccountsToPayContractFormComponent implements OnInit {
 
   // validation form
   validation = false;
-  
+
   // AccountsToPayContract Model
   accountsToPayContract = new AccountsToPayContractModel();
   accountsToPayContractId = 0;
@@ -47,7 +48,7 @@ export class AccountsToPayContractFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private accountsStatusService: AccountsStatusService,
     private contractService: ContractService,
@@ -55,6 +56,7 @@ export class AccountsToPayContractFormComponent implements OnInit {
 
     private accountsToPayContractService: AccountsToPayContractService
   ) {
+    super(router);
     this.createForm();
     this.accountsStatusService.getList(new AccountsStatusModel()).subscribe((res: any) => {
       this.accountsStatusList = res.data;
@@ -114,7 +116,7 @@ export class AccountsToPayContractFormComponent implements OnInit {
 
 
       // Enable disable form
-      
+
       if (this.accountsToPayContractActive) {
         this.frmAccountsToPayContract.enable();
       }
@@ -130,138 +132,42 @@ export class AccountsToPayContractFormComponent implements OnInit {
     if (!this.frmAccountsToPayContract.valid) {
       // Set true validation
       this.validation = true;
-    
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let accountsToPayContract: AccountsToPayContractModel =  new AccountsToPayContractModel();
+    let accountsToPayContract: AccountsToPayContractModel = new AccountsToPayContractModel();
     accountsToPayContract = this.frmAccountsToPayContract.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       accountsToPayContract.accountsToPayContractId = this.accountsToPayContractId;
       this.accountsToPayContractService.update(accountsToPayContract).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/accountsToPayContract']);
+        this.validateRequestEdit(res, '/Banks/accountsToPayContract');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.accountsToPayContractService.create(accountsToPayContract).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/accountsToPayContract']);
+        this.validateRequestCreated(res, '/Banks/accountsToPayContract');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
   }
 
 
-  changeStatus(status: boolean, accountsToPayContract: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${accountsToPayContract.accountsToPayContractId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.accountsToPayContractService.enable(accountsToPayContract.accountsToPayContractId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${accountsToPayContract.accountsToPayContractId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.accountsToPayContractService.disable(accountsToPayContract.accountsToPayContractId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
- 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmAccountsToPayContract.controls; }

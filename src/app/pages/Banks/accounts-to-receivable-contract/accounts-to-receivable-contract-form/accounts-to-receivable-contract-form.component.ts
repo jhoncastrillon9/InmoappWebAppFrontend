@@ -13,6 +13,7 @@ import { AccountsStatusService } from 'src/app/services/Banks/accounts-status.se
 import { ContractService } from 'src/app/services/Contracts/contract.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-accounts-to-receivable-contract-form',
@@ -20,7 +21,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./accounts-to-receivable-contract-form.component.scss'],
 })
 
-export class AccountsToReceivableContractFormComponent implements OnInit {
+export class AccountsToReceivableContractFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -47,7 +48,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private accountsStatusService: AccountsStatusService,
     private contractService: ContractService,
@@ -55,6 +56,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
 
     private accountsToReceivableContractService: AccountsToReceivableContractService
   ) {
+    super(router);
     this.createForm();
     this.accountsStatusService.getList(new AccountsStatusModel()).subscribe((res: any) => {
       this.accountsStatusList = res.data;
@@ -63,11 +65,6 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
     this.contractService.getList(new ContractModel()).subscribe((res: any) => {
       this.contractList = res.data;
     });
-
-    this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-    });
-
 
   }
 
@@ -93,9 +90,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       expirationDate: new FormControl(null, [Validators.required]),
       accountsStatusId: new FormControl(null),
       contractId: new FormControl(null, [Validators.required]),
-      compayId: new FormControl(null, [Validators.required]),
-
-    });
+     });
   }
 
 
@@ -128,11 +123,7 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
       // Set true validation
       this.validation = true;
     
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+this.showAlertErrorFields();
       return;
     }
 
@@ -142,20 +133,10 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
     if (this.editAction) {
       accountsToReceivableContract.accountsToReceivableContractId = this.accountsToReceivableContractId;
       this.accountsToReceivableContractService.update(accountsToReceivableContract).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/accountsToReceivableContract']);
-        });
+        this.validateRequestEdit(res,'/Banks/accountsToReceivableContract');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -164,98 +145,16 @@ export class AccountsToReceivableContractFormComponent implements OnInit {
 
     if (!this.editAction){
       this.accountsToReceivableContractService.create(accountsToReceivableContract).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/accountsToReceivableContract']);
-        });
+        this.validateRequestCreated(res,'/Banks/accountsToReceivableContract'); 
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
       });
     }
 
-  }
-
-
-  changeStatus(status: boolean, accountsToReceivableContract: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${accountsToReceivableContract.accountsToReceivableContractId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.accountsToReceivableContractService.enable(accountsToReceivableContract.accountsToReceivableContractId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${accountsToReceivableContract.accountsToReceivableContractId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.accountsToReceivableContractService.disable(accountsToReceivableContract.accountsToReceivableContractId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
   }
 
  

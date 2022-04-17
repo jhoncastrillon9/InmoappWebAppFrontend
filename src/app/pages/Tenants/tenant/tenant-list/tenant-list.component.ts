@@ -9,6 +9,8 @@ import { CompanyModel } from 'src/app/models/Companies/company.model';
 
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +19,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./tenant-list.component.scss']
 })
 
-export class TenantListComponent implements OnInit {
+export class TenantListComponent extends BaseCommonsComponent {
 
   // load Tenants
   tenants: any[] = [];
@@ -26,8 +28,7 @@ export class TenantListComponent implements OnInit {
   // Filter
   frmFilter: FormGroup;
   tenantFilter = new TenantModel();
-  showFiller = false;
-  companyList: any[] = [];
+  showFiller = false; 
 
 
   // Loading
@@ -41,15 +42,11 @@ export class TenantListComponent implements OnInit {
   constructor(
     private tenantService: TenantService,
     private cd: ChangeDetectorRef,
-        private companyService: CompanyService,
-
-    private formBuilder: FormBuilder) {
-    this.createForm();
-
-        this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-    });
-
+    private companyService: CompanyService,
+    private formBuilder: FormBuilder,
+    public router: Router) {
+      super(router);
+        this.createForm();
   }
 
 
@@ -77,18 +74,16 @@ export class TenantListComponent implements OnInit {
 
 
     // Load data
-  load(): void {
+ load(): void {
     this.showLoading = true;
-
     this.tenants = [];
 
     this.tenantService.getAll(this.tenantFilter).subscribe(
       (res: any) => {
         this.tenants = res.data;
       },
-      (err) => { 
-        //console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+      (err) => {         
+        this.showAlertGeneralError(err);        
       },
       () => {
         this.showLoading = false;
@@ -100,110 +95,18 @@ export class TenantListComponent implements OnInit {
   // Filter sidebar
   openFilter(status: boolean): void {
     this.showFiller = status;
-  }
-
-
-  changeStatus(status: boolean, tenant: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${tenant.tenantId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.tenantService.enable(tenant.tenantId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.load();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${tenant.tenantId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.tenantService.disable(tenant.tenantId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.load();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
+  } 
 
   delete(tenant: any){
     if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> esto?</h4>  <br>
-        <strong>No podras recuperar el registro # ${tenant.tenantId}</strong>`,
-        // icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
+      Swal.fire(this.createAlertDelete('Arrendatario',tenant.tenantName)).then((result) => {
         if (result.value) {
           this.tenantService.delete(tenant.tenantId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Delete', 'Record deleted', 'success').then(() => {
-              this.load();
-            });
+           this.validateRequestDelete(res);
           },
           (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+            // Error            
+            this.showAlertGeneralError(err);            
           },
           () => {
             // Complete

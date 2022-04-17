@@ -9,6 +9,7 @@ import { CompanyModel } from 'src/app/models/Companies/company.model';
 import { PaymentTypeService } from 'src/app/services/Banks/payment-type.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-payment-type-form',
@@ -16,7 +17,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./payment-type-form.component.scss'],
 })
 
-export class PaymentTypeFormComponent implements OnInit {
+export class PaymentTypeFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -41,20 +42,14 @@ export class PaymentTypeFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
 
     private paymentTypeService: PaymentTypeService
   ) {
+    super(router);
     this.createForm();
-    this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-
-      console.table(this.companyList);
-    });
-
-
   }
 
 
@@ -75,9 +70,7 @@ export class PaymentTypeFormComponent implements OnInit {
   createForm(): void {
     this.frmPaymentType = this.formBuilder.group({
       paymentTypeName: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
-      compayId: new FormControl(null, [Validators.required]),
-
-    });
+         });
   }
 
 
@@ -87,8 +80,7 @@ export class PaymentTypeFormComponent implements OnInit {
       this.paymentType = res.data[0];
 
       this.frmPaymentType.get('paymentTypeName').setValue(this.paymentType.paymentTypeName);
-      this.frmPaymentType.get('compayId').setValue(this.paymentType.compayId);
-
+      
 
 
       // Enable disable form
@@ -109,11 +101,7 @@ export class PaymentTypeFormComponent implements OnInit {
       // Set true validation
       this.validation = true;
     
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+this.showAlertErrorFields();
       return;
     }
 
@@ -123,20 +111,10 @@ export class PaymentTypeFormComponent implements OnInit {
     if (this.editAction) {
       paymentType.paymentTypeId = this.paymentTypeId;
       this.paymentTypeService.update(paymentType).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/paymentType']);
-        });
+        this.validateRequestEdit(res,'/Banks/paymentType');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -145,98 +123,16 @@ export class PaymentTypeFormComponent implements OnInit {
 
     if (!this.editAction){
       this.paymentTypeService.create(paymentType).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/paymentType']);
-        });
+        this.validateRequestCreated(res,'/Banks/paymentType');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
       });
     }
 
-  }
-
-
-  changeStatus(status: boolean, paymentType: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${paymentType.paymentTypeId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.paymentTypeService.enable(paymentType.paymentTypeId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${paymentType.paymentTypeId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.paymentTypeService.disable(paymentType.paymentTypeId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
   }
 
  

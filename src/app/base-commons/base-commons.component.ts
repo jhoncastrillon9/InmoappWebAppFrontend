@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import Swal, { SweetAlertOptions } from 'sweetalert2';
+import { messages } from '../static/messages';
 
 @Component({
   selector: 'app-base-commons',
@@ -8,18 +10,101 @@ import Swal from 'sweetalert2';
 })
 export class BaseCommonsComponent implements OnInit {
 
- 
 
 
 
-  constructor() {
-
+  constructor(public router: Router) {
 
    }
 
   ngOnInit(): void {
   }
 
+public validateRequestCreated(res : any, path:string){
+   //console.log(res);
+  if (res.data[0].errorId !== 0) {
+    this.showAlertError(res.data[0].message);  
+    return;
+  }
+  this.showAlertSuccess(path);    
+}
+
+public validateRequestEdit(res: any, path:string ){
+  if (res.data[0].errorId !== 0) {
+    Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
+    return;
+  }
+
+  Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
+    this.router.navigate([path]);
+  });
+}
+
+public validateRequestDelete(res:any){
+ // console.log(res);
+ if (res.data[0].errorId !== 0) {  
+  this.showAlertError(res.data[0].message);
+  return;
+}
+
+Swal.fire('Delete', 'Record deleted', 'success').then(() => {
+  this.load();
+});
+}
+
+  ////*************************FOR OVERRIDE***************************/////
+load(): void {
+ 
+}
+
+
+
+
+
+
+  ////*************************SHOW ALERTS***************************/////
+
+  public showAlertError(textError: string){
+    Swal.fire('¡Ups! Algo salió mal', textError, 'error');
+  }
   
+
+  public showAlertSuccess(path:string){
+    
+    Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
+      this.router.navigate([path]);
+    });
+  }
+  
+  public showAlertErrorFields(){
+        
+    Swal.fire(
+      '¡Ups!',
+      'Por favor completa los campos requeridos',
+      'error'
+    );
+  }
+
+  public showAlertGeneralError(err:any){
+    // console.log(err);
+    Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
+  }
+
+
+  public createAlertDelete(entityName: string, name: string): SweetAlertOptions<any, any> {
+    return {
+      html: `<h4>¿Estas seguro de <strong><u>Eliminar</u></strong> este ${entityName}?</h4>  <br>
+        <strong>No podras recuperar el ${entityName} ${name}</strong>`,
+      // icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'No',
+      confirmButtonText: 'Si',
+    };
+  }
+
+
+
 
 }

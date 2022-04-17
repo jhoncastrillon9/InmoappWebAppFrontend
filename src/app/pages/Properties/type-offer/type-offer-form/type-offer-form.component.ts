@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 import { TypeOfferModel } from 'src/app/models/Properties/type-offer.model';
-
 import { TypeOfferService } from 'src/app/services/Properties/type-offer.service';
-import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-type-offer-form',
@@ -14,7 +12,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./type-offer-form.component.scss'],
 })
 
-export class TypeOfferFormComponent implements OnInit {
+export class TypeOfferFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -23,7 +21,7 @@ export class TypeOfferFormComponent implements OnInit {
 
   // validation form
   validation = false;
-  
+
   // TypeOffer Model
   typeOffer = new TypeOfferModel();
   typeOfferId = 0;
@@ -38,11 +36,12 @@ export class TypeOfferFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
 
     private typeOfferService: TypeOfferService
   ) {
+    super(router);
     this.createForm();
 
   }
@@ -77,10 +76,7 @@ export class TypeOfferFormComponent implements OnInit {
 
       this.frmTypeOffer.get('typeOfferName').setValue(this.typeOffer.typeOfferName);
 
-
-
-      // Enable disable form
-      
+      // Enable disable form      
       if (this.typeOfferActive) {
         this.frmTypeOffer.enable();
       }
@@ -96,138 +92,41 @@ export class TypeOfferFormComponent implements OnInit {
     if (!this.frmTypeOffer.valid) {
       // Set true validation
       this.validation = true;
-    
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let typeOffer: TypeOfferModel =  new TypeOfferModel();
+    let typeOffer: TypeOfferModel = new TypeOfferModel();
     typeOffer = this.frmTypeOffer.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       typeOffer.typeOfferId = this.typeOfferId;
       this.typeOfferService.update(typeOffer).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Properties/typeOffer']);
+        this.validateRequestEdit(res, '/Properties/typeOffer');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.typeOfferService.create(typeOffer).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Properties/typeOffer']);
+        this.validateRequestCreated(res, '/Properties/typeOffer');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
   }
 
-
-  changeStatus(status: boolean, typeOffer: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${typeOffer.typeOfferId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.typeOfferService.enable(typeOffer.typeOfferId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${typeOffer.typeOfferId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.typeOfferService.disable(typeOffer.typeOfferId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
- 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmTypeOffer.controls; }

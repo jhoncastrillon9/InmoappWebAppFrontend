@@ -15,6 +15,7 @@ import { PropertyService } from 'src/app/services/Properties/property.service';
 import { TenantService } from 'src/app/services/Tenants/tenant.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-contract-form',
@@ -22,7 +23,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./contract-form.component.scss'],
 })
 
-export class ContractFormComponent implements OnInit {
+export class ContractFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -31,7 +32,7 @@ export class ContractFormComponent implements OnInit {
 
   // validation form
   validation = false;
-  
+
   // Contract Model
   contract = new ContractModel();
   contractId = 0;
@@ -50,7 +51,7 @@ export class ContractFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private contractsStatusService: ContractsStatusService,
     private propertyService: PropertyService,
@@ -59,6 +60,7 @@ export class ContractFormComponent implements OnInit {
 
     private contractService: ContractService
   ) {
+    super(router);
     this.createForm();
     this.contractsStatusService.getList(new ContractsStatusModel()).subscribe((res: any) => {
       this.contractsStatusList = res.data;
@@ -71,11 +73,6 @@ export class ContractFormComponent implements OnInit {
     this.tenantService.getList(new TenantModel()).subscribe((res: any) => {
       this.tenantList = res.data;
     });
-
-    this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-    });
-
 
   }
 
@@ -125,12 +122,9 @@ export class ContractFormComponent implements OnInit {
       this.frmContract.get('statusId').setValue(this.contract.statusId);
       this.frmContract.get('propertyId').setValue(this.contract.propertyId);
       this.frmContract.get('tenantId').setValue(this.contract.tenantId);
-      this.frmContract.get('compayId').setValue(this.contract.compayId);
-
-
 
       // Enable disable form
-      
+
       if (this.contractActive) {
         this.frmContract.enable();
       }
@@ -146,138 +140,41 @@ export class ContractFormComponent implements OnInit {
     if (!this.frmContract.valid) {
       // Set true validation
       this.validation = true;
-    
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let contract: ContractModel =  new ContractModel();
+    let contract: ContractModel = new ContractModel();
     contract = this.frmContract.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       contract.contractId = this.contractId;
       this.contractService.update(contract).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Contracts/contract']);
+        this.validateRequestEdit(res, '/Contracts/contract');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.contractService.create(contract).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Contracts/contract']);
+        this.validateRequestCreated(res, '/Contracts/contract');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
   }
 
-
-  changeStatus(status: boolean, contract: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${contract.contractId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.contractService.enable(contract.contractId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${contract.contractId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.contractService.disable(contract.contractId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
- 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmContract.controls; }

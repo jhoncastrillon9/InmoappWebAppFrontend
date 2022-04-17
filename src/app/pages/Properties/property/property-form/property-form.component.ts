@@ -23,6 +23,7 @@ import { PropertyCategoryService } from 'src/app/services/Properties/property-ca
 import { TypeOfferService } from 'src/app/services/Properties/type-offer.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-property-form',
@@ -30,7 +31,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./property-form.component.scss'],
 })
 
-export class PropertyFormComponent implements OnInit {
+export class PropertyFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -39,7 +40,7 @@ export class PropertyFormComponent implements OnInit {
 
   // validation form
   validation = false;
-  
+
   // Property Model
   property = new PropertyModel();
   propertyId = 0;
@@ -62,7 +63,7 @@ export class PropertyFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private ivaService: IvaService,
     private propertyStatusService: PropertyStatusService,
@@ -75,6 +76,7 @@ export class PropertyFormComponent implements OnInit {
 
     private propertyService: PropertyService
   ) {
+    super(router);
     this.createForm();
     this.ivaService.getList(new IvaModel()).subscribe((res: any) => {
       this.ivaList = res.data;
@@ -103,11 +105,6 @@ export class PropertyFormComponent implements OnInit {
     this.typeOfferService.getList(new TypeOfferModel()).subscribe((res: any) => {
       this.typeOfferList = res.data;
     });
-
-    this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-    });
-
 
   }
 
@@ -150,8 +147,6 @@ export class PropertyFormComponent implements OnInit {
       ownerId: new FormControl(null, [Validators.required]),
       propertyCategoryId: new FormControl(null, [Validators.required]),
       typeOfferId: new FormControl(null, [Validators.required]),
-      compayId: new FormControl(null, [Validators.required]),
-
     });
   }
 
@@ -183,12 +178,9 @@ export class PropertyFormComponent implements OnInit {
       this.frmProperty.get('ownerId').setValue(this.property.ownerId);
       this.frmProperty.get('propertyCategoryId').setValue(this.property.propertyCategoryId);
       this.frmProperty.get('typeOfferId').setValue(this.property.typeOfferId);
-      this.frmProperty.get('compayId').setValue(this.property.compayId);
-
-
 
       // Enable disable form
-      
+
       if (this.propertyActive) {
         this.frmProperty.enable();
       }
@@ -204,138 +196,40 @@ export class PropertyFormComponent implements OnInit {
     if (!this.frmProperty.valid) {
       // Set true validation
       this.validation = true;
-    
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let property: PropertyModel =  new PropertyModel();
+    let property: PropertyModel = new PropertyModel();
     property = this.frmProperty.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       property.propertyId = this.propertyId;
       this.propertyService.update(property).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Properties/property']);
+        this.validateRequestEdit(res, '/Properties/property');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.propertyService.create(property).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Properties/property']);
+        this.validateRequestCreated(res, '/Properties/property');
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
-    }
-
-  }
-
-
-  changeStatus(status: boolean, property: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${property.propertyId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.propertyService.enable(property.propertyId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${property.propertyId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.propertyService.disable(property.propertyId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
     }
   }
 
- 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmProperty.controls; }

@@ -17,6 +17,7 @@ import { AccountsToPayContractService } from 'src/app/services/Banks/accounts-to
 import { AccountsToReceivableContractService } from 'src/app/services/Banks/accounts-to-receivable-contract.service';
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-history-bank-account-form',
@@ -24,7 +25,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./history-bank-account-form.component.scss'],
 })
 
-export class HistoryBankAccountFormComponent implements OnInit {
+export class HistoryBankAccountFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -53,16 +54,15 @@ export class HistoryBankAccountFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private paymentTypeService: PaymentTypeService,
     private bankAccountService: BankAccountService,
     private accountsToPayContractService: AccountsToPayContractService,
     private accountsToReceivableContractService: AccountsToReceivableContractService,
-    private companyService: CompanyService,
-
     private historyBankAccountService: HistoryBankAccountService
   ) {
+    super(router);
     this.createForm();
     this.paymentTypeService.getList(new PaymentTypeModel()).subscribe((res: any) => {
       this.paymentTypeList = res.data;
@@ -79,11 +79,6 @@ export class HistoryBankAccountFormComponent implements OnInit {
     this.accountsToReceivableContractService.getList(new AccountsToReceivableContractModel()).subscribe((res: any) => {
       this.accountsToReceivableContractList = res.data;
     });
-
-    this.companyService.getList(new CompanyModel()).subscribe((res: any) => {
-      this.companyList = res.data;
-    });
-
 
   }
 
@@ -110,7 +105,6 @@ export class HistoryBankAccountFormComponent implements OnInit {
       accountsToPayContractsId: new FormControl(null),
       accountsToReceivableContractsId: new FormControl(null),
       obervation: new FormControl(null, [Validators.required, Validators.maxLength(500)]),
-      compayId: new FormControl(null, [Validators.required]),
 
     });
   }
@@ -127,10 +121,7 @@ export class HistoryBankAccountFormComponent implements OnInit {
       this.frmHistoryBankAccount.get('accountsToPayContractsId').setValue(this.historyBankAccount.accountsToPayContractsId);
       this.frmHistoryBankAccount.get('accountsToReceivableContractsId').setValue(this.historyBankAccount.accountsToReceivableContractsId);
       this.frmHistoryBankAccount.get('obervation').setValue(this.historyBankAccount.obervation);
-      this.frmHistoryBankAccount.get('compayId').setValue(this.historyBankAccount.compayId);
-
-
-
+     
       // Enable disable form
       
       if (this.historyBankAccountActive) {
@@ -149,11 +140,7 @@ export class HistoryBankAccountFormComponent implements OnInit {
       // Set true validation
       this.validation = true;
     
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+      this.showAlertErrorFields();
       return;
     }
 
@@ -163,20 +150,10 @@ export class HistoryBankAccountFormComponent implements OnInit {
     if (this.editAction) {
       historyBankAccount.historyBankAccountId = this.historyBankAccountId;
       this.historyBankAccountService.update(historyBankAccount).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/historyBankAccount']);
-        });
+      this.validateRequestEdit(res,'/Banks/historyBankAccount');      
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -185,20 +162,10 @@ export class HistoryBankAccountFormComponent implements OnInit {
 
     if (!this.editAction){
       this.historyBankAccountService.create(historyBankAccount).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Banks/historyBankAccount']);
-        });
+        this.validateRequestCreated(res,'/Banks/historyBankAccount');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -208,78 +175,7 @@ export class HistoryBankAccountFormComponent implements OnInit {
   }
 
 
-  changeStatus(status: boolean, historyBankAccount: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${historyBankAccount.historyBankAccountId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.historyBankAccountService.enable(historyBankAccount.historyBankAccountId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${historyBankAccount.historyBankAccountId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.historyBankAccountService.disable(historyBankAccount.historyBankAccountId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
- 
+  
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmHistoryBankAccount.controls; }

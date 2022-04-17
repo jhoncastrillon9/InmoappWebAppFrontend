@@ -7,6 +7,7 @@ import { CompanyModel } from 'src/app/models/Companies/company.model';
 
 import { CompanyService } from 'src/app/services/Companies/company.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-company-form',
@@ -14,7 +15,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./company-form.component.scss'],
 })
 
-export class CompanyFormComponent implements OnInit {
+export class CompanyFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -38,11 +39,12 @@ export class CompanyFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
 
     private companyService: CompanyService
   ) {
+    super(router);
     this.createForm();
 
   }
@@ -109,11 +111,7 @@ export class CompanyFormComponent implements OnInit {
       // Set true validation
       this.validation = true;
     
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+this.showAlertErrorFields();
       return;
     }
 
@@ -123,20 +121,10 @@ export class CompanyFormComponent implements OnInit {
     if (this.editAction) {
       company.compayId = this.compayId;
       this.companyService.update(company).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/start']);
-        });
+        this.validateRequestEdit(res,'/start');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -145,20 +133,11 @@ export class CompanyFormComponent implements OnInit {
 
     if (!this.editAction){
       this.companyService.create(company).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
+        this.validateRequestCreated(res,'/start');
 
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/start']);
-        });
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -166,79 +145,6 @@ export class CompanyFormComponent implements OnInit {
     }
 
   }
-
-
-  changeStatus(status: boolean, company: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${company.compayId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.companyService.enable(company.compayId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${company.compayId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.companyService.disable(company.compayId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
  
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef

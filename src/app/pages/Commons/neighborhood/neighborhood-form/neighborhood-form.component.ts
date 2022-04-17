@@ -9,6 +9,7 @@ import { ZoneModel } from 'src/app/models/Commons/zone.model';
 import { NeighborhoodService } from 'src/app/services/Commons/neighborhood.service';
 import { ZoneService } from 'src/app/services/Commons/zone.service';
 import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-neighborhood-form',
@@ -16,7 +17,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./neighborhood-form.component.scss'],
 })
 
-export class NeighborhoodFormComponent implements OnInit {
+export class NeighborhoodFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -25,7 +26,7 @@ export class NeighborhoodFormComponent implements OnInit {
 
   // validation form
   validation = false;
-  
+
   // Neighborhood Model
   neighborhood = new NeighborhoodModel();
   neighborhoodId = 0;
@@ -41,12 +42,13 @@ export class NeighborhoodFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private zoneService: ZoneService,
 
     private neighborhoodService: NeighborhoodService
   ) {
+    super(router);
     this.createForm();
     this.zoneService.getList(new ZoneModel()).subscribe((res: any) => {
       this.zoneList = res.data;
@@ -90,7 +92,7 @@ export class NeighborhoodFormComponent implements OnInit {
 
 
       // Enable disable form
-      
+
       if (this.neighborhoodActive) {
         this.frmNeighborhood.enable();
       }
@@ -106,138 +108,45 @@ export class NeighborhoodFormComponent implements OnInit {
     if (!this.frmNeighborhood.valid) {
       // Set true validation
       this.validation = true;
-    
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let neighborhood: NeighborhoodModel =  new NeighborhoodModel();
+    let neighborhood: NeighborhoodModel = new NeighborhoodModel();
     neighborhood = this.frmNeighborhood.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       neighborhood.neighborhoodId = this.neighborhoodId;
       this.neighborhoodService.update(neighborhood).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Commons/neighborhood']);
+        this.validateRequestEdit(res, '/Commons/neighborhood')
+      },
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
         });
-      },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.neighborhoodService.create(neighborhood).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
+        this.validateRequestCreated(res, '');
 
         Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
           this.router.navigate(['/Commons/neighborhood']);
         });
       },
-      (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-      },
-      () => {
-        // Complete
-      });
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
+        });
     }
 
   }
 
-
-  changeStatus(status: boolean, neighborhood: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${neighborhood.neighborhoodId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.neighborhoodService.enable(neighborhood.neighborhoodId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${neighborhood.neighborhoodId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.neighborhoodService.disable(neighborhood.neighborhoodId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-  }
-
- 
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmNeighborhood.controls; }

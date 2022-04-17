@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 import { CityModel } from 'src/app/models/Commons/city.model';
 import { StateModel } from 'src/app/models/Commons/state.model';
-
 import { CityService } from 'src/app/services/Commons/city.service';
 import { StateService } from 'src/app/services/Commons/state.service';
-import { messages } from 'src/app/static/messages';
+import { BaseCommonsComponent } from 'src/app/base-commons/base-commons.component';
 
 @Component({
   selector: 'app-city-form',
@@ -16,7 +14,7 @@ import { messages } from 'src/app/static/messages';
   styleUrls: ['./city-form.component.scss'],
 })
 
-export class CityFormComponent implements OnInit {
+export class CityFormComponent extends BaseCommonsComponent {
   // Add Or Edit
   editAction = false;
 
@@ -41,12 +39,13 @@ export class CityFormComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private formBuilder: FormBuilder,
     private stateService: StateService,
 
     private cityService: CityService
   ) {
+    super(router);
     this.createForm();
     this.stateService.getList(new StateModel()).subscribe((res: any) => {
       this.stateList = res.data;
@@ -107,11 +106,7 @@ export class CityFormComponent implements OnInit {
       // Set true validation
       this.validation = true;
     
-      Swal.fire(
-        '¡Ups!',
-        'Por favor completa los campos requeridos',
-        'error'
-      );
+this.showAlertErrorFields();
       return;
     }
 
@@ -121,20 +116,10 @@ export class CityFormComponent implements OnInit {
     if (this.editAction) {
       city.cityId = this.cityId;
       this.cityService.update(city).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-          this.router.navigate(['/Commons/city']);
-        });
+        this.validateRequestEdit(res,'/Commons/city');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+        this.showAlertGeneralError(err);
       },
       () => {
         // Complete
@@ -143,98 +128,16 @@ export class CityFormComponent implements OnInit {
 
     if (!this.editAction){
       this.cityService.create(city).subscribe((res: any) => {
-        // console.log(res);
-        if (res.data[0].errorId !== 0) {
-          Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-          return;
-        }
-
-        Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
-          this.router.navigate(['/Commons/city']);
-        });
+      this.validateRequestCreated(res,'/Commons/city');
       },
       (err) => {
-        // Error
-        // console.log(err);
-        Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
+      this.showAlertGeneralError(err);
       },
       () => {
         // Complete
       });
     }
 
-  }
-
-
-  changeStatus(status: boolean, city: any){
-    if (!status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Quieres activar este registro?</h4>  <br>
-        <strong>Registro # ${city.cityId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.cityService.enable(city.cityId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha activado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
-    if (status) {
-      Swal.fire({
-        // title: '',
-        html: `<h4>¿Estas seguro de desactivar este registro?</h4>
-        <br> <strong>Registro # ${city.cityId}</strong>`,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Si',
-      }).then((result) => {
-        if (result.value) {
-          this.cityService.disable(city.cityId).subscribe((res: any) => {
-            // console.log(res);
-            if (res.data[0].errorId !== 0) {
-              Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-              return;
-            }
-
-            Swal.fire('Cambio de estado exitoso', 'Se ha desactivado el registro', 'success').then(() => {
-              this.initForm();
-            });
-          },
-          (err) => {
-            // Error
-            // console.log(err);
-            Swal.fire(messages.tittleUpsBad, messages.dontWorryEgain, 'error');
-          },
-          () => {
-            // Complete
-          });
-        }
-      });
-    }
   }
 
  
