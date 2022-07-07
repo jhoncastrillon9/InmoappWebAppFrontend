@@ -15,47 +15,73 @@ export class BaseCommonsComponent implements OnInit {
 
   constructor(public router: Router) {
 
-   }
+  }
 
   ngOnInit(): void {
   }
 
-public validateRequestCreated(res : any, path:string){
-   //console.log(res);
-  if (res.data[0].errorId !== 0) {
-    this.showAlertError(res.data[0].message);  
-    return;
-  }
-  this.showAlertSuccess(path);    
-}
-
-public validateRequestEdit(res: any, path:string ){
-  if (res.data[0].errorId !== 0) {
-    Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
-    return;
+  public validateRequestCreated(res: any, path: string) {
+    //console.log(res);
+    if (res.data[0].errorId !== 0) {
+      this.showAlertError(res.data[0].message);
+      return;
+    }
+    this.showAlertSuccess(path);
   }
 
-  Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
-    this.router.navigate([path]);
-  });
-}
+  public validateRequestEdit(res: any, path: string) {
+    if (res.data[0].errorId !== 0) {
+      Swal.fire(messages.tittleUpsBad, res.data[0].message, 'error');
+      return;
+    }
 
-public validateRequestDelete(res:any){
- // console.log(res);
- if (res.data[0].errorId !== 0) {  
-  this.showAlertError(res.data[0].message);
-  return;
-}
+    Swal.fire('Proceso exitoso', 'El registro se ha editado exitosamente', 'success').then(() => {
+      this.router.navigate([path]);
+    });
+  }
 
-Swal.fire('Delete', 'Record deleted', 'success').then(() => {
-  this.load();
-});
-}
+  public validateRequestDelete(res: any) {
+    // console.log(res);
+    if (res.data[0].errorId !== 0) {
+      this.showAlertError(res.data[0].message);
+      return;
+    }
+
+    Swal.fire('Delete', 'Record deleted', 'success').then(() => {
+      this.load();
+    });
+  }
+
+
+  getDateToday() {
+    const now = new Date()
+    const month = (date) => {
+      const m = date.getMonth() + 1;
+      if (m.toString().length === 1) {
+        return `0${m}`;
+      } else {
+        return m;
+      }
+    };
+    const day = (date) => {
+      const d = date.getDate();
+      if (d.toString().length === 1) {
+        return `0${d}`;
+      } else {
+        return d;
+      }
+    };
+
+    const formattedDate = `${now.getFullYear()}-${month(now)}-${day(now)}`
+
+    return formattedDate;
+  }
+
 
   ////*************************FOR OVERRIDE***************************/////
-load(): void {
- 
-}
+  load(): void {
+
+  }
 
 
 
@@ -64,20 +90,20 @@ load(): void {
 
   ////*************************SHOW ALERTS***************************/////
 
-  public showAlertError(textError: string){
+  public showAlertError(textError: string) {
     Swal.fire('¡Ups! Algo salió mal', textError, 'error');
   }
-  
 
-  public showAlertSuccess(path:string){
-    
+
+  public showAlertSuccess(path: string) {
+
     Swal.fire('Proceso exitoso', 'Se ha creado el registro exitosamente', 'success').then(() => {
       this.router.navigate([path]);
     });
   }
-  
-  public showAlertErrorFields(){
-        
+
+  public showAlertErrorFields() {
+
     Swal.fire(
       '¡Ups!',
       'Por favor completa los campos requeridos',
@@ -85,7 +111,7 @@ load(): void {
     );
   }
 
-  public showAlertGeneralError(err:any){
+  public showAlertGeneralError(err: any) {
     // console.log(err);
     Swal.fire('¡Ups! Algo salió mal', 'Pero no te preocupes, no es tu culpa. Vamos a intentarlo de nuevo.', 'error');
   }

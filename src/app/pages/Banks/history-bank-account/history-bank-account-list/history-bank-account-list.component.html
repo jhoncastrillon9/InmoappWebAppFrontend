@@ -79,7 +79,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="accountsToReceivableContractsId">cuneta por cobrar</label>
+                            <label for="accountsToReceivableContractsId">cuenta por cobrar</label>
                             <ng-select class="form-control-color" [searchable]="false" [clearable]="false" formControlName="accountsToReceivableContractsId">
                                 <ng-option *ngFor="let item of accountsToReceivableContractList" [value]="item.accountsToReceivableContractId">{{item.accountsToReceivableContractName}}
                                 </ng-option>
@@ -89,7 +89,7 @@
 
                     <div class="col-md-12 col-sm-12 col-12">
                         <div class="form-group">
-                            <label for="obervation">Obervation</label>
+                            <label for="obervation">Observación</label>
                             <input type="text" class="form-control form-control-color" formControlName="obervation" aria-describedby="obervation">
                         </div>
                     </div>
@@ -181,10 +181,7 @@
                             </th>
                             <th class="th7" pSortableColumn="obervation">Obervación
                                 <p-sortIcon field="obervation"></p-sortIcon>
-                            </th>
-                            <th class="th8" pSortableColumn="compayId">Inmobiliaria
-                                <p-sortIcon field="compayId"></p-sortIcon>
-                            </th>
+                            </th>                     
                             <th class="th9">Opciones</th>
 
                         </tr>
@@ -224,14 +221,9 @@
                             </td>
 
                             <td>
-                                <label class="p-column-title">Obervation</label>
+                                <label class="p-column-title">Observación</label>
                                 <label class="p-right">{{historyBankAccount.obervation}}</label>
-                            </td>
-
-                            <td>
-                                <label class="p-column-title">Inmobiliaria</label>
-                                <label class="p-right">{{historyBankAccount.compayId}}</label>
-                            </td>
+                            </td>                         
 
                             <td>
                                 <label class="p-column-title">Opciones</label>

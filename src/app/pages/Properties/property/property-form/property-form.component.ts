@@ -72,8 +72,6 @@ export class PropertyFormComponent extends BaseCommonsComponent {
     private ownerService: OwnerService,
     private propertyCategoryService: PropertyCategoryService,
     private typeOfferService: TypeOfferService,
-    private companyService: CompanyService,
-
     private propertyService: PropertyService
   ) {
     super(router);
@@ -90,9 +88,6 @@ export class PropertyFormComponent extends BaseCommonsComponent {
       this.cityList = res.data;
     });
 
-    this.zoneService.getList(new ZoneModel()).subscribe((res: any) => {
-      this.zoneList = res.data;
-    });
 
     this.ownerService.getList(new OwnerModel()).subscribe((res: any) => {
       this.ownerList = res.data;
@@ -120,20 +115,31 @@ export class PropertyFormComponent extends BaseCommonsComponent {
     });
   }
 
+  generateCodealeatory(){
+    return Math.random().toString(10).slice(2, 7);
+  }
 
+  loadZone(cityId){
+    this.frmProperty.controls['zoneId'].setValue(null)
+    this.zoneList = null;
+    this.zoneService.getList(new ZoneModel(null,null,cityId)).subscribe((res: any) => {
+      this.zoneList = res.data;
+    });
 
+  }
   // Reactive Form
   createForm(): void {
+   
     this.frmProperty = this.formBuilder.group({
       idIva: new FormControl(null),
-      code: new FormControl(null, [Validators.required, Validators.maxLength(100)]),
+      code: new FormControl(this.generateCodealeatory(), [Validators.required, Validators.maxLength(100)]),
       title: new FormControl(null, [Validators.maxLength(100)]),
       description: new FormControl(null, [Validators.maxLength(500)]),
       address: new FormControl(null, [Validators.required, Validators.maxLength(200)]),
       priceOwner: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]{1,4})?$')]),
       percentage: new FormControl(null, [Validators.pattern('^[0-9]+(\.[0-9]{1,4})?$')]),
       feeCompany: new FormControl(null, [Validators.pattern('^[0-9]+(\.[0-9]{1,4})?$')]),
-      recruitmentDate: new FormControl(null),
+      recruitmentDate: new FormControl(this.getDateToday()),
       finalPrice: new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]{1,4})?$')]),
       rooms: new FormControl(null, [Validators.pattern('^-?[0-9]*$'), Validators.min(-2147483648), Validators.max(2147483647)]),
       toilets: new FormControl(null, [Validators.pattern('^-?[0-9]*$'), Validators.min(-2147483648), Validators.max(2147483647)]),

@@ -24,7 +24,7 @@ export class CompanyFormComponent extends BaseCommonsComponent {
 
   // validation form
   validation = false;
-  
+
   // Company Model
   company = new CompanyModel();
   compayId = 0;
@@ -94,7 +94,7 @@ export class CompanyFormComponent extends BaseCommonsComponent {
 
 
       // Enable disable form
-      
+
       if (this.companyActive) {
         this.frmCompany.enable();
       }
@@ -110,42 +110,42 @@ export class CompanyFormComponent extends BaseCommonsComponent {
     if (!this.frmCompany.valid) {
       // Set true validation
       this.validation = true;
-    
-this.showAlertErrorFields();
+
+      this.showAlertErrorFields();
       return;
     }
 
-    let company: CompanyModel =  new CompanyModel();
+    let company: CompanyModel = new CompanyModel();
     company = this.frmCompany.value;
     //{{SaveGetActiveValue}}
     if (this.editAction) {
       company.compayId = this.compayId;
       this.companyService.update(company).subscribe((res: any) => {
-        this.validateRequestEdit(res,'/start');
+        this.validateRequestEdit(res, '/start');
       },
-      (err) => {
-        this.showAlertGeneralError(err);
-      },
-      () => {
-        // Complete
-      });
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
+        });
     }
 
-    if (!this.editAction){
+    if (!this.editAction) {
       this.companyService.create(company).subscribe((res: any) => {
-        this.validateRequestCreated(res,'/start');
+        this.validateRequestCreated(res, '/start');
 
       },
-      (err) => {
-this.showAlertGeneralError(err);
-      },
-      () => {
-        // Complete
-      });
+        (err) => {
+          this.showAlertGeneralError(err);
+        },
+        () => {
+          // Complete
+        });
     }
 
   }
- 
+
   // convenience getter for easy access to form fields
   // tslint:disable-next-line: typedef
   get f() { return this.frmCompany.controls; }
